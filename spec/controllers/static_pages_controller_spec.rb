@@ -1,0 +1,26 @@
+require 'spec_helper'
+
+describe StaticPagesController do
+
+  describe "GET 'home'" do
+    it "returns http success" do
+      get 'home'
+      response.should be_success
+    end
+  end
+
+  describe "GET 'quisom'" do
+    it "returns http success" do
+      get 'quisom'
+      response.should be_success
+    end
+  end
+
+  describe "GET 'contacte'" do
+    it "returns http success" do
+      get 'contacte'
+      response.should be_success
+    end
+  end
+
+end
