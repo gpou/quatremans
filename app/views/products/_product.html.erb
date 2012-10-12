@@ -1,0 +1,7 @@
+<li>
+  <%= link_to product.name, product %>
+  <% if current_user && current_user.admin? %>
+    | <%= link_to "modificar", edit_product_path(product) %>
+    | <%= link_to "eliminar", product, method: :delete, data: { confirm: "Segur?" } %>
+  <% end %>
+</li>

@@ -1,20 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @product.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @product.description %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= @product.price %>
-</p>
-
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<% provide(:title, @product.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @product.name %>
+      </h1>
+    </section>
+  </aside>
+  <div class="span8">
+      <h3>Aquí les imatges</h3>
+      <ol class="imatges">
+      </ol>
+  </div>
+</div>
+<%= link_to "Modifica", edit_product_path(@product), class: "btn btn-large btn-primary" %>
+<%= link_to "Elimina", @product, method: :delete, data: { confirm: "Segur?" }, class: "btn btn-large btn-primary" %>
