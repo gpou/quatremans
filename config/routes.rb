@@ -1,5 +1,7 @@
 Nina::Application.routes.draw do
 
+  resources :products
+
   root to: 'static_pages#home'
 
   match '/quisom',   to: 'static_pages#quisom'
