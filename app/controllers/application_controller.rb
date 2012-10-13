@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_filter :set_locale
+  before_filter :set_locale_from_url
   protect_from_forgery
   include SessionsHelper
 
@@ -14,10 +15,11 @@ class ApplicationController < ActionController::Base
     end
 
     def set_locale
-      I18n.locale = params[:locale] || I18n.default_locale
+      I18n.locale = params[:locale] || ((lang = request.env['HTTP_ACCEPT_LANGUAGE']) && lang[/^[a-z]{2}/])
+#      I18n.locale = params[:locale] || I18n.default_locale
     end
 
-    def default_url_options(options={})
-      { :locale => I18n.locale }
-    end
+    #def default_url_options(options={})
+    #  { :locale => I18n.locale }
+    #end
 end

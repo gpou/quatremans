@@ -13,7 +13,7 @@
             </a>
             <ul class="dropdown-menu">
               <% I18n.available_locales.each do |locale| %>
-                <li><%= link_to t("meta.language_name", :locale => locale.to_sym), :locale=>locale %></li>
+                <li><%# link_to t("meta.language_name", :locale => locale.to_sym), :locale=>locale %><%= link_to t("meta.language_name", :locale => locale.to_sym), eval("root_#{locale}_path") %></li>
               <% end %>
             </ul>
           </li>

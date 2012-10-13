@@ -1,0 +1,16 @@
+ca:
+  routes:
+    quisom: qui-som
+    contacte: contacte
+    products: productes
+    # you can leave empty locales, for example the default one
+es:
+  routes:
+    products: productos
+    contacte: contacto
+    quisom: quienes-somos
+en:
+  routes:
+    products: products
+    contacte: contact
+    quisom: about

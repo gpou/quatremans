@@ -1,6 +1,6 @@
 Nina::Application.routes.draw do
 
-  scope "(:locale)", :locale => /ca|es|en/ do
+  #scope "(:locale)", :locale => /ca|es|en/ do
     root to: 'static_pages#home'
     resources :products
 
@@ -10,8 +10,9 @@ Nina::Application.routes.draw do
     resources :sessions, only: [:new, :create, :destroy]
     match '/signin',  to: 'sessions#new'
     match '/signout', to: 'sessions#destroy', via: :delete
-  end
-  
-  match '/:locale' => 'static_pages#home'
+  #end
+
+  #match '/:locale' => 'static_pages#home'
+  ActionDispatch::Routing::Translator.translate_from_file('config/locales/routes.yml', { :keep_untranslated_routes => true })
 
 end
