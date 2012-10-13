@@ -4,9 +4,19 @@
       <%= link_to "Nina", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Qui som?",    quisom_path %></li>
-          <li><%= link_to "Contacte",    contacte_path %></li>
-          <li><%= link_to "Productes",   products_path %></li>
+          <li><%= link_to t(:qui_som, :scope => ['static_pages.quisom']),    quisom_path %></li>
+          <li><%= link_to t(:contacte, :scope => ['static_pages.contacte']),    contacte_path %></li>
+          <li><%= link_to t(:products, :scope => ['products']),   products_path %></li>
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= t("meta.language_name") %> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <% I18n.available_locales.each do |locale| %>
+                <li><%= link_to t("meta.language_name", :locale => locale.to_sym), :locale=>locale %></li>
+              <% end %>
+            </ul>
+          </li>
           <% if signed_in? %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -14,7 +24,7 @@
               </a>
               <ul class="dropdown-menu">
                 <% if current_user && current_user.admin? %>
-                <li><%= link_to "Administracio", "#" %></li>
+                <li><%= link_to t(:administracio, :scope => ['admin']), "#" %></li>
                 <% end %>
                 <li><%= link_to "Desconnectar", signout_path, method: "delete" %></li>
               </ul>
