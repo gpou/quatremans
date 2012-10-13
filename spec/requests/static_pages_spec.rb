@@ -11,43 +11,43 @@ describe "Static pages" do
 
   describe "Home page" do
     before { visit root_path } 
-    let(:heading)    { 'Nina' }
+    let(:heading)    { I18n.t('site_title') }
     let(:page_title) { '' }
 
     it_should_behave_like "all static pages"
-    it { should_not have_selector 'title', text: '| Home' }
+    it { should_not have_selector 'title', text: '|' }
   end
 
   describe "Quisom page" do
     before { visit quisom_path } 
-    let(:heading)    { 'Qui som?' }
-    let(:page_title) { 'Qui som?' }
+    let(:heading)    { I18n.t('static_pages.quisom.title') }
+    let(:page_title) { I18n.t('static_pages.quisom.title') }
     it_should_behave_like "all static pages"
   end
 
   describe "Contact page" do
     before { visit contacte_path } 
-    let(:heading)    { 'Contacte' }
-    let(:page_title) { 'Contacte' }
+    let(:heading)    { I18n.t('static_pages.contacte.title') }
+    let(:page_title) { I18n.t('static_pages.contacte.title') }
     it_should_behave_like "all static pages"
   end
 
   describe "Products page" do
     before { visit products_path } 
-    let(:heading)    { 'All products' }
-    let(:page_title) { 'All products' }
+    let(:heading)    { I18n.t('products.index.title') }
+    let(:page_title) { I18n.t('products.index.title') }
     it_should_behave_like "all static pages"
   end
 
   it "should have the right links on the layout" do
     visit root_path
-    click_link "Qui som?"
-    page.should have_selector 'title', text: full_title('Qui som?')
-    click_link "Contacte"
-    page.should have_selector 'title', text: full_title('Contacte')
-    click_link "Productes"
-    page.should have_selector 'title', text: full_title('All products')
-    click_link "Nina"
+    click_link I18n.t('static_pages.quisom.title')
+    page.should have_selector 'title', text: full_title(I18n.t('static_pages.quisom.title'))
+    click_link I18n.t('static_pages.contacte.title')
+    page.should have_selector 'title', text: full_title(I18n.t('static_pages.contacte.title'))
+    click_link I18n.t('products.index.title')
+    page.should have_selector 'title', text: full_title(I18n.t('products.index.title'))
+    click_link I18n.t('site_title')
     page.should have_selector 'title', text: full_title('')
   end
 end

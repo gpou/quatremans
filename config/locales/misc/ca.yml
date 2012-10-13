@@ -3,7 +3,7 @@ ca:
     format: "El camp '%{attribute}' %{message}."
   misc:
     save: "Guardar"
-    modify: "Modificar"
+    edit: "Modificar"
     delete: "Eliminar"
     sure: "Segur?"
     cancel: "Cancel·lar"

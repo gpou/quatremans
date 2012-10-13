@@ -7,33 +7,33 @@ describe "Authentication" do
   describe "signin page" do
     before { visit signin_path }
 
-    it { should have_selector('h1',    text: 'Identificacio') }
-    it { should have_selector('title', text: 'Identificacio') }
+    it { should have_selector('h1',    text: I18n.t('sessions.authentication')) }
+    it { should have_selector('title', text: I18n.t('sessions.authentication')) }
   end
 
   describe "signin" do
     before { visit signin_path }
 
     describe "with invalid information" do
-      before { click_button "Connectar" }
+      before { click_button I18n.t('sessions.signin') }
 
-      it { should have_selector('title', text: 'Identificacio') }
-      it { should have_selector('div.alert.alert-error', text: 'Invalid') }
+      it { should have_selector('title', text: I18n.t('sessions.authentication')) }
+      it { should have_selector('div.alert.alert-error') }
     end
 
     describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
       before { sign_in user }
 
-      it { should_not have_link('Administracio') }
-      it { should have_link('Desconnectar', href: signout_path) }
-      it { should_not have_link('Connectar', href: signin_path) }
+      it { should_not have_link(I18n.t('sessions.authentication')) }
+      it { should have_link(I18n.t('sessions.signout'), href: signout_path) }
+      it { should_not have_link(I18n.t('sessions.signin'), href: signin_path) }
 
       describe "followed by signout" do
-        before { click_link "Desconnectar" }
-        it { should_not have_link('Administracio') }
-        it { should have_link('Connectar') }
-        it { should_not have_link('Desconnectar') }
+        before { click_link I18n.t('sessions.signout') }
+        it { should_not have_link(I18n.t('sessions.authentication')) }
+        it { should have_link(I18n.t('sessions.signin')) }
+        it { should_not have_link(I18n.t('sessions.signout')) }
       end
     end
 
@@ -41,14 +41,12 @@ describe "Authentication" do
       let(:admin) { FactoryGirl.create(:admin) }
       before { sign_in admin }
 
-      it do
-        should have_selector("a.dropdown-toggle")
-      end
-      it { should have_link('Administracio') }
+      it { should have_selector("a.dropdown-toggle") }
+      it { should have_link(I18n.t('admin.title')) }
 
       describe "followed by signout" do
-        before { click_link "Desconnectar" }
-        it { should_not have_link('Administracio') }
+        before { click_link I18n.t('sessions.signout') }
+        it { should_not have_link(I18n.t('sessions.authentication')) }
       end
     end    
   end
@@ -64,12 +62,12 @@ describe "Authentication" do
       describe "in the Products controller" do
         describe "visiting the products index" do
           before { visit products_path }
-          it { should have_selector('title', text: 'All products') }
+          it { should have_selector('title', text: I18n.t('products.index.title')) }
         end
 
         describe "visiting the new page" do
           before { visit new_product_path }
-          it { should have_selector('title', text: 'Identificacio') }
+          it { should have_selector('title', text: I18n.t('sessions.authentication')) }
         end
 
         describe "submitting to the create action" do
@@ -79,7 +77,7 @@ describe "Authentication" do
 
         describe "visiting the edit page" do
           before { visit edit_product_path(product) }
-          it { should have_selector('title', text: 'Identificacio') }
+          it { should have_selector('title', text: I18n.t('sessions.authentication')) }
         end
 
         describe "submitting to the update action" do

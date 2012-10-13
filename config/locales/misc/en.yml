@@ -3,7 +3,7 @@ en:
     format: "The field '%{attribute}' %{message}."
   misc:
     save: "Save"
-    modify: "Edit"
+    edit: "Edit"
     delete: "Delete"
     sure: "Are you sure?"
     cancel: "Cancel"

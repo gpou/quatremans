@@ -1,11 +1,11 @@
 en:
   products:
     index:
-      products: "Products"
+      title: "Products"
     new:
-      add: "Add a product"
+      title: "Add a product"
     edit:
-      modify: "Edit the product"
+      title: "Edit the product"
   activerecord:
     models:
       product: "Product"

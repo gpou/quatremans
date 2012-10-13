@@ -1,11 +1,11 @@
-en:
+ca:
   products:
     index:
-      products: "Productes"
+      title: "Productes"
     new:
-      add: "Afegir un producte"
+      title: "Afegir un producte"
     edit:
-      modify: "Modificar el producte"
+      title: "Modificar el producte"
   activerecord:
     models:
       product: "Producte"

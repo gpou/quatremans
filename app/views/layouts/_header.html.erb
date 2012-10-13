@@ -1,12 +1,12 @@
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "Nina", root_path, id: "logo" %>
+      <%= link_to t('site_title'), root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to t('static_pages.quisom.qui_som'),    quisom_path %></li>
-          <li><%= link_to t('static_pages.contacte.contacte'),    contacte_path %></li>
-          <li><%= link_to t('products.products'),   products_path %></li>
+          <li><%= link_to t('static_pages.quisom.title'),    quisom_path %></li>
+          <li><%= link_to t('static_pages.contacte.title'),    contacte_path %></li>
+          <li><%= link_to t('products.index.title'),   products_path %></li>
           <li id="fat-menu" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= t("meta.language_name") %> <b class="caret"></b>
@@ -24,7 +24,7 @@
               </a>
               <ul class="dropdown-menu">
                 <% if current_user && current_user.admin? %>
-                <li><%= link_to t('admin.administracio'), "#" %></li>
+                <li><%= link_to t('admin.title'), "#" %></li>
                 <% end %>
                 <li><%= link_to t('sessions.signout'), signout_path, method: "delete" %></li>
               </ul>

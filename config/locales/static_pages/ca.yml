@@ -3,7 +3,7 @@ ca:
     home:
       text: Aquesta és la pàgina principal de <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a> sample application.
     contacte:
-      contacte: "Contacte"
+      title: "Contacte"
     quisom:
-      qui_som: "Qui som?"
+      title: "Qui som?"
       text: El <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a> és un projecte to make a book and screencasts to teach web development with <a href="http://rubyonrails.org/">Ruby on Rails</a>. This is the sample application for the tutorial.

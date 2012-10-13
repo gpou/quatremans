@@ -1,8 +1,10 @@
-<% provide(:title, @product.name) %>
+<% provide(:title, "#{t("products.index.title")} | #{@product.name}") %>
 <div class="row">
   <aside class="span4">
     <section>
       <h1>
+        <%= t("products.index.title") %>
+        |
         <%= @product.name %>
       </h1>
     </section>
