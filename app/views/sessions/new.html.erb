@@ -1,5 +1,5 @@
-<% provide(:title, "Identificacio") %>
-<h1>Identificacio</h1>
+<% provide(:title, t(:authentication, :scope => ['sessions'])) %>
+<h1><%= t(:authentication, :scope => ['sessions']) %></h1>
 
 <div class="row">
   <div class="span6 offset3">
@@ -11,7 +11,7 @@
       <%= f.label :password %>
       <%= f.password_field :password %>
 
-      <%= f.submit "Connectar", class: "btn btn-large btn-primary" %>
+      <%= f.submit t(:signin, :scope => ['sessions']), class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>

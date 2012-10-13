@@ -13,5 +13,5 @@
       </ol>
   </div>
 </div>
-<%= link_to "Modifica", edit_product_path(@product), class: "btn btn-large btn-primary" %>
-<%= link_to "Elimina", @product, method: :delete, data: { confirm: "Segur?" }, class: "btn btn-large btn-primary" %>
+<%= link_to t("misc.edit"), edit_product_path(@product), class: "btn btn-large btn-primary" %>
+<%= link_to t("misc.delete"), @product, method: :delete, data: { confirm: t("misc.sure") }, class: "btn btn-large btn-primary" %>

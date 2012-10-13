@@ -1,0 +1,7 @@
+en:
+  sessions:
+    signin: "Sign in"
+    signout: "Sign out"
+    authentication: "Authentication"
+    errors:
+      authenticate: "Please, sign in to enter this section"

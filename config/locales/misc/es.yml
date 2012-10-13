@@ -1,0 +1,12 @@
+es:
+  errors:
+    format: "El campo '%{attribute}' %{message}."
+  misc:
+    save: "Guardar"
+    modify: "Modificar"
+    delete: "Eliminar"
+    sure: "Seguro?"
+    cancel: "Cancelar"
+    errors:
+      one: "Los datos que has introducido contienen un error"
+      other: "Los datos que has introducido contienen %{count} errores"

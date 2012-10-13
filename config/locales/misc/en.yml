@@ -1,0 +1,12 @@
+en:
+  errors:
+    format: "The field '%{attribute}' %{message}."
+  misc:
+    save: "Save"
+    modify: "Edit"
+    delete: "Delete"
+    sure: "Are you sure?"
+    cancel: "Cancel"
+    errors:
+      one: "The data you entered contains an error"
+      other: "The data you entered contain %{count} errors"

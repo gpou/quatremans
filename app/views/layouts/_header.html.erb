@@ -4,9 +4,9 @@
       <%= link_to "Nina", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to t(:qui_som, :scope => ['static_pages.quisom']),    quisom_path %></li>
-          <li><%= link_to t(:contacte, :scope => ['static_pages.contacte']),    contacte_path %></li>
-          <li><%= link_to t(:products, :scope => ['products']),   products_path %></li>
+          <li><%= link_to t('static_pages.quisom.qui_som'),    quisom_path %></li>
+          <li><%= link_to t('static_pages.contacte.contacte'),    contacte_path %></li>
+          <li><%= link_to t('products.products'),   products_path %></li>
           <li id="fat-menu" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= t("meta.language_name") %> <b class="caret"></b>
@@ -24,13 +24,13 @@
               </a>
               <ul class="dropdown-menu">
                 <% if current_user && current_user.admin? %>
-                <li><%= link_to t(:administracio, :scope => ['admin']), "#" %></li>
+                <li><%= link_to t('admin.administracio'), "#" %></li>
                 <% end %>
-                <li><%= link_to "Desconnectar", signout_path, method: "delete" %></li>
+                <li><%= link_to t('sessions.signout'), signout_path, method: "delete" %></li>
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Connectar", signin_path %></li>
+            <li><%= link_to t('sessions.signin'), signin_path %></li>
           <% end %>
         </ul>
       </nav>

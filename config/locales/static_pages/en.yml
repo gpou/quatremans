@@ -1,5 +1,7 @@
 en:
   static_pages:
+    home:
+      text: This is the home page of <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a> sample application.
     contacte:
       contacte: "Contact"
     quisom:

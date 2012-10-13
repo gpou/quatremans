@@ -1,0 +1,7 @@
+es:
+  sessions:
+    signin: "Conectar"
+    signout: "Desconectar"
+    authentication: "Identificación"
+    errors:
+      authenticate: "Por favor, identifícate para acceder a esta sección"

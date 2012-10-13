@@ -6,13 +6,14 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
+gem 'annotate', '2.5.0', group: :development
+#gem 'rails-translate-routes'
 
 group :development, :test do
   gem 'mysql2'
   gem 'rspec-rails', '2.11.0'
 end
 
-gem 'annotate', '2.5.0', group: :development
 
 # Gems used only for assets and not required
 # in production environments by default.

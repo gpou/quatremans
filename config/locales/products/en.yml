@@ -1,3 +1,45 @@
 en:
   products:
-    products: "Products"
+    index:
+      products: "Products"
+    new:
+      add: "Add a product"
+    edit:
+      modify: "Edit the product"
+  activerecord:
+    models:
+      product: "Product"
+    attributes:
+      product:
+        name: "Name"
+        price: "Price"
+        description: "Description"
+    errors:
+      messages:
+        inclusion: "is not on the list"
+        exclusion: "is not disponible"
+        invalid: "is invalid"
+        confirmation: "doesn't coincide with the confirmation"
+        accepted: "must be accepted"
+        empty: "can't be empty"
+        blank: "can't be blank"
+        too_long:
+          one: "es demasiado largo (tiene que contener como máximo un carácter)"
+          other: "es demasiado largo (tiene que contener como máximo %{count} caracteres)"
+        too_short:
+          one: "es demasiado corto (tiene que contener como mínimo un carácter)"
+          other: "es demasiado corto (tiene que contener como mínimo %{count} caracteres)"
+        wrong_length:
+          one: "no tiene la longitud apropiada (tiene que ser de un solo carácter)"
+          other: "no tiene la longitud apropiada (tiene que ser de %{count} caracteres)"
+        not_a_number: "no es un número"
+        not_an_integer: "tiene que ser un número entero"
+        greater_than: "tiene que ser superior a %{count}"
+        greater_than_or_equal_to: "tiene que ser superior o igual a %{count}"
+        equal_to: "tiene que ser igual a %{count}"
+        less_than: "tiene que ser inferior a %{count}"
+        less_than_or_equal_to: "tiene que ser inferior o igual a %{count}"
+        odd: "tiene que ser un número impar"
+        even: "tiene que ser un número par"
+        taken: "ya se está utilizado"
+        record_invalid: "No tiene el formato correcto : %{errors}"

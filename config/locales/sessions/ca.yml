@@ -1,0 +1,7 @@
+ca:
+  sessions:
+    signin: "Connectar"
+    signout: "Desconnectar"
+    authentication: "Identificació"
+    errors:
+      authenticate: "Si et plau, identifica't per accedir a aquesta secció"

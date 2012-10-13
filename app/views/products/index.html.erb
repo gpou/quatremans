@@ -1,9 +1,9 @@
-<% provide(:title, 'All products') %>
-<h1>All products</h1>
+<% provide(:title, t(".products")) %>
+<h1><%= t(".products") %></h1>
 
 <ul class="products">
   <%= render @products %>
 </ul>
 
 <br />
-<%= link_to "Afegir un producte", new_product_path, class: "btn btn-large btn-primary" %>
+<%= link_to t("products.new.add"), new_product_path, class: "btn btn-large btn-primary" %>

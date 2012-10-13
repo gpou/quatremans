@@ -1,3 +1,45 @@
-ca:
+en:
   products:
-    products: "Productes"
+    index:
+      products: "Productes"
+    new:
+      add: "Afegir un producte"
+    edit:
+      modify: "Modificar el producte"
+  activerecord:
+    models:
+      product: "Producte"
+    attributes:
+      product:
+        name: "Nom"
+        price: "Preu"
+        description: "Descripció"
+    errors:
+      messages:
+        inclusion: "no és a la llista"
+        exclusion: "no está disponible"
+        invalid: "no és vàlid"
+        confirmation: "no coincideix amb la confirmació"
+        accepted: "ha de ser acceptat"
+        empty: "no pot ser buit"
+        blank: "no pot ser blanc"
+        too_long:
+          one: "és massa llarg (ha de contenir com a màxim un caràcter)"
+          other: "és massa llarg (ha de contenir com a màxim %{count} caràcters"
+        too_short:
+          one: "és massa curt (ha de contenir com a mínim un caràcter)"
+          other: "és massa curt (ha de contenir com a mínim %{count} caràcters"
+        wrong_length:
+          one: "no té la llargada adeqüada (ha de ser d'un sol caràcter)"
+          other: "no té la llargada adeqüada (ha de ser de %{count} caràcters)"
+        not_a_number: "ha de ser un número"
+        not_an_integer: "ha de ser un número enter"
+        greater_than: "ha de ser superior a %{count}"
+        greater_than_or_equal_to: "ha de ser superior o igual a %{count}"
+        equal_to: "ha de ser igual a %{count}"
+        less_than: "ha de ser inferior a %{count}"
+        less_than_or_equal_to: "ha de ser inferior o igual a %{count}"
+        odd: "ha de ser un número imparell"
+        even: "ha de ser un número parell"
+        taken: "ja s'està utilitzant"
+        record_invalid: "No té el format correcte : %{errors}"

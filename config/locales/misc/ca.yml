@@ -1,0 +1,12 @@
+ca:
+  errors:
+    format: "El camp '%{attribute}' %{message}."
+  misc:
+    save: "Guardar"
+    modify: "Modificar"
+    delete: "Eliminar"
+    sure: "Segur?"
+    cancel: "Cancel·lar"
+    errors:
+      one: "Les dades que has introduït contenen un error"
+      other: "Les dades que has introduït contenen %{count} errors"

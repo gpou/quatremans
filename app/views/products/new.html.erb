@@ -1,12 +1,12 @@
-<% provide(:title, 'Afegeix un producte') %>
-<h1>Afegeix un producte</h1>
+<% provide(:title, t(".add")) %>
+<h1><%= t(".add") %></h1>
 
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@product) do |f| %>
       <%= render 'form', f: f %>
-      <%= f.submit "Guarda", class: "btn btn-large btn-primary" %>
-      <%= link_to "Cancela", products_path, class: "btn btn-large btn-primary" %>
+      <%= f.submit t('misc.save'), class: "btn btn-large btn-primary" %>
+      <%= link_to t('misc.cancel'), products_path, class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>
