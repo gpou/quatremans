@@ -1,9 +1,0 @@
-<% provide(:title, t(".title")) %>
-<h1><%= t(".title") %></h1>
-
-<ul class="products">
-  <%= render @products %>
-</ul>
-
-<br />
-<%= link_to t("products.new.title"), new_product_path, class: "btn btn-large btn-primary" %>
