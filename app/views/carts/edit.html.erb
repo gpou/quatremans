@@ -1,9 +1,10 @@
 <%= form_for(@item) do |f| %>
+  <h2>Aquí hi va el configurador</h2>
   <p>
     <b>Comentari</b><br />
-    <%= f.text_field :comment %>
+    <%= f.text_area :comment %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit value:"Guarda" %>
   </p>
 <% end %>

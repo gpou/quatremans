@@ -3,7 +3,7 @@
 $(document).ready(function() {
   var main_image = $("#main_image").attr('src');
   var on_image = false;
-  $(".thumbnails.petit a").hover(
+  $(".thumbs a").hover(
     function() {
       on_image = true;
       $("#main_image").attr('src', $(this).find('img').attr('src'));

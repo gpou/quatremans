@@ -7,8 +7,8 @@
 
 <div class="quadre">
   <div class="fotos">
-    <a href="<%= asset_path("images/#{@producte.id}_1.jpg") %>" title="Foto 1" class="gran" rel="zoom">
-      <%= image_tag("images/#{@producte.id}_1.jpg", id: "main_image", alt: "Foto 1") %>
+    <a href="<%= @producte.fotos.first.file.url(:wide) %>" title="Foto 1" class="gran" rel="zoom">
+      <%= image_tag("#{@producte.fotos.first.file.url(:medium)}", id: "main_image", alt: "Foto 1") %>
     </a>
   </div>
   <div class="dibuix">
@@ -17,41 +17,16 @@
     </a>
   </div>
   <div class="dret">
-    <p class="descripcio">Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza cl´sica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad.<br />Tiene sus raices en una pieza cl´sica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad.</p>
+    <div class="descripcio"><%= simple_format(@producte.descripcio) %></div>
     
     <p class="preu">25€ <a href="" title="Afegir a la cistella"><span>Afegir a la cistella</span></a></p> 
     <p class="dificultat"><span class="badge badge-success">facil</span></p>
   </div>
 </div>
 <div class="thumbs">
-  <a href="<%= asset_path("images/#{@producte.id}_2.jpg") %>" title="Fotos" rel="zoom">
-    <%= image_tag("images/#{@producte.id}_2.jpg", alt: "Foto 1") %>
+  <% @producte.fotos.each do |foto| %>
+  <a href="<%= foto.file.url(:wide) %>" title="Fotos" rel="zoom">
+    <%= image_tag(foto.file.url(:medium), alt: "Foto") %>
   </a>
-  <a href="<%= asset_path("images/#{@producte.id}_1.jpg") %>" title="Fotos" rel="zoom">
-    <%= image_tag("images/#{@producte.id}_1.jpg", alt: "Foto 1") %>
-  </a>
-  <a href="<%= asset_path("images/#{@producte.id}_1.jpg") %>" title="Fotos" rel="zoom">
-    <%= image_tag("images/#{@producte.id}_3.jpg", alt: "Foto 1") %>
-  </a>
-  <a href="<%= asset_path("images/#{@producte.id}_1.jpg") %>" title="Fotos" rel="zoom">
-    <%= image_tag("images/#{@producte.id}_2.jpg", alt: "Foto 1") %>
-  </a>
-  <a href="<%= asset_path("images/#{@producte.id}_1.jpg") %>" title="Fotos" rel="zoom">
-    <%= image_tag("images/#{@producte.id}_1.jpg", alt: "Foto 1") %>
-  </a>
-  <a href="<%= asset_path("images/#{@producte.id}_1.jpg") %>" title="Fotos" rel="zoom">
-    <%= image_tag("images/#{@producte.id}_3.jpg", alt: "Foto 1") %>
-  </a>
-  <a href="<%= asset_path("images/#{@producte.id}_1.jpg") %>" title="Fotos" rel="zoom">
-    <%= image_tag("images/#{@producte.id}_2.jpg", alt: "Foto 1") %>
-  </a>
-  <a href="<%= asset_path("images/#{@producte.id}_1.jpg") %>" title="Fotos" rel="zoom">
-    <%= image_tag("images/#{@producte.id}_1.jpg", alt: "Foto 1") %>
-  </a>
-  <a href="<%= asset_path("images/#{@producte.id}_1.jpg") %>" title="Fotos" rel="zoom">
-    <%= image_tag("images/#{@producte.id}_3.jpg", alt: "Foto 1") %>
-  </a>
-  <a href="<%= asset_path("images/#{@producte.id}_1.jpg") %>" title="Fotos" rel="zoom">
-    <%= image_tag("images/#{@producte.id}_1.jpg", alt: "Foto 1") %>
-  </a>
+  <% end %>
 </div>

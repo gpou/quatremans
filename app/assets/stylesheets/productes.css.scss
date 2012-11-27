@@ -3,7 +3,7 @@
 
 body.producte {
   .content {
-    height: 550px;
+    /*height: 550px;*/
     background-color: transparent;
     .quadre {
       background-color: white;
@@ -15,24 +15,30 @@ body.producte {
   position: absolute;
   left: 0;
   width: 375px;
-  height: 450px;
+  height: 350px;
   overflow: hidden;
+  img {
+    max-width: none;
+    height: 350px;
+    width: 375px;
+  }
 }
 .dibuix {
   position: absolute;
   left: 325px;
   width: 402px;
-  height: 450px;
+  height: 350px;
+  overflow: hidden;
 }
 
 .dret {
-  width: 240px;
-  height: 450px;
+  width: 220px;
+  height: 350px;
   position: relative;
-  margin-left: 710px;
+  margin-left: 730px;
   .descripcio {
     position: absolute;
-    width: 220px;
+    width: 210px;
     bottom: 70px;
     right: 0;
     text-align: right;
@@ -75,5 +81,9 @@ body.producte {
     margin-right: 3px;
     float: left;
     display: block;
+    img {
+      width: 94px;
+      height: 94px;
+    }
   }
 }
