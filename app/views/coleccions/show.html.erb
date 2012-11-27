@@ -13,7 +13,11 @@
   <% @coleccio.productes.each do |producte| %>
     <li class="span4">
       <div class="thumbnail">
-        <%= link_to image_tag("images/#{producte.id}.jpg"), producte_path(@coleccio,producte) %>
+        <% if producte.fotos.count > 0 %>
+        <%= link_to image_tag(producte.fotos.first.file.url(:medium)), producte_path(@coleccio,producte) %>
+        <% else %>
+        <%= link_to image_tag("assets/images/dibuix_2.png"), producte_path(@coleccio,producte) %>
+        <% end %>
         <h3><%= link_to producte.nom, producte_path(@coleccio,producte) %></h3>
         <p><%= simple_format(producte.descripcio) %></p>
       </div>
