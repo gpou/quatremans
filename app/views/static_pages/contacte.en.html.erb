@@ -1,5 +1,7 @@
 <% provide(:title, t('.title')) %>
-<h1><%= t('.title') %></h1>
+<% content_for :h1 do %>
+  <h1><%= t('.title') %></h1>
+<% end %>
 <p>
   Contactar en english
   <a href="http://railstutorial.org/contact">contact page</a>.

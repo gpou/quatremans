@@ -1,0 +1,13 @@
+<% provide(:title, t(".title")) %>
+<% content_for :breadcrumb do %>
+  <ul class="breadcrumb">
+    <li><%= t(".title") %></li>
+  </ul>
+<% end %>
+<% content_for :h1 do %>
+  <h1><%= t(".title") %></h1>
+<% end %>
+
+<ul class="thumbnails">
+  <%= render @productes %>
+</ul>

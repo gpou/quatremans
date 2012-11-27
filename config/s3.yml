@@ -1,0 +1,15 @@
+development:
+  access_key_id: AKIAJ6JQX6Q3PKLLXGSA 
+  secret_access_key: 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
+  bucket: quatremansdev
+  s3_storage_class: :reduced_redundancy
+production:
+  access_key_id: AKIAJ6JQX6Q3PKLLXGSA 
+  secret_access_key: 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
+  bucket: quatremans
+  s3_storage_class: :reduced_redundancy
+test:
+  access_key_id: AKIAJ6JQX6Q3PKLLXGSA 
+  secret_access_key: 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
+  bucket: quatremanstest
+  s3_storage_class: :reduced_redundancy

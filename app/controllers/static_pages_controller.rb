@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  
+  layout 'home', :only => :home
   def home
   end
 
@@ -6,5 +8,8 @@ class StaticPagesController < ApplicationController
   end
 
   def contacte
+  end
+
+  def condicionscompra
   end
 end

@@ -1,0 +1,5 @@
+en:
+  coleccions:
+    index:
+      title: "Collections"
+    coleccio_x : "%{nom} collection"

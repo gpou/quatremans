@@ -1,0 +1,36 @@
+ca:
+  date:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%d-%m-%Y"
+      short: "%b %d"
+      long: "%B %d, %Y"
+
+    day_names: [Diumenge, Dilluns, Dimarts, Dimecres, Dijous, Divendres, Dissabte]
+    abbr_day_names: [Diu, Dill, Dim, Dic, Dij, Div, Dis]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Gener, Febrer, Març, Abril, Maig, Juny, Juliol, Agost, Setembre, Octubre, Novembre, Desembre]
+    abbr_month_names: [~, Gen, Feb, Mar, Abr, Maig, Jun, Jul, Ago, Set, Oct, Nov, Dec]
+    # Used in date_select and datetime_select.
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "am"
+    pm: "pm"
+
+# Used in array.to_sentence.
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " i "
+      last_word_connector: ", i "

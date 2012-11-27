@@ -1,0 +1,120 @@
+
+body {
+  
+}
+
+.container {
+  position: relative;
+  width: 970px;
+  height: 800px;
+}
+
+.content {
+  height: 800px;
+  header {
+    z-index: 100;
+    position: absolute;
+    width: 970px;
+    height: 330px;
+    #logo {
+      position: absolute;
+      left: 74px;
+      top: 108px;
+      width: 200px;
+      height: 200px;
+    }
+    #menu {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 135px;
+      z-index: 99;
+      a {
+        position: absolute;
+        span {
+          display: none;
+          visibility: hidden;
+        }
+        &#coleccions {
+          left: 496px;
+          top: 63px;
+          width: 146px;
+          height: 63px;
+          background-image: url('/assets/portada/coleccions.png');
+          &:hover {
+            background-image: url('/assets/portada/coleccions_hover.png');
+          }
+        }
+        &#quisom {
+          left: 653px;
+          top: 39px;
+          width: 118px;
+          height: 57px;
+          background-image: url('/assets/portada/quisom.png');
+          &:hover {
+            background-image: url('/assets/portada/quisom_hover.png');
+          }
+        }
+        &#idiomes {
+          left: 791px;
+          top: 13px;
+          width: 132px;
+          height: 56px;
+          background-image: url('/assets/portada/idiomes.png');
+          &:hover {
+            background-image: url('/assets/portada/idiomes_hover.png');
+          }
+        }
+      }
+    }
+  }
+  #base {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 80;
+  }
+  #fotos {
+    z-index: 10;
+    div {
+      position: absolute;
+      &#aprendre {
+        left: 44px;
+        top: 284px;
+        width: 450px;
+        height: 410px;
+      }
+      &#models {
+        left: 200px;
+        top: 280px;
+        width: 570px;
+        height: 450px;
+      }
+      &#nina {
+        left: 500px;
+        top: 40px;
+        width: 426px;
+        height: 541px;
+      }
+      img {
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        &.activa {
+          z-index: 20;
+          opacity: 1;
+        }
+        &.anterior {
+          z-idex: 15;
+          opacity: 1;
+        }
+        &.seguent {
+          z-index: 20;
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

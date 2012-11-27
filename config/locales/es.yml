@@ -1,4 +1,8 @@
 es:
   meta:
     language_name: Español
-  site_title: "Nina"
+  translation:
+    ca: Catalán
+    es: Español
+    en: Inglés
+  site_title: "Quatremans"

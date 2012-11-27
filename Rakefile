@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Nina::Application.load_tasks
+Quatremans::Application.load_tasks

@@ -1,8 +1,33 @@
-<div class="center hero-unit">
-  <h1><%= t('site_title') %></h1>
-
-  <h2>
-    <%= raw t('.text') %>
-  </h2>
+<header>
+  <%= link_to image_tag("portada/logo_portada.png", alt: t('site_title')), root_path, id: "logo", title: t('site_title') %>
+  <div id="menu">
+    <%= link_to coleccions_path, id:"coleccions" do %>
+      <span><%= t('coleccions.index.title') %></span>
+    <% end %>
+    <%= link_to quisom_path, id:"quisom" do %>
+      <span><%= t('static_pages.quisom.title') %></span>
+    <% end %>
+    <a id="idiomes" href="#"><span>Tria l'idioma</span></a>
+  </div>
+</header>
+<div id="fotos">
+  <div id="aprendre">
+    <%= image_tag("portada/portada_1.png", class:"activa") %>
+    <%= image_tag("portada/portada_1_1.png") %>
+    <%= image_tag("portada/portada_1_2.png") %>
+  </div>
+  <div id="models">
+    <%= image_tag("portada/portada_2.png", class:"activa") %>
+    <%= image_tag("portada/portada_2_1.png") %>
+  </div>
+  <div id="nina">
+    <%= image_tag("portada/portada_3.png", class:"activa") %>
+    <%= image_tag("portada/portada_3_1.png") %>
+  </div>
 </div>
-
+<div id="base">
+  <%= image_tag("portada/portada.png", alt: t('site_title'), usemap: "#map_portada", id: "portada") %>
+  <map name="map_portada">
+    <area id="area_aprendre" shape="polygon" coords="44,295,109,294,148,312,201,313,245,286,483,280,487,285,470,311,355,428,282,547,217,660,186,691,166,654,165,605,108,455,50,303,44,295" href="<%= coleccions_path %>">
+  </map>
+</div>

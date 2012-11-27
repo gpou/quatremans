@@ -1,0 +1,22 @@
+<% provide(:title, "#{t("coleccions.index.title")} | #{@coleccio.nom}") %>
+<% content_for :breadcrumb do %>
+  <ul class="breadcrumb">
+    <li><%= link_to t("coleccions.index.title"), coleccions_path %> <span class="divider">/</span></li>
+    <li><%= @coleccio.nom %></li>
+  </ul>
+<% end %>
+<% content_for :h1 do %>
+  <h1><%= t("coleccions.coleccio_x", :nom => @coleccio.nom) %></h1>
+<% end %>
+
+<ul class="thumbnails">
+  <% @coleccio.productes.each do |producte| %>
+    <li class="span4">
+      <div class="thumbnail">
+        <%= link_to image_tag("images/#{producte.id}.jpg"), producte_path(@coleccio,producte) %>
+        <h3><%= link_to producte.nom, producte_path(@coleccio,producte) %></h3>
+        <p><%= simple_format(producte.descripcio) %></p>
+      </div>
+    </li>
+  <% end %>
+</ul>

@@ -2,7 +2,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: nina_development
+  database: quatremans_development
   pool: 5
   username: root
   password: surdo
@@ -10,7 +10,7 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: nina_test
+  database: quatremans_test
   pool: 5
   username: root
   password: surdo

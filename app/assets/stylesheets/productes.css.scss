@@ -1,0 +1,79 @@
+@import "_variables";
+@import "jquery.fancybox-1.3.4.css";
+
+body.producte {
+  .content {
+    height: 550px;
+    background-color: transparent;
+    .quadre {
+      background-color: white;
+    }
+  }
+}
+
+.fotos {
+  position: absolute;
+  left: 0;
+  width: 375px;
+  height: 450px;
+  overflow: hidden;
+}
+.dibuix {
+  position: absolute;
+  left: 325px;
+  width: 402px;
+  height: 450px;
+}
+
+.dret {
+  width: 240px;
+  height: 450px;
+  position: relative;
+  margin-left: 710px;
+  .descripcio {
+    position: absolute;
+    width: 220px;
+    bottom: 70px;
+    right: 0;
+    text-align: right;
+  }
+  .dificultat {
+    position: absolute; 
+    left: 0px;
+    bottom: 10px;
+  }
+  .preu {
+    line-height: 40px;
+    font-size: 25px;
+    position: absolute; 
+    text-align: right;
+    right: 0px;
+    bottom: 0px;
+    width: 120px;
+    a { 
+      display: block;
+      float: right;
+      background-image: url(/assets/cart.png);
+      background-repeat: no-repeat;
+      background-position: center right;
+      width: 30px;
+      height: 30px;
+      &:hover {
+        background-image: url(/assets/cart-over.png);
+      }
+      span { display: none; }
+    }
+  }
+}
+
+.thumbs {
+  margin-top: 3px;
+  height: 94px;
+  a {
+    width: 94px;
+    height: 94px;
+    margin-right: 3px;
+    float: left;
+    display: block;
+  }
+}

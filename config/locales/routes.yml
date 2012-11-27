@@ -1,16 +1,32 @@
 ca:
   routes:
+    coleccions: coleccions
+    productes: models
     quisom: qui-som
     contacte: contacte
-    products: productes
-    # you can leave empty locales, for example the default one
+    condicionscompra: condicions-de-compra
+    cart: cistella
+    cart_items: productes
+    edit_cart: dades
+    validation: validacio
 es:
   routes:
-    products: productos
-    contacte: contacto
+    coleccions: colecciones
+    productes: modelos
     quisom: quienes-somos
+    contacte: contacto
+    condicionscompra: condiciones-de-compra
+    cart: cesta
+    cart_items: productos
+    edit_cart: datos
+    validation: validacion
 en:
   routes:
-    products: products
+    coleccions: collections
+    productes: models
+    quisom: about-us
     contacte: contact
-    quisom: about
+    condicionscompra: shop-conditions
+    cart_items: products
+    edit_cart: data
+    validation: validation

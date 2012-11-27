@@ -1,4 +1,8 @@
 ca:
   meta:
     language_name: Català
-  site_title: "Nina"
+  translation:
+    ca: Català
+    es: Castellà
+    en: Anglés
+  site_title: "Quatremans"

@@ -3,17 +3,29 @@
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= stylesheet_link_tag params[:controller] %>
     <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag params[:controller] %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
   </head>
-  <body>
-    <%= render 'layouts/header' %>
+  <body class="<%= yield(:class) %>" style="background-color:<%= ["#22225f", "#970003", "#f58a16", "#91d0d9"].sample %>;">
+    <a name="dalt" title="Dalt"></a>
     <div class="container">
+      <header>
+        <%= link_to image_tag("logo.png", alt: t('site_title')), root_path, id: "logo", title: t('site_title') %>
+        <%= yield(:breadcrumb) %>
+        <%= yield(:h1) %>
+        <%= render 'layouts/header' %>
+      </header>
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
-      <%= yield %>
+      <div class="content">
+        <div class="content2">
+          <%= yield %>
+        </div>
+      </div>
       <%= render 'layouts/footer' %>
       
       <%= debug(params) if Rails.env.development? %>
