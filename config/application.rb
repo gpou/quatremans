@@ -69,5 +69,7 @@ module Quatremans
     config.assets.version = '1.0'
 
     config.assets.precompile += %w(active_admin.js active_admin.css)
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
+    config.assets.precompile += %w( .svg .eot .woff .ttf )
   end
 end
