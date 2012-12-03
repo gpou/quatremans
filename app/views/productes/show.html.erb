@@ -13,7 +13,7 @@
   </div>
   <div class="dibuix">
     <a href="<%= edit_cart_item_path(id: @producte.id) %>" class="personalitza" title="Configuracio">
-      <%= image_tag("images/dibuix_2.png", id: "dibuix", alt: "Personalitza") %>
+      <%= image_tag("images/dibuix_#{@producte.id}.png", id: "dibuix", alt: "Personalitza") %>
     </a>
   </div>
   <div class="dret">
