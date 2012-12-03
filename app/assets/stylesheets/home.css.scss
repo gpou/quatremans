@@ -10,23 +10,23 @@ body {
 .content {
   height: 700px;
   header {
-    z-index: 100;
     position: absolute;
     width: 970px;
-    height: 330px;
+    height: 10px;
     h1 {
       position: absolute;
       left: 64px;
       top: 64px;
       width: 205px;
       height: 210px;
+      z-index: 100;
     }
     #menu {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 135px;
+      height: 10px;
       z-index: 99;
       a {
         position: absolute;
@@ -34,7 +34,7 @@ body {
           display: none;
           visibility: hidden;
         }
-        &#coleccions {
+        &#coleccions_link {
           left: 516px;
           top: 0px;
           width: 129px;
@@ -45,7 +45,7 @@ body {
             background-position: 0 -100px;
           }
         }
-        &#quisom {
+        &#quisom_link {
           left: 669px;
           top: 0px;
           width: 97px;
@@ -54,17 +54,6 @@ body {
           background-position: 0 0;
           &:hover {
             background-position: 0 -82px;
-          }
-        }
-        &#idiomes {
-          left: 801px;
-          top: 0px;
-          width: 115px;
-          height: 63px;
-          background-image: url('/assets/home/menu_idiomes.png');
-          background-position: 0 0;
-          &:hover {
-            background-position: 0 -63px;
           }
         }
       }
@@ -87,6 +76,7 @@ body {
           }
         }
         .dropdown-menu {
+          z-index: 99;
           top: 68px;
           left: auto;
           right: 0px;
@@ -114,6 +104,7 @@ body {
   }
   #fotos {
     z-index: 10;
+    img#links { position: absolute; width: 970px; height: 700px; }
     div {
       position: absolute;
       &#aprendre {
@@ -121,6 +112,7 @@ body {
         top: 240px;
         width: 433px;
         height: 390px;
+        a { }
       }
       &#models {
         left: 191px;
@@ -133,11 +125,6 @@ body {
         top: 48px;
         width: 414px;
         height: 508px;
-      }
-      img {
-        position: absolute;
-        left: 0;
-        top: 0;
       }
     }
   }

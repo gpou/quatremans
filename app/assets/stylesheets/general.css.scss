@@ -106,11 +106,14 @@ header {
 
 .content {
   clear: both;
-  height: 450px;
-  overflow: hidden;
+  /*height: 450px;
+  overflow: hidden;*/
   margin: 0;
   background-color: #fff;
   position: relative;
+  .content2 {
+    padding: 60px 20px 20px 20px;
+  }
 }
 
 

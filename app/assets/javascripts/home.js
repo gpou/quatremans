@@ -1,9 +1,9 @@
 
 $(document).ready(function() {
   $("#fotos div").data('actual',0);
-  window.setInterval(canvi_foto_centre, 3000);
-  window.setInterval(canvi_foto_esq, 8000);
-  window.setInterval(canvi_foto_dret, 5000);
+  //window.setInterval(canvi_foto_centre, 3000);
+  //window.setInterval(canvi_foto_esq, 8000);
+  //window.setInterval(canvi_foto_dret, 5000);
 });
 
 function canvi_foto_esq() {

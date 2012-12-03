@@ -1,15 +1,15 @@
 <header>
   <h1><%= image_tag("home/logo.png", alt: t('site_title')) %></h1>
   <div id="menu">
-    <%= link_to coleccions_path, id:"coleccions" do %>
+    <%= link_to coleccions_path, id:"coleccions_link" do %>
       <span><%= t('coleccions.index.title') %></span>
     <% end %>
-    <%= link_to quisom_path, id:"quisom" do %>
+    <%= link_to quisom_path, id:"quisom_link" do %>
       <span><%= t('static_pages.quisom.title') %></span>
     <% end %>
     
     <div id="idiomes" class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+      <a href="#" id="idiomes_link" class="dropdown-toggle" data-toggle="dropdown">
         <span><%= t('static_pages.quisom.title') %></span>
       </a>
       <ul class="dropdown-menu">
@@ -24,33 +24,18 @@
 </header>
 <div id="fotos">
   <div id="aprendre">
-    <%= image_tag("home/cosint_1.png", class:"activa") %>
-    <%= image_tag("home/cosint_2.png", style:"opacity:0") %>
-    <%= image_tag("home/cosint_3.png", style:"opacity:0") %>
+    <%= image_tag("home/cosint_#{[1,2,3].sample}.png", usemap: "#aprendre_map") %>
   </div>
   <div id="models">
-    <%= image_tag("home/coleccions_1.png", class:"activa") %>
-    <%= image_tag("home/coleccions_2.png", style:"opacity:0") %>
-    <%= image_tag("home/coleccions_3.png", style:"opacity:0") %>
-    <%= image_tag("home/coleccions_4.png", style:"opacity:0") %>
-    <%= image_tag("home/coleccions_5.png", style:"opacity:0") %>
-    <%= image_tag("home/coleccions_6.png", style:"opacity:0") %>
-    <%= image_tag("home/coleccions_7.png", style:"opacity:0") %>
-    <%= image_tag("home/coleccions_8.png", style:"opacity:0") %>
-    <%= image_tag("home/coleccions_9.png", style:"opacity:0") %>
-    <%= image_tag("home/coleccions_10.png", style:"opacity:0") %>
-    <%= image_tag("home/coleccions_11.png", style:"opacity:0") %>
-    <%= image_tag("home/coleccions_12.png", style:"opacity:0") %>
-    <%= image_tag("home/coleccions_13.png", style:"opacity:0") %>
+    <%= image_tag("home/coleccions_#{[1,2,3,4,5,6,7,8,9,10,11,12,13].sample}.png") %>
   </div>
   <div id="nina">
-    <%= image_tag("home/nina_1.png", class:"activa") %>
-    <%= image_tag("home/nina_2.png", style:"opacity:0") %>
-    <%= image_tag("home/nina_3.png", style:"opacity:0") %>
-    <%= image_tag("home/nina_4.png", style:"opacity:0") %>
-    <%= image_tag("home/nina_5.png", style:"opacity:0") %>
-    <%= image_tag("home/nina_6.png", style:"opacity:0") %>
-    <%= image_tag("home/nina_7.png", style:"opacity:0") %>
-    <%= image_tag("home/nina_8.png", style:"opacity:0") %>
+    <%= image_tag("home/nina_#{[1,2,3,4,5,6,7,8].sample}.png") %>
   </div>
+  <map id="map" name="map">
+    <area shape="poly" coords="69,244,81,237,140,276,201,274,242,247,496,258,353,392,215,598,178,631,162,549" href="<%=quisom_path%>#cosir" alt="Vols aprendre a cosir?" title="Vols aprendre a cosir?" />
+    <area shape="poly" coords="546,261,603,432,737,668,554,687,333,672,189,657,296,501,388,389,504,285" href="<%=coleccions_path%>" alt="Les col·leccions Quatre Mans" title="Les col·leccions Quatre Mans" />
+    <area shape="poly" coords="517,121,923,48,922,109,896,213,785,449,721,554,675,522,604,346" href="<%=quisom_path%>#nina" alt="La nostra nina Caterina" title="La nostra nina Caterina" />
+  </map>
+  <%= image_tag("transparent.png", usemap: "#map", id: "links") %>
 </div>

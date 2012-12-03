@@ -4,6 +4,7 @@
 body.producte {
   .content {
     /*height: 550px;*/
+    .content2 { padding: 0; }
     background-color: transparent;
     .quadre {
       background-color: white;
@@ -75,6 +76,7 @@ body.producte {
 .thumbs {
   margin-top: 3px;
   height: 94px;
+  overflow: hidden;
   a {
     width: 94px;
     height: 94px;
