@@ -4,24 +4,22 @@ body {
 }
 
 .container {
-  position: relative;
   width: 970px;
-  height: 800px;
 }
 
 .content {
-  height: 800px;
+  height: 700px;
   header {
     z-index: 100;
     position: absolute;
     width: 970px;
     height: 330px;
-    #logo {
+    h1 {
       position: absolute;
-      left: 74px;
-      top: 108px;
-      width: 200px;
-      height: 200px;
+      left: 64px;
+      top: 64px;
+      width: 205px;
+      height: 210px;
     }
     #menu {
       position: absolute;
@@ -37,84 +35,120 @@ body {
           visibility: hidden;
         }
         &#coleccions {
-          left: 496px;
-          top: 63px;
-          width: 146px;
-          height: 63px;
-          background-image: url('/assets/portada/coleccions.png');
+          left: 516px;
+          top: 0px;
+          width: 129px;
+          height: 100px;
+          background-image: url('/assets/home/menu_coleccions.png');
+          background-position: 0 0;
           &:hover {
-            background-image: url('/assets/portada/coleccions_hover.png');
+            background-position: 0 -100px;
           }
         }
         &#quisom {
-          left: 653px;
-          top: 39px;
-          width: 118px;
-          height: 57px;
-          background-image: url('/assets/portada/quisom.png');
+          left: 669px;
+          top: 0px;
+          width: 97px;
+          height: 82px;
+          background-image: url('/assets/home/menu_quisom.png');
+          background-position: 0 0;
           &:hover {
-            background-image: url('/assets/portada/quisom_hover.png');
+            background-position: 0 -82px;
           }
         }
         &#idiomes {
-          left: 791px;
-          top: 13px;
-          width: 132px;
-          height: 56px;
-          background-image: url('/assets/portada/idiomes.png');
+          left: 801px;
+          top: 0px;
+          width: 115px;
+          height: 63px;
+          background-image: url('/assets/home/menu_idiomes.png');
+          background-position: 0 0;
           &:hover {
-            background-image: url('/assets/portada/idiomes_hover.png');
+            background-position: 0 -63px;
+          }
+        }
+      }
+      #idiomes {
+        position: absolute;
+        left: 801px;
+        top: 0px;
+        width: 125px;
+        height: 63px;
+        .dropdown-toggle {
+          position: absolute;
+          right: 10px;
+          top: 0px;
+          width: 115px;
+          height: 63px;
+          background-image: url('/assets/home/menu_idiomes.png');
+          background-position: 0 0;
+          &:hover {
+            background-position: 0 -63px;
+          }
+        }
+        .dropdown-menu {
+          top: 68px;
+          left: auto;
+          right: 0px;
+          min-width: 130px;
+          padding: 8px 0px;
+          li { 
+            height: 20px; 
+            a { 
+              padding:0; 
+              margin:0; 
+              width: 130px; 
+              text-align:center; 
+              &:hover {
+                background-color: #eee;
+                color: #555;
+              }
+              &.selected {
+                font-weight: bold;
+              }
+            }
           }
         }
       }
     }
-  }
-  #base {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 80;
   }
   #fotos {
     z-index: 10;
     div {
       position: absolute;
       &#aprendre {
-        left: 44px;
-        top: 284px;
-        width: 450px;
-        height: 410px;
+        left: 64px;
+        top: 240px;
+        width: 433px;
+        height: 390px;
       }
       &#models {
-        left: 200px;
-        top: 280px;
-        width: 570px;
-        height: 450px;
+        left: 191px;
+        top: 260px;
+        width: 550px;
+        height: 427px;
       }
       &#nina {
-        left: 500px;
-        top: 40px;
-        width: 426px;
-        height: 541px;
+        left: 514px;
+        top: 48px;
+        width: 414px;
+        height: 508px;
       }
       img {
-        opacity: 0;
         position: absolute;
         left: 0;
         top: 0;
-        &.activa {
-          z-index: 20;
-          opacity: 1;
-        }
-        &.anterior {
-          z-idex: 15;
-          opacity: 1;
-        }
-        &.seguent {
-          z-index: 20;
-          opacity: 0;
-        }
       }
     }
+  }
+}
+
+.footer {
+  margin-top: 40px;
+  small { display: none; }
+  ul {
+    float: none;
+    text-align: center;
+    li { margin: 0px 10px; float:none; display: inline-block; }
   }
 }

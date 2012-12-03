@@ -1,5 +1,5 @@
 <header>
-  <%= link_to image_tag("portada/logo_portada.png", alt: t('site_title')), root_path, id: "logo", title: t('site_title') %>
+  <h1><%= image_tag("home/logo.png", alt: t('site_title')) %></h1>
   <div id="menu">
     <%= link_to coleccions_path, id:"coleccions" do %>
       <span><%= t('coleccions.index.title') %></span>
@@ -7,27 +7,50 @@
     <%= link_to quisom_path, id:"quisom" do %>
       <span><%= t('static_pages.quisom.title') %></span>
     <% end %>
-    <a id="idiomes" href="#"><span>Tria l'idioma</span></a>
+    
+    <div id="idiomes" class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <span><%= t('static_pages.quisom.title') %></span>
+      </a>
+      <ul class="dropdown-menu">
+        <% I18n.available_locales.each do |locale| %>
+          <li>
+            <%= link_to t("meta.language_name", :locale => locale.to_sym), eval("root_#{locale}_path"), :class => (locale==I18n.locale)?"selected":"" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </header>
 <div id="fotos">
   <div id="aprendre">
-    <%= image_tag("portada/portada_1.png", class:"activa") %>
-    <%= image_tag("portada/portada_1_1.png") %>
-    <%= image_tag("portada/portada_1_2.png") %>
+    <%= image_tag("home/cosint_1.png", class:"activa") %>
+    <%= image_tag("home/cosint_2.png", style:"opacity:0") %>
+    <%= image_tag("home/cosint_3.png", style:"opacity:0") %>
   </div>
   <div id="models">
-    <%= image_tag("portada/portada_2.png", class:"activa") %>
-    <%= image_tag("portada/portada_2_1.png") %>
+    <%= image_tag("home/coleccions_1.png", class:"activa") %>
+    <%= image_tag("home/coleccions_2.png", style:"opacity:0") %>
+    <%= image_tag("home/coleccions_3.png", style:"opacity:0") %>
+    <%= image_tag("home/coleccions_4.png", style:"opacity:0") %>
+    <%= image_tag("home/coleccions_5.png", style:"opacity:0") %>
+    <%= image_tag("home/coleccions_6.png", style:"opacity:0") %>
+    <%= image_tag("home/coleccions_7.png", style:"opacity:0") %>
+    <%= image_tag("home/coleccions_8.png", style:"opacity:0") %>
+    <%= image_tag("home/coleccions_9.png", style:"opacity:0") %>
+    <%= image_tag("home/coleccions_10.png", style:"opacity:0") %>
+    <%= image_tag("home/coleccions_11.png", style:"opacity:0") %>
+    <%= image_tag("home/coleccions_12.png", style:"opacity:0") %>
+    <%= image_tag("home/coleccions_13.png", style:"opacity:0") %>
   </div>
   <div id="nina">
-    <%= image_tag("portada/portada_3.png", class:"activa") %>
-    <%= image_tag("portada/portada_3_1.png") %>
+    <%= image_tag("home/nina_1.png", class:"activa") %>
+    <%= image_tag("home/nina_2.png", style:"opacity:0") %>
+    <%= image_tag("home/nina_3.png", style:"opacity:0") %>
+    <%= image_tag("home/nina_4.png", style:"opacity:0") %>
+    <%= image_tag("home/nina_5.png", style:"opacity:0") %>
+    <%= image_tag("home/nina_6.png", style:"opacity:0") %>
+    <%= image_tag("home/nina_7.png", style:"opacity:0") %>
+    <%= image_tag("home/nina_8.png", style:"opacity:0") %>
   </div>
-</div>
-<div id="base">
-  <%= image_tag("portada/portada.png", alt: t('site_title'), usemap: "#map_portada", id: "portada") %>
-  <map name="map_portada">
-    <area id="area_aprendre" shape="polygon" coords="44,295,109,294,148,312,201,313,245,286,483,280,487,285,470,311,355,428,282,547,217,660,186,691,166,654,165,605,108,455,50,303,44,295" href="<%= coleccions_path %>">
-  </map>
 </div>

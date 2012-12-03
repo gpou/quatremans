@@ -121,12 +121,12 @@ label {
 
 footer {
   padding-top: 5px;
-  color: white;
+  color: #555;
   clear: both;
   a {
-    color: white;
+    color: #555;
     &:hover { 
-      color: $colorDarker;
+      color: #000;
     }
   }  
   small { 

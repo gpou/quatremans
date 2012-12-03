@@ -1,0 +1,49 @@
+form {
+  width: 760px;
+  height: 550px;
+  margin: 0;
+  padding: 0;
+  .caixa {
+    width: 379px;
+    height: 550px; 
+    float: right; 
+    border-left: 1px solid #ccc;
+    div {
+      margin: 20px;
+      label { text-transform: uppercase; width: 340px; }
+      &.mostres {
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          margin-top: 5px;
+          li { 
+            display: inline-block; 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+            margin-right: 5px; 
+            a { 
+              width: 34px;
+              height: 34px;
+              display: inline-block;
+              border: 1px solid #fff; 
+              &:hover { border-color: #ccc; }
+              &.selected { border-color: #555; }
+              img { margin: 2px; }
+            }
+          }
+        }
+      }
+    }
+  }
+  .dibuix {
+    width: 380px;
+    height: 550px;
+    float: left;
+    position: relative;
+    img { position: absolute; left: 0; top: 0; z-index: 80; }
+    svg { position: absolute; left: 0; top: 0; z-index: 90; }
+    svg { left: 29px; top: 155px;  }
+  }
+}
