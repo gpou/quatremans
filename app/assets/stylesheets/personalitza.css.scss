@@ -11,7 +11,7 @@ form {
     div {
       margin: 20px;
       label { text-transform: uppercase; width: 340px; }
-      &.mostres {
+      &.mostres, &.estampats {
         ul {
           list-style: none;
           margin: 0;
@@ -27,14 +27,15 @@ form {
               width: 34px;
               height: 34px;
               display: inline-block;
-              border: 1px solid #fff; 
-              &:hover { border-color: #ccc; }
+              border: 1px solid #eee; 
+              &:hover { border-color: #aaa; }
               &.selected { border-color: #555; }
               img { margin: 2px; }
             }
           }
         }
       }
+      &.estampats ul li a { width: 39px; height: 39px; }
     }
   }
   .dibuix {
