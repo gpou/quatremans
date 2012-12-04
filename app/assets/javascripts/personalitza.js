@@ -25,7 +25,7 @@ function canvi_mostra(obj, save, orig) {
   if (orig) var val = input.val();
   else var val = obj.attr('href');
   var name = input.attr('name');
-  $('path.'+name).css('fill','url(#mostra_'+val+')');
+  $("path[class='"+name+"']").css('fill','url(#mostra_'+val+')');
   if (save) {
     div.find('a').removeClass('selected');
     obj.addClass('selected');
@@ -41,7 +41,7 @@ function canvi_estampat(obj, save, orig) {
   if (orig) var val = input.val();
   else var val = obj.attr('href');
   var name = input.attr('name');
-  $('use.'+name).attr('xlink:href','#estampat_'+val);
+  $("use[class='"+name+"']").attr('xlink:href','#estampat_'+val);
   if (save) {
     div.find('a').removeClass('selected');
     obj.addClass('selected');
