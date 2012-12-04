@@ -9,6 +9,7 @@ class CartsController < ApplicationController
   end
 
   def edit
+    headers['Content-Type'] = 'application/xhtml+xml'
   end
 
   def update
