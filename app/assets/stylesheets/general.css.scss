@@ -12,15 +12,46 @@ $navbarBackground: $colorDark;
 
 @import "bootstrap";
 
+
 @font-face {
-    font-family: 'annavives';
-    src: url('annavives.eot');
-    src: url('annavives.eot?#iefix') format('embedded-opentype'),
-         url('annavives.woff') format('woff'),
-         url('annavives.ttf') format('truetype'),
-         url('annavives.svg#annavives') format('svg');
+    font-family: 'dejavu';
+    src: url('dejavusans-bold-webfont.eot');
+    src: url('dejavusans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dejavusans-bold-webfont.woff') format('woff'),
+         url('dejavusans-bold-webfont.ttf') format('truetype'),
+         url('dejavusans-bold-webfont.svg#dejavu_sansbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'dejavu';
+    src: url('dejavusans-webfont.eot');
+    src: url('dejavusans-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dejavusans-webfont.woff') format('woff'),
+         url('dejavusans-webfont.ttf') format('truetype'),
+         url('dejavusans-webfont.svg#dejavu_sansbook') format('svg');
     font-weight: normal;
     font-style: normal;
+}
+@font-face {
+    font-family: 'dejavu';
+    src: url('dejavusans-oblique-webfont.eot');
+    src: url('dejavusans-oblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dejavusans-oblique-webfont.woff') format('woff'),
+         url('dejavusans-oblique-webfont.ttf') format('truetype'),
+         url('dejavusans-oblique-webfont.svg#dejavu_sansoblique') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'dejavu';
+    src: url('dejavusans-boldoblique-webfont.eot');
+    src: url('dejavusans-boldoblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dejavusans-boldoblique-webfont.woff') format('woff'),
+         url('dejavusans-boldoblique-webfont.ttf') format('truetype'),
+         url('dejavusans-boldoblique-webfont.svg#dejavu_sansbold_oblique') format('svg');
+    font-weight: bold;
+    font-style: italic;
 }
 
 @mixin box_sizing {
@@ -30,8 +61,8 @@ $navbarBackground: $colorDark;
 }
 
 body {
-  background-color: #888;
-  font-family: annavives;
+  background-color: #fff;
+  font-family: dejavu;
 }
 
 .container {
@@ -69,7 +100,7 @@ header {
     width: 800px;
     font-size: 35px;
     line-height: 25px;
-    font-weight: normal;
+    font-weight: bold;
     text-align: right;
     color: $colorDark;
   }
@@ -81,7 +112,7 @@ header {
     width: 800px;
     font-size: 22px;
     line-height: 22px;
-    font-weight: normal;
+    font-weight: bold;
     text-align: right;
     color: $color;
   }
@@ -93,11 +124,29 @@ header {
     li {
       float: left;
       margin-left: 20px;
-      a {
-        color: white;
-        &:hover {
-          background-color: transparent;
-          color: $colorDarker;
+      a:hover { background-color: transparent; }
+    }
+    .dropdown-menu {
+      z-index: 99;
+      left: auto;
+      right: 0px;
+      min-width: 130px;
+      padding: 8px 0px;
+      li { 
+        height: 20px; 
+        margin-left: 0;
+        a { 
+          padding:0; 
+          margin:0; 
+          width: 130px; 
+          text-align:center; 
+          &:hover {
+            background-color: #eee;
+            color: #555;
+          }
+          &.selected {
+            font-weight: bold;
+          }
         }
       }
     }
@@ -121,7 +170,7 @@ a {
   color: $color;
   &:hover {
     text-decoration: none;
-    color: $colorDark;
+    color: $colorDarker;
   }
 }
 
@@ -131,10 +180,8 @@ label {
   width: 500px;
 }
 
-/* footer */
-
 footer {
-  padding-top: 5px;
+  margin-top: 40px;
   color: #555;
   clear: both;
   a {
@@ -143,18 +190,13 @@ footer {
       color: #000;
     }
   }  
-  small { 
-    float: left; 
-  }
   ul {
-    float: right;
     list-style: none;
-    li {
-      float: left;
-      margin-left: 10px;
-    }
+    text-align: center;
+    li { margin: 0px 20px; float:none; display: inline-block; }
   }
 }
+
 
 
 

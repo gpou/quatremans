@@ -1,7 +1,23 @@
 $(document).ready(function() {
   $('.mostres a').hover(
-    function() { canvi_mostra($(this), false); }, 
-    function() { canvi_mostra($(this), false, true); }
+    function() { 
+      var id = canvi_mostra($(this), false);
+      zoom_mostra(id);
+    }, 
+    function() { 
+      canvi_mostra($(this), false, true); 
+      zoom_mostra();
+    }
+  );
+  $("path[class~='mostra']").bind('mouseover',
+    function() {
+      zoom_mostra($(this).css('fill'));
+    }
+  );
+  $("path[class~='mostra']").bind('mouseout',
+    function() {
+      zoom_mostra();
+    }
   );
   $('.mostres a').click(function() {
     canvi_mostra($(this), true);
@@ -17,6 +33,13 @@ $(document).ready(function() {
   });
 })
 
+function zoom_mostra(id) {
+  var img = $(id).find('image').attr('alt');
+  var nom = $(id).find('image').attr('title');
+  if (img) $("#zoom").html("<p>"+nom+"</p><img src='"+img+"' />");
+  else; //$("#zoom").html("");
+}
+
 function canvi_mostra(obj, save, orig) {
   if (save==undefined) save = false;
   if (orig==undefined) orig = false;
@@ -25,12 +48,13 @@ function canvi_mostra(obj, save, orig) {
   if (orig) var val = input.val();
   else var val = obj.attr('href');
   var name = input.attr('name');
-  $("path[class='"+name+"']").css('fill','url(#mostra_'+val+')');
+  $("path[class~='"+name+"']").css('fill','url(#mostra_'+val+')');
   if (save) {
     div.find('a').removeClass('selected');
     obj.addClass('selected');
     input.val(val);
   }
+  return ('#mostra_'+val); 
 }
 
 function canvi_estampat(obj, save, orig) {

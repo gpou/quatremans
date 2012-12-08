@@ -12,7 +12,6 @@
         <li><a href="micropana_verda" title="Micropana verda"><%= image_tag("images/mostres/micropana_verda.png") %></a></li>
         <li><a href="micropana_taronja" title="Micropana taronja"><%= image_tag("images/mostres/micropana_taronja.png") %></a></li>
       </ul>
-      <br style="clear:both" />
     </div>
     <div class="mostres">
       <label>Mànigues:</label>
@@ -22,7 +21,6 @@
         <li><a href="micropana_verda" class="selected" title="Micropana verda"><%= image_tag("images/mostres/micropana_verda.png") %></a></li>
         <li><a href="micropana_taronja" title="Micropana taronja"><%= image_tag("images/mostres/micropana_taronja.png") %></a></li>
       </ul>
-      <br style="clear:both" />
     </div>
     <div class="estampats">
       <label>Estampats:</label>
@@ -34,10 +32,12 @@
         <li><a href="triangle_gran_4" title="Triangle 4"><%= image_tag("images/estampats/triangle_gran_4.png") %></a></li>
         <li><a href="" title="Sense estampat"><%= image_tag("images/estampats/no.png") %></a></li>
       </ul>
-      <br style="clear:both" />
     </div>
+
     <div class="botons">
       <%= f.submit value:"Guarda" %>
     </div>
+
+    <div id="zoom"></div>
   </div>
 <% end %>

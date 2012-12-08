@@ -1,5 +1,5 @@
 ca:
   coleccions:
     index:
-      title: "Col·leccions"
+      title: "Col·lecció"
     coleccio_x : "Col·lecció %{nom}"

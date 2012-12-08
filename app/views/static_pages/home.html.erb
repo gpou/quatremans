@@ -23,19 +23,14 @@
   </div>
 </header>
 <div id="fotos">
+  <% num = [1,2,3,4].sample %>
   <div id="aprendre">
-    <%= image_tag("home/cosint_#{[1,2,3].sample}.png", usemap: "#aprendre_map") %>
+    <%= image_tag("home/esquerra#{num}.png") %>
   </div>
   <div id="models">
-    <%= image_tag("home/coleccions_#{[1,2,3,4,5,6,7,8,9,10,11,12,13].sample}.png") %>
+    <%= image_tag("home/centre#{num}.png") %>
   </div>
   <div id="nina">
-    <%= image_tag("home/nina_#{[1,2,3,4,5,6,7,8].sample}.png") %>
+    <%= image_tag("home/dreta#{num}.png") %>
   </div>
-  <map id="map" name="map">
-    <area shape="poly" coords="69,244,81,237,140,276,201,274,242,247,496,258,353,392,215,598,178,631,162,549" href="<%=quisom_path%>#cosir" alt="Vols aprendre a cosir?" title="Vols aprendre a cosir?" />
-    <area shape="poly" coords="546,261,603,432,737,668,554,687,333,672,189,657,296,501,388,389,504,285" href="<%=coleccions_path%>" alt="Les col·leccions Quatre Mans" title="Les col·leccions Quatre Mans" />
-    <area shape="poly" coords="517,121,923,48,922,109,896,213,785,449,721,554,675,522,604,346" href="<%=quisom_path%>#nina" alt="La nostra nina Caterina" title="La nostra nina Caterina" />
-  </map>
-  <%= image_tag("transparent.png", usemap: "#map", id: "links") %>
 </div>

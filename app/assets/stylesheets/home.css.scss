@@ -1,7 +1,4 @@
 
-body {
-  background-color: white;
-}
 
 .container {
   width: 970px;
@@ -130,12 +127,3 @@ body {
   }
 }
 
-.footer {
-  margin-top: 40px;
-  small { display: none; }
-  ul {
-    float: none;
-    text-align: center;
-    li { margin: 0px 10px; float:none; display: inline-block; }
-  }
-}
