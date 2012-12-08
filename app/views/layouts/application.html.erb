@@ -15,17 +15,16 @@
     <div class="container">
       <header>
         <%= link_to image_tag("logo.png", alt: t('site_title')), root_path, id: "logo", title: t('site_title') %>
-        <%= yield(:breadcrumb) %>
-        <%= yield(:h1) %>
+        <div class="titols">
+          <%= yield(:titols) %>
+        </div>
         <%= render 'layouts/header' %>
       </header>
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
       <div class="content">
-        <div class="content2">
-          <%= yield %>
-        </div>
+        <%= yield %>
       </div>
       <%= render 'layouts/footer' %>
       

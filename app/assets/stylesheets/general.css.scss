@@ -10,46 +10,44 @@ $textColor: $grayDarker;
 $navbarBackgroundHighlight: $colorDarker;
 $navbarBackground: $colorDark;
 
-@import "bootstrap";
-
 
 @font-face {
     font-family: 'dejavu';
-    src: url('dejavusans-bold-webfont.eot');
-    src: url('dejavusans-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('dejavusans-bold-webfont.woff') format('woff'),
-         url('dejavusans-bold-webfont.ttf') format('truetype'),
-         url('dejavusans-bold-webfont.svg#dejavu_sansbold') format('svg');
+    src: url('dejavusanscondensed-webfont.eot');
+    src: url('dejavusanscondensed-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dejavusanscondensed-webfont.woff') format('woff'),
+         url('dejavusanscondensed-webfont.ttf') format('truetype'),
+         url('dejavusanscondensed-webfont.svg#dejavu_sans_condensedbook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'dejavu';
+    src: url('dejavusanscondensed-bold-webfont.eot');
+    src: url('dejavusanscondensed-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dejavusanscondensed-bold-webfont.woff') format('woff'),
+         url('dejavusanscondensed-bold-webfont.ttf') format('truetype'),
+         url('dejavusanscondensed-bold-webfont.svg#dejavu_sans_condensedbold') format('svg');
     font-weight: bold;
     font-style: normal;
 }
 @font-face {
     font-family: 'dejavu';
-    src: url('dejavusans-webfont.eot');
-    src: url('dejavusans-webfont.eot?#iefix') format('embedded-opentype'),
-         url('dejavusans-webfont.woff') format('woff'),
-         url('dejavusans-webfont.ttf') format('truetype'),
-         url('dejavusans-webfont.svg#dejavu_sansbook') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'dejavu';
-    src: url('dejavusans-oblique-webfont.eot');
-    src: url('dejavusans-oblique-webfont.eot?#iefix') format('embedded-opentype'),
-         url('dejavusans-oblique-webfont.woff') format('woff'),
-         url('dejavusans-oblique-webfont.ttf') format('truetype'),
-         url('dejavusans-oblique-webfont.svg#dejavu_sansoblique') format('svg');
+    src: url('dejavusanscondensed-oblique-webfont.eot');
+    src: url('dejavusanscondensed-oblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dejavusanscondensed-oblique-webfont.woff') format('woff'),
+         url('dejavusanscondensed-oblique-webfont.ttf') format('truetype'),
+         url('dejavusanscondensed-oblique-webfont.svg#dejavu_sans_condensedoblique') format('svg');
     font-weight: normal;
     font-style: italic;
 }
 @font-face {
     font-family: 'dejavu';
-    src: url('dejavusans-boldoblique-webfont.eot');
-    src: url('dejavusans-boldoblique-webfont.eot?#iefix') format('embedded-opentype'),
-         url('dejavusans-boldoblique-webfont.woff') format('woff'),
-         url('dejavusans-boldoblique-webfont.ttf') format('truetype'),
-         url('dejavusans-boldoblique-webfont.svg#dejavu_sansbold_oblique') format('svg');
+    src: url('dejavusanscondensed-boldoblique-webfont.eot');
+    src: url('dejavusanscondensed-boldoblique-webfont.eot?#iefix') format('embedded-opentype'),
+         url('dejavusanscondensed-boldoblique-webfont.woff') format('woff'),
+         url('dejavusanscondensed-boldoblique-webfont.ttf') format('truetype'),
+         url('dejavusanscondensed-boldoblique-webfont.svg#dejavu_sans_condensedBdOb') format('svg');
     font-weight: bold;
     font-style: italic;
 }
@@ -63,11 +61,49 @@ $navbarBackground: $colorDark;
 body {
   background-color: #fff;
   font-family: dejavu;
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+}
+
+div { margin: 0; padding: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  color: $colorDark;
+  line-height: 1.3em;
+  margin: 0; 
+  padding: 0;
+}
+h1 { font-size: 40px; }
+h2 { font-size: 30px; }
+h3 { font-size: 20px; }
+h4 { font-size: 16px; }
+h5 { font-size: 14px; }
+
+a {
+  color: $color;
+  text-decoration: none;
+  outline: none;
+  -moz-outline-style: none;
+  &:hover {
+    text-decoration: none;
+    color: $colorDarker;
+  }
+  &:active {
+    outline: none;
+    -moz-outline-style: none;    
+  }
+}
+:-moz-any-link:focus {
+  outline: none;
 }
 
 .container {
   position: relative;
   width: 970px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -75,6 +111,7 @@ header {
   height: 150px;
   position: relative;
   z-index: 99;
+  display: block;
 
   #logo {
     position: absolute;
@@ -84,47 +121,40 @@ header {
     height: 180px;
   }
 
-  ul.breadcrumb { 
-    display: none;
-    visibility: hidden;
-    position: absolute;
-    top: 20px;
-    right: 0px;
-    width: 760px;
-  }
-
-  h1 { 
+  .titols {
     position: absolute;
     right: 0;
-    bottom: 15px;
-    width: 800px;
-    font-size: 35px;
-    line-height: 25px;
-    font-weight: bold;
+    bottom: 0;
     text-align: right;
-    color: $colorDark;
   }
 
-  h2 {
-    position: absolute;
-    right: 0;
-    top: 75px;
-    width: 800px;
-    font-size: 22px;
-    line-height: 22px;
-    font-weight: bold;
-    text-align: right;
-    color: $color;
-  }
-  .nav {
+  ul {
     position: absolute;
     right: 0;
     top: 10px;
     margin: 0;
+    font-size: 1.2em;
+    line-height: 1.1em;
+    list-style: none; 
+    padding: 0;
     li {
       float: left;
       margin-left: 20px;
-      a:hover { background-color: transparent; }
+      list-style: none;
+      .caret {
+        display: inline-block;
+        margin-top: 8px;
+        margin-left: 2px;
+        width: 0;
+        height: 0;
+        vertical-align: top;
+        border-top: 4px solid black;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+        content: "";
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+      }      
     }
     .dropdown-menu {
       z-index: 99;
@@ -132,6 +162,7 @@ header {
       right: 0px;
       min-width: 130px;
       padding: 8px 0px;
+      font-size: 0.9em;
       li { 
         height: 20px; 
         margin-left: 0;
@@ -155,24 +186,13 @@ header {
 
 .content {
   clear: both;
-  /*height: 450px;
-  overflow: hidden;*/
-  margin: 0;
+  margin: 10px 0 0 0;
   background-color: #fff;
   position: relative;
-  .content2 {
-    padding: 60px 20px 20px 20px;
-  }
+  overflow: hidden;
 }
 
 
-a {
-  color: $color;
-  &:hover {
-    text-decoration: none;
-    color: $colorDarker;
-  }
-}
 
 label {
   display: block;
@@ -182,6 +202,7 @@ label {
 
 footer {
   margin-top: 40px;
+  margin-bottom: 20px;
   color: #555;
   clear: both;
   a {
@@ -192,6 +213,8 @@ footer {
   }  
   ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
     text-align: center;
     li { margin: 0px 20px; float:none; display: inline-block; }
   }

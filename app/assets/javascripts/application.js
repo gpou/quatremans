@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-svg-1.7.2.min
-//= require bootstrap
+//= require jquery.easing.1.3
 //= require jquery.fancybox-1.3.4
+//= require dropdown
+//= require jquery.thumbnailScroller
 //= require general
 
