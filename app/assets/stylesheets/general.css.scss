@@ -110,7 +110,7 @@ a {
 header {
   height: 150px;
   position: relative;
-  z-index: 99;
+  z-index: 50;
   display: block;
 
   #logo {
@@ -156,28 +156,42 @@ header {
         filter: alpha(opacity=30);
       }      
     }
+  }
+  #idiomes, #xarxes {
     .dropdown-menu {
-      z-index: 99;
+      z-index: 100;
       left: auto;
       right: 0px;
       min-width: 130px;
-      padding: 8px 0px;
-      font-size: 0.9em;
+      padding: 8px 0;
+      font-size: 0.8em;
       li { 
         height: 20px; 
-        margin-left: 0;
+        float: none;
+        margin: 0;
         a { 
           padding:0; 
           margin:0; 
           width: 130px; 
           text-align:center; 
-          &:hover {
+          &:hover, &.selected {
             background-color: #eee;
             color: #555;
           }
           &.selected {
             font-weight: bold;
           }
+        }
+      }
+    }
+  }
+  #xarxes {
+    .dropdown-menu {
+      li { 
+        height: 30px; 
+        a {
+          text-align: left;
+          img { vertical-align: middle; margin: 0 10px; }
         }
       }
     }

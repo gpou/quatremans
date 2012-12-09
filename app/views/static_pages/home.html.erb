@@ -1,23 +1,49 @@
 <header>
   <h1><%= image_tag("home/logo.png", alt: t('site_title')) %></h1>
   <div id="menu">
-    <%= link_to coleccions_path, id:"coleccions_link" do %>
-      <span><%= t('coleccions.index.title') %></span>
+    <% coleccio = Coleccio.first %>
+    <%= link_to coleccio_path(coleccio), id:"coleccions_link", :title => t('coleccions.coleccio_x', :nom => coleccio.nom) do %>
+      <span><%= t('coleccions.coleccio_x', :nom => coleccio.nom) %></span>
     <% end %>
-    <%= link_to quisom_path, id:"quisom_link" do %>
-      <span><%= t('static_pages.quisom.title') %></span>
+    <%= link_to quisom_path, id:"quisom_link", :title => t('static_pages.quisom.title_seo') do %>
+      <span><%= t('static_pages.quisom.title_seo') %></span>
     <% end %>
     
     <div id="idiomes" class="dropdown">
-      <a href="#" id="idiomes_link" class="dropdown-toggle" data-toggle="dropdown">
-        <span><%= t('static_pages.quisom.title') %></span>
+      <a href="#" id="idiomes_link" class="dropdown-toggle" data-toggle="dropdown", title = "<%= t('languages') %>">
+        <span><%= t('languages') %></span>
       </a>
       <ul class="dropdown-menu">
         <% I18n.available_locales.each do |locale| %>
           <li>
-            <%= link_to t("meta.language_name", :locale => locale.to_sym), eval("root_#{locale}_path"), :class => (locale==I18n.locale)?"selected":"" %>
+            <%= link_to t("meta.language_name", :locale => locale.to_sym), eval("root_#{locale}_path"), :class => (locale==I18n.locale)?"selected":"", :title => t("meta.language_name", :locale => locale.to_sym) %>
           </li>
         <% end %>
+      </ul>
+    </div>
+    <div id="xarxes" class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="<%= t('xarxes') %>">
+        <%= image_tag("social/facebook.png", :alt => "facebook") %>
+        <%= image_tag("social/twitter.png", :alt => "twitter") %>
+        <%= image_tag("social/pinterest.png", :alt => "pinterest") %>
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <%= link_to "https://www.facebook.com/Quatremans", :title => "facebook Quatremans", :target => "_blank" do %>
+            <%= image_tag("social/facebook.png", :alt => "facebook") %> Facebook
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "http://twitter.com/Quatremans", :title => "twitter Quatremans", :target => "_blank" do %>
+            <%= image_tag("social/twitter.png", :alt => "twitter") %> Twitter
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "http://pinterest.com/Quatremans/", :title => "pinterest Quatremans", :target => "_blank" do %>
+            <%= image_tag("social/pinterest.png", :alt => "pinterest") %> Pinterest
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
@@ -33,4 +59,8 @@
   <div id="nina">
     <%= image_tag("home/dreta#{num}.png") %>
   </div>
+  <!-- TODO: frase Senzillament salvatge amb imatge -->
+</div>
+<div id="text">
+  <%= t('static_pages.home.text') %>
 </div>

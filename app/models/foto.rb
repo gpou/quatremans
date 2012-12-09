@@ -15,7 +15,7 @@ class Foto < ActiveRecord::Base
   end
 
   has_attached_file :file, 
-    :styles => { :thumb => "100", :medium => "375", :wide => "800" },
+    :styles => { :thumb => "117", :medium => "350", :wide => "827" },
     :storage => :s3,
     :s3_credentials => "#{Rails.root}/config/s3.yml",
     :path => "fotos/:producte_id/:id_:style_:filename",

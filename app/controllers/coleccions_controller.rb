@@ -1,6 +1,6 @@
 class ColeccionsController < ApplicationController
   def index
-    @coleccions = Coleccio.all
+    redirect_to coleccio_path(Coleccio.first)
   end
 
   def show

@@ -1,31 +1,35 @@
 <% provide(:title, "#{t("coleccions.index.title")} | #{@coleccio.nom}") %>
 <% provide(:class, "coleccio") %>
 <% content_for :titols do %>
-  <h1><%= t("coleccions.coleccio_x", :nom => @coleccio.nom) %></h1>
+  <h1><%= @coleccio.nom %></h1>
 <% end %>
 
 <div id="coleccio" class="jThumbnailScroller">
     <div class="jTscrollerContainer">
         <div class="jTscroller">
-          <%= image_tag("images/coleccio2012.jpg") %>
+          <%= image_tag("images/coleccions/coleccio2012.jpg") %>
+          <svg
+             xmlns:svg="http://www.w3.org/2000/svg"
+             xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink"
+             version="1.1"
+             width="2016"
+             height="500"
+             id="mascares">
+            <% @coleccio.productes.model_o_nina.each do |producte| %>
+              <path d="<%= producte.coleccio_mascara_path %>" id="forma_<%= producte.position %>_mascara" style="opacity:0;fill:#ffffff;fill-opacity:1;stroke:none" />
+            <% end %>
+            <g id="formes">
+              <% @coleccio.productes.model_o_nina.each do |producte| %>
+                <a xlink:href="<%= producte_path(@coleccio,producte) %>">
+                  <path d="<%= producte.coleccio_path %>" id="forma_<%= producte.position %>" style="opacity:0;fill:#ffffff;fill-opacity:1;stroke:none" />
+                </a>
+              <% end %>
+            </g>
+          </svg>
+          <% @coleccio.productes.model_o_nina.each do |producte| %>
+            <%= link_to producte.nom, producte_path(@coleccio,producte), :id => "forma_#{producte.position}_links", :style => producte.coordenades_coleccio %>
+          <% end %>
         </div>
     </div>
 </div>        
-<%
-=begin %>
-<ul class="thumbnails">
-  <% @coleccio.productes.each do |producte| %>
-    <li class="span4">
-      <div class="thumbnail">
-        <% if producte.fotos.count > 0 %>
-        <%= link_to image_tag(producte.fotos.first.file.url(:medium)), producte_path(@coleccio,producte) %>
-        <% else %>
-        <%= link_to image_tag("assets/images/1.jpg"), producte_path(@coleccio,producte) %>
-        <% end %>
-        <h3><%= link_to producte.nom, producte_path(@coleccio,producte) %></h3>
-        <p><%= simple_format(producte.descripcio) %></p>
-      </div>
-    </li>
-  <% end %>
-</ul>
-=end %>

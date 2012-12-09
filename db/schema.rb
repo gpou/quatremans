@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121126161237) do
+ActiveRecord::Schema.define(:version => 20121209010940) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -102,10 +102,22 @@ ActiveRecord::Schema.define(:version => 20121126161237) do
 
   create_table "productes", :force => true do |t|
     t.integer  "coleccio_id"
-    t.string   "slug",        :null => false
+    t.string   "slug",                                       :null => false
     t.float    "preu"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.boolean  "disponible",            :default => true
+    t.boolean  "actiu",                 :default => true
+    t.string   "tipus",                 :default => "model"
+    t.integer  "dificultat"
+    t.string   "coordenades_coleccio"
+    t.string   "dibuix_file_name"
+    t.string   "dibuix_content_type"
+    t.string   "dibuix_file_size"
+    t.text     "svg"
+    t.integer  "position"
+    t.text     "coleccio_path"
+    t.text     "coleccio_mascara_path"
   end
 
 end

@@ -3,5 +3,26 @@
 #coleccio {
   width:970px; height:500px; 
   .jTscrollerContainer { height: 500px; }
-  .jTscroller { height: 500px; }
+  .jTscroller { height: 500px; 
+    svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      #formes path { cursor: pointer; }
+    }
+    a {
+      position: absolute;
+      bottom: 0px;
+      opacity: 0;
+      margin: 0; 
+      border: none; 
+      padding: 0; 
+      display: block; 
+      float: none; 
+      text-align: center;
+      background-color: transparent;   
+      text-style: italic;
+      font-size: 1.2em;     
+    }
+  }
 }

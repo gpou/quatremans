@@ -1,6 +1,9 @@
-ActiveAdmin.register Producte do
+ActiveAdmin.register Producte, {:sort_order => "position"} do
       index do
+        column :position
         column :nom
+        column :tipus
+        column :preu
 
         default_actions
       end
@@ -17,10 +20,6 @@ ActiveAdmin.register Producte do
             f.semantic_errors *f.object.errors.keys
           end
         end
-        f.inputs "Detalls" do
-          f.input :coleccio, :required => true
-          f.input :preu
-        end
         f.globalize_inputs :translations do |lf|
           lf.semantic_errors *lf.object.errors.keys
           lf.object.errors.full_messages.join('|')
@@ -31,6 +30,25 @@ ActiveAdmin.register Producte do
 
             lf.input :locale, :as => :hidden
           end
+        end
+        f.inputs "Detalls" do
+          f.input :preu
+          f.input :disponible
+          f.input :actiu
+          f.input :tipus
+          f.input :dificultat
+          f.input :position
+        end
+        f.inputs "Col&mdot;ecci&oacute;" do
+          f.input :coleccio, :required => true
+          f.input :coordenades_coleccio
+          f.input :coleccio_path
+          f.input :coleccio_mascara_path
+        end
+        f.inputs "Configuraci&oacute;" do
+          f.form_buffers.last << "<img src='#{f.object.dibuix.url(:thumb) rescue nil}' style='margin:1em;' />".html_safe
+          f.input :dibuix
+          f.input :svg
         end
         f.inputs "Fotos" do
           f.has_many :fotos do |j|

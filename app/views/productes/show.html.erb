@@ -1,32 +1,38 @@
 <% provide(:title, "#{t("productes.index.title")} | #{@producte.nom}") %>
 <% provide(:class, "producte") %>
 <% content_for :titols do %>
-  <h2><%= link_to t("coleccions.coleccio_x", :nom => @producte.coleccio.nom), @producte.coleccio %></h2>
+  <h2><%= link_to @producte.coleccio.nom, @producte.coleccio, :title => t('coleccions.coleccio_x', :nom => @producte.coleccio.nom) %></h2>
   <h1><%= @producte.nom %></h1>
 <% end %>
 
 <div class="quadre">
   <div class="fotos">
-    <a href="<%= @producte.fotos.first.file.url(:wide) %>" title="Foto 1" class="gran" rel="zoom">
-      <%= image_tag("#{@producte.fotos.first.file.url(:medium)}", id: "main_image", alt: "Foto 1") %>
+    <a href="<%= @producte.fotos.first.file.url(:wide) %>" title="<%= @producte.nom %>" class="gran" rel="zoom">
+      <%= image_tag("#{@producte.fotos.first.file.url(:medium)}", id: "main_image", alt: @producte.nom) %>
     </a>
   </div>
   <div class="dibuix">
-    <a href="<%= edit_cart_item_path(id: @producte.id) %>" class="personalitza" title="Configuracio">
-      <%= image_tag("images/dibuix_#{@producte.id}.png", id: "dibuix", alt: "Personalitza") %>
+    <a href="<%= edit_cart_item_path(id: @producte.id) %>" class="personalitza" title="<%=t('carts.personalitza')%>">
+      <%= image_tag(@producte.dibuix.url(:medium), id: "dibuix", alt: t('carts.personalitza.titol_fitxa')) %>
     </a>
   </div>
   <div class="dret">
     <div class="descripcio"><%= simple_format(@producte.descripcio) %></div>
     
-    <p class="preu">25€ <a href="" title="Afegir a la cistella"><span>Afegir a la cistella</span></a></p> 
-    <p class="dificultat"><span class="badge badge-success">facil</span></p>
+    <p class="preu">25€ <a href="<%= edit_cart_item_path(id: @producte.id) %>" class="personalitza" title="<%=t('carts.personalitza.titol_fitxa')%>"><span><%=t("carts.add")%></span></a></p> 
+    <p class="dificultat">
+      <span><%=t("activerecord.attributes.producte.dificultat")%>:</span>
+      <%= image_tag("nivell_#{@producte.dificultat>=1?"si":"no"}.png", :alt => t("activerecord.attributes.producte.dificultat")) %>
+      <%= image_tag("nivell_#{@producte.dificultat>=2?"si":"no"}.png", :alt => t("activerecord.attributes.producte.dificultat")) %>
+      <%= image_tag("nivell_#{@producte.dificultat>=3?"si":"no"}.png", :alt => t("activerecord.attributes.producte.dificultat")) %>
+      <%= image_tag("nivell_#{@producte.dificultat>=4?"si":"no"}.png", :alt => t("activerecord.attributes.producte.dificultat")) %>
+    </p>
   </div>
 </div>
 <div class="thumbs">
   <% @producte.fotos.each do |foto| %>
-  <a href="<%= foto.file.url(:wide) %>" title="Fotos" rel="zoom">
-    <%= image_tag(foto.file.url(:medium), alt: "Foto") %>
+  <a href="<%= foto.file.url(:wide) %>" title="<%= @producte.nom %>" rel="zoom">
+    <%= image_tag(foto.file.url(:medium), alt: @producte.nom ) %>
   </a>
   <% end %>
 </div>

@@ -1,7 +1,4 @@
-//
-// Dropdown menus
-// --------------------------------------------------
-
+@import "_variables";
 
 // Use the .menu class on any <li> element within the topbar or ul.tabs and you'll get some superfancy dropdowns
 .dropup,
@@ -88,7 +85,7 @@
     clear: both;
     font-weight: normal;
     line-height: 18px;
-    color: #660000;
+    color: $colorDark;
     white-space: nowrap;
   }
 }

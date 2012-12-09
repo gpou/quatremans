@@ -1,11 +1,20 @@
 ca:
   static_pages:
     home:
-      text: Aquesta és la pàgina principal de <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a> sample application.
+      text: "En moments difícils cal tornar a les arrels, recuperar tradicions i instints. Atreveix-te a vestir els teus fills, néts o nebots amb les teves mans i l'ajuda de les nostres. I deixa que ells també ho provin amb la nina camesllargues!"
     contacte:
       title: "Contacte"
+      title_seo: "Contacte amb paraules clau"
     quisom:
       title: "Qui som?"
-      text: El <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a> és un projecte to make a book and screencasts to teach web development with <a href="http://rubyonrails.org/">Ruby on Rails</a>. This is the sample application for the tutorial.
+      title_seo: "Quatremans som un equip amb paraules clau"
+      anchor_inicis: els-inicis
+      anchor_projecte: el-projecte
+      anchor_nina: la-nina-camesllargues
+      anchor_faq: preguntes-i-respostes
+    preguntes_respostes:
+      title: Preguntes i respostes
+      title_seo: Tens preguntes de com aprendre a cosir amb paraules clau?
     condicionscompra:
       title: "Condicions de compra"
+      title_seo: "Condicions de compra amb paraules clau"

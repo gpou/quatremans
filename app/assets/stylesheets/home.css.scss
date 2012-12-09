@@ -5,7 +5,7 @@
 }
 
 .content {
-  height: 700px;
+  height: 860px;
   header {
     position: absolute;
     width: 970px;
@@ -16,7 +16,7 @@
       top: 64px;
       width: 205px;
       height: 210px;
-      z-index: 100;
+      z-index: 80;
     }
     #menu {
       position: absolute;
@@ -73,28 +73,15 @@
           }
         }
         .dropdown-menu {
-          z-index: 99;
           top: 68px;
-          left: auto;
-          right: 0px;
-          min-width: 130px;
-          padding: 8px 0px;
-          li { 
-            height: 20px; 
-            a { 
-              padding:0; 
-              margin:0; 
-              width: 130px; 
-              text-align:center; 
-              &:hover {
-                background-color: #eee;
-                color: #555;
-              }
-              &.selected {
-                font-weight: bold;
-              }
-            }
-          }
+          font-size: 1em;
+        }
+      }
+      #xarxes {
+        .dropdown-menu {
+          left: 0;
+          right: auto;
+          top: 30px;
         }
       }
     }
@@ -124,6 +111,16 @@
         height: 508px;
       }
     }
+  }
+  #text {
+    font-size: 1.3em;
+    position: absolute;
+    bottom: 40px;
+    right: 190px;
+    left: 150px;
+    color: #666;
+    font-style: italic;
+    text-align: center;
   }
 }
 
