@@ -1,6 +1,6 @@
 class AddFieldsToProductes < ActiveRecord::Migration
   def change
-    add_column :productes, :disponible, :boolean, :default => 1
+    add_column :productes, :disponible, :boolean, :default => true
     add_column :productes, :actiu, :boolean, :default => true
     add_column :productes, :tipus, :string, :default => "model"
     add_column :productes, :dificultat, :integer
