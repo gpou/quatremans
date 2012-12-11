@@ -187,11 +187,13 @@ header {
   }
   #xarxes {
     margin-top: -3px;
+    a img { vertical-align: bottom; }
     .dropdown-menu {
       li { 
         height: 30px; 
         a {
           text-align: left;
+          vertical-align: bottom;
           img { vertical-align: middle; margin: 0 10px; }
         }
       }
