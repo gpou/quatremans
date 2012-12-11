@@ -1,4 +1,7 @@
         <ul class="nav pull-right">
+          <li id="cistella">
+            <%= render 'carts/button' %>
+          </li>
           <% coleccio = Coleccio.first %>
           <li><%= link_to t('coleccions.index.title'),   coleccio_path(coleccio), :title => t('coleccions.coleccio_x', :nom => coleccio.nom) %></li>
           <li><%= link_to t('static_pages.quisom.title'), quisom_path, :title => t('static_pages.quisom.title_seo') %></li>

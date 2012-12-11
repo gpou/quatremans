@@ -186,12 +186,42 @@ header {
     }
   }
   #xarxes {
+    margin-top: -3px;
     .dropdown-menu {
       li { 
         height: 30px; 
         a {
           text-align: left;
           img { vertical-align: middle; margin: 0 10px; }
+        }
+      }
+    }
+  }
+  li#cistella {
+    height: 24px;
+    display: inline-block;
+    margin-right: 30px;
+    margin-top: -5px;
+    overflow: visible;
+    font-size: 0.8em;
+    a {
+      display: inline-block;
+      position: relative;
+      width: 200px;
+      height: 24px;
+      text-align: right;
+      background: url('/assets/cart.png') no-repeat right top;
+      span {
+        padding-right: 32px;
+        line-height: 30px;
+        display: none;
+        visibility: hidden;
+      }
+      &:hover {
+        background-position: right -24px;
+        span {
+          display: inline;
+          visibility: visible;
         }
       }
     }

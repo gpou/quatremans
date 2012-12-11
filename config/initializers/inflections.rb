@@ -13,4 +13,6 @@
 ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'coleccio', 'coleccions'
   inflect.irregular 'personalitzacio', 'personalitzacions'
+  inflect.irregular 'config_opcio', 'config_opcions'
+  inflect.irregular 'config_zona', 'config_zones'
 end

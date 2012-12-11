@@ -2,8 +2,15 @@ ActiveAdmin.register Producte, {:sort_order => "position"} do
       index do
         column :position
         column :nom
+        column :fotos do |producte|
+          producte.fotos.count
+          #producte.fotos.each do |foto|
+          #  foto.file.url(:thumb)
+          #end
+        end
         column :tipus
         column :preu
+
 
         default_actions
       end
@@ -52,7 +59,9 @@ ActiveAdmin.register Producte, {:sort_order => "position"} do
         end
         f.inputs "Fotos" do
           f.has_many :fotos do |j|
-            j.form_buffers.last << "<img src='#{j.object.file.url(:thumb) rescue nil}' style='margin:1em;' />".html_safe
+            if j.object.id
+              j.form_buffers.last << "<img src='#{j.object.file.url(:thumb) rescue nil}' style='margin:1em;' />".html_safe
+            end
             j.input :position
             j.input :file, :as => :file
             if j.object.id

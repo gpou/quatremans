@@ -78,10 +78,36 @@
         }
       }
       #xarxes {
+        width: 94px;
+        height: 30px;
+        float: left;
         .dropdown-menu {
           left: 0;
           right: auto;
           top: 30px;
+        }
+      }
+      #cistella {
+        height: 24px;
+        display: inline-block;
+        margin-left: 30px;
+        a {
+          display: inline-block;
+          position: relative;
+          width: 200px;
+          height: 24px;
+          background: url('/assets/cart.png') no-repeat left top;
+          span {
+            padding-left: 32px;
+            line-height: 35px;
+          }
+          &:hover {
+            background-position: left -24px;
+            span {
+              display: inline;
+              visibility: visible;
+            }
+          }
         }
       }
     }

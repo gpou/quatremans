@@ -12,14 +12,17 @@
     </a>
   </div>
   <div class="dibuix">
-    <a href="<%= edit_cart_item_path(id: @producte.id) %>" class="personalitza" title="<%=t('carts.personalitza')%>">
+    <a href="<%= edit_cart_item_path(id: @producte.id) %>" class="personalitza" title="<%=t('carts.personalitza.titol_fitxa')%>">
       <%= image_tag(@producte.dibuix.url(:medium), id: "dibuix", alt: t('carts.personalitza.titol_fitxa')) %>
     </a>
   </div>
   <div class="dret">
     <div class="descripcio"><%= simple_format(@producte.descripcio) %></div>
     
-    <p class="preu">25€ <a href="<%= edit_cart_item_path(id: @producte.id) %>" class="personalitza" title="<%=t('carts.personalitza.titol_fitxa')%>"><span><%=t("carts.add")%></span></a></p> 
+    <p class="preu">
+      <a href="<%= edit_cart_item_path(id: @producte.id) %>" class="personalitza" title="<%=t('carts.personalitza.titol_fitxa')%>"><span><%=t("carts.add")%></span></a>
+      <%= number_with_precision(@producte.preu) %>€
+    </p> 
     <p class="dificultat">
       <span><%=t("activerecord.attributes.producte.dificultat")%>:</span>
       <%= image_tag("nivell_#{@producte.dificultat>=1?"si":"no"}.png", :alt => t("activerecord.attributes.producte.dificultat")) %>

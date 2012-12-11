@@ -57,23 +57,21 @@ body.producte {
   }
   .preu {
     margin: 0;
-    line-height: 40px;
-    font-size: 25px;
+    line-height: 24px;
+    font-size: 24px;
     position: absolute; 
     text-align: right;
     right: 0px;
-    bottom: 0px;
-    width: 120px;
+    bottom: 20px;
     a { 
-      display: block;
-      float: right;
-      background-image: url(/assets/cart.png);
-      background-repeat: no-repeat;
-      background-position: center right;
-      width: 30px;
-      height: 30px;
+      display: inline-block;
+      float: left;
+      margin-right: 10px;
+      background: url(/assets/cart.png) no-repeat right 0px;
+      width: 24px;
+      height: 24px;
       &:hover {
-        background-image: url(/assets/cart-over.png);
+        background-position: right -24px;
       }
       span { display: none; }
     }

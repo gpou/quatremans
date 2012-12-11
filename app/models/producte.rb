@@ -13,6 +13,8 @@ class Producte < ActiveRecord::Base
   has_many :fotos, :dependent => :destroy
   accepts_nested_attributes_for :fotos, :allow_destroy => true
 
+  has_many :config_parametres
+
   has_attached_file :dibuix, 
     :styles => { :thumb => "117", :medium => "284x400" },
     :storage => :s3,
