@@ -56,6 +56,12 @@ ActiveAdmin.register Producte, {:sort_order => "position"} do
           f.form_buffers.last << "<img src='#{f.object.dibuix.url(:thumb) rescue nil}' style='margin:1em;' />".html_safe
           f.input :dibuix
           f.input :svg
+          f.has_many :config_parametres do |j|
+            j.input :config_grup
+            j.input :position
+            j.input :tipus
+            j.input :nom
+          end
         end
         f.inputs "Fotos" do
           f.has_many :fotos do |j|

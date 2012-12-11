@@ -9,4 +9,8 @@ class ConfigGrup < ActiveRecord::Base
   scope :nina, :conditions => ["tipus = ?","nina"]
   scope :vestit_nina, :conditions => ["tipus = ?","vestit_nina"]
 
+  def to_label
+    self.nom
+  end
+
 end

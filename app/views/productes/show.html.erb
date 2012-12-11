@@ -13,7 +13,25 @@
   </div>
   <div class="dibuix">
     <a href="<%= edit_cart_item_path(id: @producte.id) %>" class="personalitza" title="<%=t('carts.personalitza.titol_fitxa')%>">
-      <%= image_tag(@producte.dibuix.url(:medium), id: "dibuix", alt: t('carts.personalitza.titol_fitxa')) %>
+      <% if @producte.tipus=='model' %>
+        <% dibuix = "images/dibuix#{(@producte.id==13 || @producte.id==1) ? "_darrera" : ""}.jpg" %>
+        <%= image_tag(dibuix, id: "dibuix", alt: t('carts.personalitza.titol_fitxa')) %>
+      <% end %>
+      <svg
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         version="1.1"
+         width="330"
+         height="423"
+         id="svg3723">
+        <% @producte.config_parametres.each do |parametre| %>
+          <% parametre.config_zones.each do |zona| %>
+            <path d="<%=zona.svg%>" id="zona_<%=zona.id%>" class="color" style="fill:#eeeeee;fill-opacity:1;stroke:none" />
+          <% end %>
+        <% end %>
+        <path d="<%=@producte.svg%>" style="fill:#000000;fill-opacity:1" />
+        <%= render 'boto_personalitza' %>
     </a>
   </div>
   <div class="dret">

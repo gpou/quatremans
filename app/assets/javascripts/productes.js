@@ -23,6 +23,17 @@ $(document).ready(function() {
     'titlePosition'   : 'over'
   });
 
+  $(".dibuix .personalitza").hover(
+    function() {
+      $(".dibuix .personalitza svg path.color").css('fill',"#cccccc");
+      $(".dibuix .personalitza svg path.personalitza_text").css('opacity',1);
+    },
+    function() {
+      $(".dibuix .personalitza svg path.color").css('fill',"#eeeeee");
+      $(".dibuix .personalitza svg path.personalitza_text").css('opacity',0);
+    }
+  );
+
   $(".personalitza").click(function() {
     $.fancybox({
       href: $(this).attr('href'),

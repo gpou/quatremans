@@ -30,6 +30,11 @@ body.producte {
   width: 330px;
   height: 423px;
   overflow: hidden;
+  svg {
+    position: absolute;
+    left:0;
+    top: 0;
+  }
 }
 
 .dret {
