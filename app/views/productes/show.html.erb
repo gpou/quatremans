@@ -33,9 +33,14 @@
   </div>
 </div>
 <div class="thumbs">
+  <% if @producte.fotos.count > 8
+    width = ((970+3)/(@producte.fotos.count) - 3).floor.to_s
+  else
+    width = ""
+  end %>
   <% @producte.fotos.each do |foto| %>
-  <a href="<%= foto.file.url(:wide) %>" title="<%= @producte.nom %>" rel="zoom">
-    <%= image_tag(foto.file.url(:medium), alt: @producte.nom ) %>
+  <a href="<%= foto.file.url(:wide) %>" title="<%= @producte.nom %>" rel="zoom" <%= (width.blank?) ? "" : "style=width:#{width}px" %>>
+    <%= image_tag(foto.file.url(:medium), alt: @producte.nom, :style => (width.blank?) ? "" : "width:#{width}px;height:auto" ) %>
   </a>
   <% end %>
 </div>

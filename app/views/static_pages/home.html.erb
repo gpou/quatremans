@@ -15,9 +15,11 @@
       </a>
       <ul class="dropdown-menu">
         <% I18n.available_locales.each do |locale| %>
+          <% if locale.to_s=='ca' %>
           <li>
             <%= link_to t("meta.language_name", :locale => locale.to_sym), eval("root_#{locale}_path"), :class => (locale==I18n.locale)?"selected":"", :title => t("meta.language_name", :locale => locale.to_sym) %>
           </li>
+          <% end %>
         <% end %>
       </ul>
     </div>

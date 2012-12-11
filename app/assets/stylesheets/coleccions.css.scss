@@ -1,28 +1,31 @@
 @import "_variables";
 
 #coleccio {
-  width:970px; height:500px; 
-  .jTscrollerContainer { height: 500px; }
-  .jTscroller { height: 500px; 
-    svg {
+  width:970px; 
+  height:550px; 
+  .jTscrollerContainer { height: 550px; }
+  .jTscroller { 
+    width: 2719px;
+    height: 550px;
+    img, svg {
+      width: 100%;
+      height: 100%;
       position: absolute;
       left: 0;
       top: 0;
-      #formes path { cursor: pointer; }
     }
-    a {
+    span {
       position: absolute;
-      bottom: 0px;
-      opacity: 0;
+      display: block;
       margin: 0; 
       border: none; 
       padding: 0; 
-      display: block; 
       float: none; 
+      opacity: 0;
       text-align: center;
-      background-color: transparent;   
-      text-style: italic;
-      font-size: 1.2em;     
+      font-style: italic;
+      font-size: 1.2em;   
+      line-height: 1.2em;  
     }
   }
 }

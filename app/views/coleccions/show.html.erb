@@ -13,22 +13,23 @@
              xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink"
              version="1.1"
-             width="2016"
-             height="500"
-             id="mascares">
+             width="2719"
+             height="550"
+             viewBox="0 0 2719.0001 550"
+             id="mascares"
+             xml:space="preserve">
             <% @coleccio.productes.model_o_nina.each do |producte| %>
-              <path d="<%= producte.coleccio_mascara_path %>" id="forma_<%= producte.position %>_mascara" style="opacity:0;fill:#ffffff;fill-opacity:1;stroke:none" />
+              <path d="<%= producte.coleccio_path %>" id="coleccio_<%= producte.position %>_linia" style="opacity:0;fill:#000088;fill-opacity:1;stroke:none" />
             <% end %>
-            <g id="formes">
-              <% @coleccio.productes.model_o_nina.each do |producte| %>
-                <a xlink:href="<%= producte_path(@coleccio,producte) %>">
-                  <path d="<%= producte.coleccio_path %>" id="forma_<%= producte.position %>" style="opacity:0;fill:#ffffff;fill-opacity:1;stroke:none" />
-                </a>
-              <% end %>
-            </g>
           </svg>
+          <%= image_tag("transparent.png", :usemap => "#coleccio_map") %>
+          <map id="coleccio_map" name="coleccio_map">
+            <% @coleccio.productes.model_o_nina.each do |producte| %>
+              <area shape="poly" alt="<%=producte.nom%>" title="<%=producte.nom%>" coords="<%=producte.coleccio_mascara_path%>" href="<%=producte_path(@coleccio,producte)%>" id="coleccio_<%=producte.position%>" />
+            <% end %>
+          </map>
           <% @coleccio.productes.model_o_nina.each do |producte| %>
-            <%= link_to producte.nom, producte_path(@coleccio,producte), :id => "forma_#{producte.position}_links", :style => producte.coordenades_coleccio %>
+            <span style="<%=producte.coordenades_coleccio%>" id="coleccio_<%= producte.position %>_nom"><%=producte.nom%></span>
           <% end %>
         </div>
     </div>
