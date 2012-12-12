@@ -1,5 +1,43 @@
-@import "bootstrap";
+@import "_variables";
+
+body {
+  background-color: #fff;
+  font-family: dejavu;
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+}
+
+div { margin: 0; padding: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  color: $colorDark;
+  line-height: 1.3em;
+  margin: 0; 
+  padding: 0;
+}
+h1 { font-size: 40px; }
+h2 { font-size: 30px; }
+h3 { font-size: 20px; }
+h4 { font-size: 16px; }
+h5 { font-size: 14px; }
+
+a, a:hover, a:active, img, a img, a:hover img, a:active img {
+  border: none;
+  outline: none;
+  -moz-outline-style: none;
+}
+a {
+  color: $color;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    color: $colorDarker;
+  }
+}
 
 .iframe_content {
   padding: 20px;
 }
+
