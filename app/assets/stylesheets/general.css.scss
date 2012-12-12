@@ -81,22 +81,18 @@ h3 { font-size: 20px; }
 h4 { font-size: 16px; }
 h5 { font-size: 14px; }
 
+a, a:hover, a:active, :moz-any-link:focus, img, a img, a:hover img, a:active img {
+  border: none;
+  outline: none;
+  -moz-outline-style: none;
+}
 a {
   color: $color;
   text-decoration: none;
-  outline: none;
-  -moz-outline-style: none;
   &:hover {
     text-decoration: none;
     color: $colorDarker;
   }
-  &:active {
-    outline: none;
-    -moz-outline-style: none;    
-  }
-}
-:-moz-any-link:focus {
-  outline: none;
 }
 
 .container {
