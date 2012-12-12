@@ -16,12 +16,11 @@
     }
     span {
       position: absolute;
-      display: block;
+      display: none;
       margin: 0; 
       border: none; 
       padding: 0; 
       float: none; 
-      opacity: 0;
       text-align: center;
       font-style: italic;
       font-size: 1.2em;   
@@ -29,3 +28,10 @@
     }
   }
 }
+#text {
+  font-size: 1.2em;
+  color: #666;
+  font-style: italic;
+  text-align: left;
+}
+

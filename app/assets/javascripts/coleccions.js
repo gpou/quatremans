@@ -3,15 +3,16 @@
     $(".jTscroller area").hover(
       function() {
         $("#"+$(this).attr("id")+"_linia").css('opacity',1);
-        $("#"+$(this).attr("id")+"_nom").css('opacity',1);
+        $("#"+$(this).attr("id")+"_nom").show();
       }, function() {
         $("#"+$(this).attr("id")+"_linia").css('opacity',0);
-        $("#"+$(this).attr("id")+"_nom").css('opacity',0);
+        $("#"+$(this).attr("id")+"_nom").hide();
       }
     );
   })
 
   window.onload=function(){
+    $(".jTscroller .svg-path, .jTscroller path");
     $("#coleccio").thumbnailScroller({
       scrollerType:"hoverAccelerate", 
       scrollerOrientation:"horizontal", 

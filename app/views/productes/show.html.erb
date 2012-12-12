@@ -17,6 +17,7 @@
         <% dibuix = "images/dibuix#{(@producte.id==13 || @producte.id==1) ? "_darrera" : ""}.jpg" %>
         <%= image_tag(dibuix, id: "dibuix", alt: t('carts.personalitza.titol_fitxa')) %>
       <% end %>
+      <script type="text/javascript">ample.open();</script>
       <svg
          xmlns:svg="http://www.w3.org/2000/svg"
          xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +32,9 @@
           <% end %>
         <% end %>
         <path d="<%=@producte.svg%>" style="fill:#000000;fill-opacity:1" />
-        <%= render 'boto_personalitza' %>
+      </svg>
+      <script type="text/javascript">ample.close();</script>
+      <%= render 'boto_personalitza' %>
     </a>
   </div>
   <div class="dret">

@@ -17,4 +17,8 @@
 //= require dropdown
 //= require jquery.thumbnailScroller
 //= require general
+//= require ample-0.9.4/ample/runtime.js
+//= require ample-0.9.4/ample/languages/svg/svg.js
+//= require ample-0.9.4/ample/languages/xhtml/xhtml.js
+
 

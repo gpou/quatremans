@@ -1,5 +1,6 @@
 
 
+
 $(document).ready(function() {
   var main_image = $("#main_image").attr('src');
   var on_image = false;
@@ -26,11 +27,11 @@ $(document).ready(function() {
   $(".dibuix .personalitza").hover(
     function() {
       $(".dibuix .personalitza svg path.color").css('fill',"#cccccc");
-      $(".dibuix .personalitza svg path.personalitza_text").css('opacity',1);
+      $(".dibuix .personalitza .personalitza_text").show();
     },
     function() {
       $(".dibuix .personalitza svg path.color").css('fill',"#eeeeee");
-      $(".dibuix .personalitza svg path.personalitza_text").css('opacity',0);
+      $(".dibuix .personalitza .personalitza_text").hide();
     }
   );
 

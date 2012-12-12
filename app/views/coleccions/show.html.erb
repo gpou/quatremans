@@ -8,6 +8,7 @@
     <div class="jTscrollerContainer">
         <div class="jTscroller">
           <%= image_tag("images/coleccions/coleccio2012.jpg") %>
+          <script type="text/javascript">ample.open();</script>
           <svg
              xmlns:svg="http://www.w3.org/2000/svg"
              xmlns="http://www.w3.org/2000/svg"
@@ -22,6 +23,7 @@
               <path d="<%= producte.coleccio_path %>" id="coleccio_<%= producte.position %>_linia" style="opacity:0;fill:#000088;fill-opacity:1;stroke:none" />
             <% end %>
           </svg>
+          <script type="text/javascript">ample.close()</script>
           <%= image_tag("transparent.png", :usemap => "#coleccio_map") %>
           <map id="coleccio_map" name="coleccio_map">
             <% @coleccio.productes.model_o_nina.each do |producte| %>
@@ -34,3 +36,11 @@
         </div>
     </div>
 </div>        
+
+<div id="text">
+  <p>“Quatre Mans, i en especial aquesta primera col·lecció “Senzillament salvatges”, vol buscar l'essència dels nens, allò que els fa divertits, innocents i tan vius!. Pretén trobar la seva essència més lliure, tot buscant l'equilibri entre allò natural i fantasiós. Busquem el nen dinàmic, el nen que somriu sense saber el perquè. Busquem el nen en l'infant.</p>
+
+  <p>És per aquest motiu que hem creat una col·lecció funcional en tots els sentits, que es compenetra amb el natural i salvatge. Hem creat patrons dinàmics, que no s'arrapen al cos, que permeten als nens amagar-se darrera les caputxes, córrer pels camps, jugar amb la sorra o anar de quatre grapes.</p>
+
+  <p>Assimilem el nen a un petit animal lliure, natural i sovint desconegut que el que més desitja és explorar i conèixer tot el que l'envolta.”</p>
+</div>

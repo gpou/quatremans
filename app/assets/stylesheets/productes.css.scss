@@ -30,10 +30,20 @@ body.producte {
   width: 330px;
   height: 423px;
   overflow: hidden;
-  svg {
+  img, svg {
+    width: 100%;
+    height: 100%;
     position: absolute;
-    left:0;
+    left: 0;
     top: 0;
+  }
+  .personalitza_text {
+    display: none;
+    color: $colorDark;
+    position: absolute;
+    left: 40px;
+    top: 300px;
+    font-size: 2em;
   }
 }
 
