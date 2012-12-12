@@ -1,46 +1,9 @@
-<%= form_for(@item) do |f| %>
-  <div class="dibuix">
-    <%= render 'vestit' %>
-  </div>
-  <div class="caixa">
-    <h1><%=t('carts.personalitza.titol')%></h1>
-    <div class="mostres">
-      <label>Cos i faldilla:</label>
-      <input type="hidden" name="color1" value="llana_vermella" />
-      <ul>
-        <li><a href="llana_vermella" class="selected" title="Llana vermella"><%= image_tag("images/mostres/llana_vermella.png") %></a></li>
-        <li><a href="micropana_verda" title="Micropana verda"><%= image_tag("images/mostres/micropana_verda.png") %></a></li>
-        <li><a href="micropana_taronja" title="Micropana taronja"><%= image_tag("images/mostres/micropana_taronja.png") %></a></li>
-      </ul>
-      <br class="clear" />
-    </div>
-    <div class="mostres">
-      <label>Mànigues:</label>
-      <input type="hidden" name="color2" value="micropana_verda" />
-      <ul>
-        <li><a href="llana_vermella" title="Llana vermella"><%= image_tag("images/mostres/llana_vermella.png") %></a></li>
-        <li><a href="micropana_verda" class="selected" title="Micropana verda"><%= image_tag("images/mostres/micropana_verda.png") %></a></li>
-        <li><a href="micropana_taronja" title="Micropana taronja"><%= image_tag("images/mostres/micropana_taronja.png") %></a></li>
-      </ul>
-      <br class="clear" />
-    </div>
-    <div class="estampats">
-      <label>Estampats:</label>
-      <input type="hidden" name="estampat_darrera" value="triangle_gran_2" />
-      <ul>
-        <li><a href="triangle_gran_1" title="Triangle 1"><%= image_tag("images/estampats/triangle_gran_1.png") %></a></li>
-        <li><a href="triangle_gran_2" class="selected" title="Triangle 2"><%= image_tag("images/estampats/triangle_gran_2.png") %></a></li>
-        <li><a href="triangle_gran_3" title="Triangle 3"><%= image_tag("images/estampats/triangle_gran_3.png") %></a></li>
-        <li><a href="triangle_gran_4" title="Triangle 4"><%= image_tag("images/estampats/triangle_gran_4.png") %></a></li>
-        <li><a href="" title="Sense estampat"><%= image_tag("images/estampats/no.png") %></a></li>
-      </ul>
-      <br class="clear" />
-    </div>
-
-    <div class="botons">
-      <%= f.submit value:"Guarda" %>
-    </div>
-
-    <div id="zoom"></div>
-  </div>
+<% provide(:title, t('carts.title')) %>
+<% content_for :titols do %>
+  <h1><%= t('carts.title') %></h1>
 <% end %>
+
+<div class="cistella">
+  <br /><br /><br />
+  Ho estem acabant... perdoneu !!!!
+</div>

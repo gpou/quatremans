@@ -34,8 +34,8 @@ $(document).ready(function() {
 })
 
 function zoom_mostra(id) {
-  var img = $(id).find('image').attr('alt');
-  var nom = $(id).find('image').attr('title');
+  var nom = $('#opcio_'+id).attr('title');
+  var img = $('#opcio_'+id).find('img').attr('src');
   if (img) $("#zoom").html("<p>"+nom+"</p><img src='"+img+"' />");
   else; //$("#zoom").html("");
 }
@@ -48,13 +48,14 @@ function canvi_mostra(obj, save, orig) {
   if (orig) var val = input.val();
   else var val = obj.attr('href');
   var name = input.attr('name');
-  $("path[class~='"+name+"']").css('fill','url(#mostra_'+val+')');
+  var color = obj.find('img').attr('alt');
+  $("path[class~='"+name+"']").css('fill','#'+color);
   if (save) {
     div.find('a').removeClass('selected');
     obj.addClass('selected');
     input.val(val);
   }
-  return ('#mostra_'+val); 
+  return (val); 
 }
 
 function canvi_estampat(obj, save, orig) {

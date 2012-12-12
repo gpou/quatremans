@@ -1,7 +1,7 @@
-class ConfigGrup < ActiveRecord::Base
-  attr_accessible :nom, :tipus, :coleccio_id
+class Configgrup < ActiveRecord::Base
+  attr_accessible :nom, :tipus, :coleccio_id, :configopcio_ids
 
-  has_and_belongs_to_many :config_opcions
+  has_and_belongs_to_many :configopcions
   belongs_to :coleccio
 
   scope :teixit, :conditions => ["tipus = ?","teixit"]

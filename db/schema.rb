@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121209190915) do
+ActiveRecord::Schema.define(:version => 20121212181059) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -65,52 +65,58 @@ ActiveRecord::Schema.define(:version => 20121209190915) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "config_grups", :force => true do |t|
+  create_table "configgrups", :force => true do |t|
     t.string  "nom"
     t.integer "coleccio_id"
     t.string  "tipus"
   end
 
-  create_table "config_opcio_translations", :force => true do |t|
-    t.integer  "config_opcio_id"
-    t.string   "locale"
-    t.string   "nom"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+  create_table "configgrups_configopcions", :id => false, :force => true do |t|
+    t.integer "configgrup_id",  :null => false
+    t.integer "configopcio_id", :null => false
   end
 
-  add_index "config_opcio_translations", ["config_opcio_id"], :name => "index_bb9507e3cc334beaa2f67ffecaed91649c6106ba"
-  add_index "config_opcio_translations", ["locale"], :name => "index_config_opcio_translations_on_locale"
+  create_table "configopcio_translations", :force => true do |t|
+    t.integer  "configopcio_id"
+    t.string   "locale"
+    t.string   "nom"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
-  create_table "config_opcions", :force => true do |t|
+  add_index "configopcio_translations", ["configopcio_id"], :name => "index_bb9507e3cc334beaa2f67ffecaed91649c6106ba"
+  add_index "configopcio_translations", ["locale"], :name => "index_config_opcio_translations_on_locale"
+
+  create_table "configopcions", :force => true do |t|
     t.string "nom"
     t.string "tipus"
     t.float  "preu"
     t.text   "svg"
   end
 
-  create_table "config_parametre_translations", :force => true do |t|
-    t.integer  "config_parametre_id"
+  create_table "configparametre_translations", :force => true do |t|
+    t.integer  "configparametre_id"
     t.string   "locale"
     t.string   "nom"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
-  add_index "config_parametre_translations", ["config_parametre_id"], :name => "index_3a628862662a35a5f70cf4e2fc59cfba57e5f441"
-  add_index "config_parametre_translations", ["locale"], :name => "index_config_parametre_translations_on_locale"
+  add_index "configparametre_translations", ["configparametre_id"], :name => "index_3a628862662a35a5f70cf4e2fc59cfba57e5f441"
+  add_index "configparametre_translations", ["locale"], :name => "index_config_parametre_translations_on_locale"
 
-  create_table "config_parametres", :force => true do |t|
+  create_table "configparametres", :force => true do |t|
     t.string  "nom"
     t.integer "producte_id"
-    t.integer "config_grup_id"
+    t.integer "configgrup_id"
     t.string  "tipus"
     t.integer "position"
   end
 
-  create_table "config_zones", :force => true do |t|
-    t.integer "config_parametre_id"
+  create_table "configzones", :force => true do |t|
+    t.integer "configparametre_id"
     t.text    "svg"
+    t.boolean "dibuix"
   end
 
   create_table "foto_translations", :force => true do |t|
@@ -150,19 +156,19 @@ ActiveRecord::Schema.define(:version => 20121209190915) do
 
   create_table "productes", :force => true do |t|
     t.integer  "coleccio_id"
-    t.string   "slug",                                       :null => false
+    t.string   "slug",                                                             :null => false
     t.float    "preu"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
-    t.boolean  "disponible",            :default => true
-    t.boolean  "actiu",                 :default => true
-    t.string   "tipus",                 :default => "model"
+    t.datetime "created_at",                                                       :null => false
+    t.datetime "updated_at",                                                       :null => false
+    t.boolean  "disponible",                                  :default => true
+    t.boolean  "actiu",                                       :default => true
+    t.string   "tipus",                                       :default => "model"
     t.integer  "dificultat"
     t.string   "coordenades_coleccio"
     t.string   "dibuix_file_name"
     t.string   "dibuix_content_type"
     t.string   "dibuix_file_size"
-    t.text     "svg"
+    t.text     "svg",                   :limit => 2147483647
     t.integer  "position"
     t.text     "coleccio_path"
     t.text     "coleccio_mascara_path"

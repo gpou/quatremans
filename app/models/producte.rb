@@ -1,5 +1,5 @@
 class Producte < ActiveRecord::Base
-  attr_accessible :slug, :nom, :descripcio, :preu, :locale, :coleccio_id, :translations_attributes, :fotos_attributes, :disponible, :actiu, :tipus, :dificultat, :coordenades_coleccio, :dibuix, :svg, :position, :coleccio_path, :coleccio_mascara_path, :config_parametres_attributes
+  attr_accessible :slug, :nom, :descripcio, :preu, :locale, :coleccio_id, :translations_attributes, :fotos_attributes, :disponible, :actiu, :tipus, :dificultat, :coordenades_coleccio, :dibuix, :svg, :position, :coleccio_path, :coleccio_mascara_path, :configparametres_attributes
 
   translates :nom, :slug, :descripcio, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations
@@ -13,8 +13,8 @@ class Producte < ActiveRecord::Base
   has_many :fotos, :dependent => :destroy
   accepts_nested_attributes_for :fotos, :allow_destroy => true
 
-  has_many :config_parametres, :dependent => :destroy, :class_name => "ConfigParametre"
-  accepts_nested_attributes_for :config_parametres, :allow_destroy => true
+  has_many :configparametres, :dependent => :destroy
+  accepts_nested_attributes_for :configparametres, :allow_destroy => true
 
   has_attached_file :dibuix, 
     :styles => { :thumb => "117", :medium => "284x400" },
@@ -41,6 +41,10 @@ class Producte < ActiveRecord::Base
   end
 
   def to_label
+    self.nom
+  end
+
+  def name
     self.nom
   end
 

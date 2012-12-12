@@ -26,8 +26,8 @@
          width="330"
          height="423"
          id="svg3723">
-        <% @producte.config_parametres.each do |parametre| %>
-          <% parametre.config_zones.each do |zona| %>
+        <% @producte.configparametres.each do |parametre| %>
+          <% parametre.configzones.each do |zona| %>
             <path d="<%=zona.svg%>" id="zona_<%=zona.id%>" class="color" style="fill:#eeeeee;fill-opacity:1;stroke:none" />
           <% end %>
         <% end %>

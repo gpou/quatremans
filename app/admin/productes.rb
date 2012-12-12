@@ -11,7 +11,6 @@ ActiveAdmin.register Producte, {:sort_order => "position"} do
         column :tipus
         column :preu
 
-
         default_actions
       end
 
@@ -56,11 +55,14 @@ ActiveAdmin.register Producte, {:sort_order => "position"} do
           f.form_buffers.last << "<img src='#{f.object.dibuix.url(:thumb) rescue nil}' style='margin:1em;' />".html_safe
           f.input :dibuix
           f.input :svg
-          f.has_many :config_parametres do |j|
-            j.input :config_grup
+          f.has_many :configparametres do |j|
+            j.input :configgrup
             j.input :position
             j.input :tipus
             j.input :nom
+            if j.object.id
+              j.input :_destroy, :as=>:boolean, :required => false, :label=>'Remove'
+            end
           end
         end
         f.inputs "Fotos" do
