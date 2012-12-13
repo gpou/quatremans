@@ -2,19 +2,23 @@ ca:
   static_pages:
     home:
       text: "En moments difícils cal tornar a les arrels, recuperar tradicions i instints. Atreveix-te a vestir els teus fills, néts o nebots amb les teves mans i l'ajuda de les nostres. I deixa que ells també ho provin amb la nina Camesllargues!"
+      description_seo: "Atreveix-te a vestir els teus fills, néts o nebots amb les teves mans i l'ajuda de les nostres. I deixa que ells també ho provin amb la nina Camesllargues!"
     contacte:
       title: "Contacte"
-      title_seo: "Contacte amb paraules clau"
+      title_seo: "Contacte"
+      description_seo: "Contacta amb nosaltres"
     quisom:
       title: "Qui som?"
-      title_seo: "Quatremans som un equip amb paraules clau"
+      title_seo: "Qui som Quatremans"
+      description_seo: "Qui som Quatremans"
       anchor_inicis: els-inicis
       anchor_projecte: el-projecte
       anchor_nina: la-nina-camesllargues
       anchor_faq: preguntes-i-respostes
     preguntes_respostes:
       title: Preguntes i respostes
-      title_seo: Tens preguntes de com aprendre a cosir amb paraules clau?
+      title_seo: Tens preguntes de com aprendre a cosir amb Quatremans?
     condicionscompra:
       title: "Condicions de compra"
-      title_seo: "Condicions de compra amb paraules clau"
+      title_seo: "Condicions de compra a Quatremans"
+      description_seo: "Condicions de compra a Quatremans"

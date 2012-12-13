@@ -2,4 +2,5 @@ ca:
   coleccions:
     index:
       title: "Col·lecció"
-    coleccio_x : "Col·lecció %{nom}"
+    coleccio_x: "Col·lecció %{nom}"
+    description_seo: "hem creat una col·lecció funcional en tots els sentits, que es compenetra amb el seu costat més natural i indòmit... autènticament salvatge. Hem creat patrons dinàmics, que no s'arrapen al cos, que permeten als nens amagar-se darrera les caputxes, córrer pels camps, jugar amb la sorra o anar de quatre grapes."

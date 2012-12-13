@@ -1,4 +1,5 @@
 <% provide(:title, "#{t("productes.index.title")} | #{@producte.nom}") %>
+<% provide(:meta_description, @producte.descripcio) %>
 <% provide(:class, "producte") %>
 <% content_for :titols do %>
   <h2><%= link_to @producte.coleccio.nom, @producte.coleccio, :title => t('coleccions.coleccio_x', :nom => @producte.coleccio.nom) %></h2>
