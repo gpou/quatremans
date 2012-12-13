@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   before_filter :load_cart
   before_filter :store_location
   helper_method :back
+  before_filter :set_environment
+
+  def set_environment
+    @environment = Rails.env
+  end
 
   def back
     session[:return_to] || root_path
