@@ -25,6 +25,7 @@ Quatremans::Application.routes.draw do
     collection do
       get :edit_cart, :as => "edit"
       put :update_cart, :as => "update"
+      get :nina
       get :validation
     end
     resources :cart_items, :only => [:index, :edit, :update, :destroy], :as => "items", :controller => "carts"

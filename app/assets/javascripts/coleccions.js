@@ -14,15 +14,15 @@
   window.onload=function(){
     $(".jTscroller .svg-path, .jTscroller path");
     $("#coleccio").thumbnailScroller({
-      scrollerType:"hoverAccelerate", 
+      scrollerType:"clickButtons", 
       scrollerOrientation:"horizontal", 
-      scrollSpeed:4, 
-      scrollEasing:"easeOutCirc", 
+      scrollEasing:"linear", 
       scrollEasingAmount:600, 
-      acceleration:30, 
-      noScrollCenterSpace:250, 
+      acceleration:1, 
+      scrollSpeed:2, 
+      noScrollCenterSpace:10, 
       autoScrolling:0, 
-      autoScrollingSpeed:2000, 
+      autoScrollingSpeed:5000, 
       autoScrollingEasing:"easeInOutQuad", 
       autoScrollingDelay:500 
     });

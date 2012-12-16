@@ -12,5 +12,9 @@ class Configgrup < ActiveRecord::Base
   def to_label
     self.nom
   end
+  
+  def name
+    self.nom
+  end
 
 end

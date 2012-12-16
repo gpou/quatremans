@@ -15,7 +15,7 @@
   <div class="dibuix">
     <a href="<%= edit_cart_item_path(id: @producte.id) %>" class="personalitza" title="<%=t('carts.personalitza.titol_fitxa')%>">
       <% if @producte.tipus=='model' %>
-        <% dibuix = "images/dibuix#{(@producte.id==13 || @producte.id==1) ? "_darrera" : ""}.jpg" %>
+        <% dibuix = "images/config/dibuix#{(@producte.id==13 || @producte.id==1) ? "_darrera" : ""}.jpg" %>
         <%= image_tag(dibuix, id: "dibuix", alt: t('carts.personalitza.titol_fitxa')) %>
       <% end %>
       <script type="text/javascript">ample.open();</script>
@@ -28,7 +28,7 @@
          height="423"
          id="svg3723">
         <% @producte.configparametres.each do |parametre| %>
-          <% parametre.configzones.each do |zona| %>
+          <% parametre.configzones.dibuixar.each do |zona| %>
             <path d="<%=zona.svg%>" id="zona_<%=zona.id%>" class="color" style="fill:#eeeeee;fill-opacity:1;stroke:none" />
           <% end %>
         <% end %>

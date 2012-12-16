@@ -1,5 +1,6 @@
 ActiveAdmin.register Producte, {:sort_order => "position"} do
       index do
+        column :id
         column :position
         column :nom
         column :fotos do |producte|
@@ -52,20 +53,9 @@ ActiveAdmin.register Producte, {:sort_order => "position"} do
           f.input :coleccio_mascara_path
         end
         f.inputs "Configuraci&oacute;" do
-          f.form_buffers.last << "<img src='#{f.object.dibuix.url(:thumb) rescue nil}' style='margin:1em;' />".html_safe
-          f.input :dibuix
           f.input :svg
-=begin
-          f.has_many :configparametres do |j|
-            j.input :configgrup
-            j.input :position
-            j.input :tipus
-            j.input :nom
-            if j.object.id
-              j.input :_destroy, :as=>:boolean, :required => false, :label=>'Remove'
-            end
-          end
-=end
+          f.input :svg_davant
+          f.input :svg_darrera
         end
         f.inputs "Fotos" do
           f.has_many :fotos do |j|

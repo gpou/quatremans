@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212181059) do
+ActiveRecord::Schema.define(:version => 20121213125413) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -117,6 +117,8 @@ ActiveRecord::Schema.define(:version => 20121212181059) do
     t.integer "configparametre_id"
     t.text    "svg"
     t.boolean "dibuix"
+    t.string  "nom"
+    t.boolean "configurador"
   end
 
   create_table "foto_translations", :force => true do |t|
@@ -172,6 +174,8 @@ ActiveRecord::Schema.define(:version => 20121212181059) do
     t.integer  "position"
     t.text     "coleccio_path"
     t.text     "coleccio_mascara_path"
+    t.text     "svg_darrera"
+    t.text     "svg_davant"
   end
 
 end

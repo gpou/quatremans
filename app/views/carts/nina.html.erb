@@ -1,0 +1,24 @@
+<div class="tria_nina">
+  <h3>Vols afegir la nina Camesllargues o algún dels seus vestits a la cistella?</h3>
+  <div class="imatges">
+    <%= image_tag("#{@producte.fotos.first.file.url(:medium)}", id: "main_image", alt: @producte.nom) %>
+    <div class="vestits"> 
+      <% @vestits.each do |producte| %>
+        <%= image_tag("#{producte.fotos.first.file.url(:thumb)}", alt: @producte.nom) %>
+      <% end %>
+    </div>
+  </div>
+  <p class="botons">
+    <a href="<%=edit_cart_item_path(id: @producte.coleccio.productes.nina.first.id)%>" class="boto ok"><span></span>Si, ensenya'm les opcions</a>
+  </p>
+</div>
+<p class="botons">
+  <a href="<%=edit_cart_path %>" class="boto cistella" target="_parent"><span></span>No, Vull tirar endavant la comanda</a>
+  <a href="<%=edit_cart_path %>" class="boto tornar"><span></span>No, vull tornar al catàleg</a>
+</p>
+<script type="text/javascript">
+  $(".boto.tornar").click(function() {
+    parent.$.fancybox.close();
+    return false;
+  });
+</script>

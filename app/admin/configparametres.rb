@@ -11,6 +11,9 @@ ActiveAdmin.register Configparametre do
         column :id
         column :nom
         column :producte
+        column :configgrup
+        column :tipus
+        column :position
         column :zones do |parametre|
           parametre.configzones.count
         end
@@ -38,6 +41,8 @@ ActiveAdmin.register Configparametre do
           f.input :position
           f.has_many :configzones do |j|
             j.input :dibuix
+            j.input :configurador
+            j.input :nom
             j.input :svg
           end
         end

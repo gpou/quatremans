@@ -4,6 +4,21 @@
 <% end %>
 
 <div class="cistella">
-  <br /><br /><br />
-  Ho estem acabant... perdoneu !!!!
+  <table>
+  <% @cart.active_items.each do |item_id,item| %>
+    <tr>
+      <td><a href="<%=producte_path(item.producte.coleccio,item.producte)%>" title="Veure el model"><img src="<%=item.producte.fotos.first.file.url(:thumb)%>" /></a></td>
+      <td>
+        <a href="<%=producte_path(item.producte.coleccio,item.producte)%>" title="Veure el model"><%=item.producte.nom %></a>
+        <div class="parametres">
+        </div>
+      </td>
+      <td><%=item.unit_price%></td>
+    </tr>
+  <% end %>
+  </table>
 </div>
+<script type="text/javascript">
+  $(".cistella .link_fitxa").click(function() {
+  });
+</script>

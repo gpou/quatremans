@@ -25,17 +25,19 @@
             <% end %>
           </svg>
           <script type="text/javascript">ample.close()</script>
-          <%= image_tag("transparent.png", :usemap => "#coleccio_map") %>
+          <%= image_tag("transparent.png", :usemap => "#coleccio_map", :id => "links") %>
           <map id="coleccio_map" name="coleccio_map">
             <% @coleccio.productes.model_o_nina.each do |producte| %>
               <area shape="poly" alt="<%=producte.nom%>" title="<%=producte.nom%>" coords="<%=producte.coleccio_mascara_path%>" href="<%=producte_path(@coleccio,producte)%>" id="coleccio_<%=producte.position%>" />
             <% end %>
           </map>
           <% @coleccio.productes.model_o_nina.each do |producte| %>
-            <span style="<%=producte.coordenades_coleccio%>" id="coleccio_<%= producte.position %>_nom"><%=producte.nom%></span>
+            <a href="<%=producte_path(@coleccio,producte)%>" style="<%=producte.coordenades_coleccio%>" id="coleccio_<%= producte.position %>_nom" title="<%=producte.nom%>"><%=producte.nom%></a>
           <% end %>
         </div>
     </div>
+    <a href="#" class="jTscrollerPrevButton"></a>
+    <a href="#" class="jTscrollerNextButton"></a>
 </div>        
 
 <div id="text">

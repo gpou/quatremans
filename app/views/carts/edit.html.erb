@@ -1,9 +1,67 @@
-<% provide(:title, t('carts.title')) %>
-<% content_for :titols do %>
-  <h1><%= t('carts.title') %></h1>
-<% end %>
+<%= form_for(@item, :remote => true, :html => {:class=>"form_model"}) do |f| %>
+  <div class="dibuix">
+    <% if @item.producte.tipus=='model' %>
+      <%= image_tag("/assets/config/nena.jpg") %>
+    <% end %>
+    <%= render 'vestit' %>
+    <div class="subproductes">
+      <% Producte.where("coleccio_id = ? AND tipus='model_nina'",Coleccio.first.id).each do |subproducte| %>
+      <img src="<%=subproducte.fotos.first.file.url(:thumb)%>" id="dibuix_subproducte_<%=subproducte.id%>" <%if (!@item.get_parametre_subproducte(subproducte.id)) %> style="display:none" <% end %>/>
+      <% end %>
+    </div>
+  </div>
+  <div class="caixa <%=@item.producte.tipus%>">
+    <h1><%=t('carts.personalitza.titol')%></h1>
+    <%@item.producte.configparametres.each do |parametre|%>
+      <%= render :partial => "parametre", :locals=>{:parametre => parametre} %>
+    <% end %>
+    <% if @item.producte.tipus=='nina' %>
+      <div class="vestits">
+        <ul>
+          <% Producte.where("coleccio_id = ? AND tipus='model_nina'",Coleccio.first.id).each do |subproducte| %>
+            <li id="subproducte_<%=subproducte.id%>">
+              <div class="subproducte">
+                <img src="<%=subproducte.fotos.first.file.url(:thumb)%>" />
+                <input type="checkbox" name="cart_item[subproducte_<%=subproducte.id%>]" class="seleccio" id="seleccio_subproducte_<%=subproducte.id%>" value="1" <%if (@item.get_parametre_subproducte(subproducte.id)) %>checked="checked" <% end %> />
+                <a class="dropdown-toggle" href="#" id="link_subproducte_<%=subproducte.id%>">
+                  <%=subproducte.nom%>:
+                  <b class="caret" />
+                </a>
+              </div>
+              <div class="subproducte_opcions" <%if (@item.get_parametre_subproducte(subproducte.id)) %> style="display:block" <% end %>>
+                <% subproducte.configparametres.each do |parametre| %>
+                  <%= render :partial => "parametre", :locals=>{:parametre => parametre} %>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <br style="clear:both" />
+    <div class="botons">
+      <a href="#" class="boto cistella"><span></span>Afegir a la cistella</a>
+      <a href="<%=edit_cart_path %>" class="boto tornar"><span></span>Tornar al catàleg</a>
+    </div>
+    <script type="text/javascript">
+      $(".boto.cistella").click(function() {
+        $(".form_model").submit();
+        return false;
+      });
+      $(".form_model")
+        .bind('ajax:before', function(xhr, settings) { })
+        .bind('ajax:success',    function(data, status, xhr) { 
+          if (status.target=='parent') window.parent.location.href = status.url;
+          else window.location.href = status.url;
+         })
+        .bind('ajax:complete', function(xhr, status) { })
+        .bind('ajax:error', function(xhr, status, error) { alert("S'ha produït un error. Perdoneu les molèsties") })
+      $(".boto.tornar").click(function() {
+        parent.$.fancybox.close();
+        return false;
+      });
+    </script>    
 
-<div class="cistella">
-  <br /><br /><br />
-  Ho estem acabant... perdoneu !!!!
-</div>
+    <div id="zoom"></div>
+  </div>
+<% end %>

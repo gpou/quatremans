@@ -55,7 +55,6 @@ Homepage: manos.malihu.gr/jquery-thumbnail-scroller
 					clearInterval(animTimer);
 					$scroller.stop();
 				});
-				$scrollerPrevButton.add($scrollerNextButton).hide(); //hide buttons
 			}else if(options.scrollerType=="clickButtons"){
 				ClickScrolling();
 			}else{ //type hoverPrecise
@@ -69,7 +68,6 @@ Homepage: manos.malihu.gr/jquery-thumbnail-scroller
 					var destY=Math.round(-((totalHeight-$this.height())*(mousePercentY)));
 					$scroller.stop(true,false).animate({left:destX,top:destY},options.scrollEasingAmount,options.scrollEasing); 
 				});
-				$scrollerPrevButton.add($scrollerNextButton).hide(); //hide buttons
 			}
 			//auto scrolling
 			if(options.autoScrolling>0){
@@ -122,69 +120,29 @@ Homepage: manos.malihu.gr/jquery-thumbnail-scroller
 		}
 		//click scrolling fn
 		function ClickScrolling(){
-			$scrollerPrevButton.hide();
-			$scrollerNextButton.show();
-			$scrollerNextButton.click(function(e){ //next button
+			$scrollerNextButton.click(function() { return false; });
+			$scrollerPrevButton.click(function() { return false; });
+			$scrollerNextButton.hover(function(e){ //next button
 				e.preventDefault();
-				var posX=$scroller.position().left;
-				var diffX=totalWidth+(posX-$this.width());
-				var posY=$scroller.position().top;
-				var diffY=totalHeight+(posY-$this.height());
-				$scrollerPrevButton.stop().show("fast");
 				if(options.scrollerOrientation=="horizontal"){
-					if(diffX>=$this.width()){
-						$scroller.stop().animate({left:"-="+$this.width()},options.scrollSpeed,options.scrollEasing,function(){
-							if(diffX==$this.width()){
-								$scrollerNextButton.stop().hide("fast");
-							}
-						});
-					} else {
-						$scrollerNextButton.stop().hide("fast");
-						$scroller.stop().animate({left:$this.width()-totalWidth},options.scrollSpeed,options.scrollEasing);
-					}
-				}else{
-					if(diffY>=$this.height()){
-						$scroller.stop().animate({top:"-="+$this.height()},options.scrollSpeed,options.scrollEasing,function(){
-							if(diffY==$this.height()){
-								$scrollerNextButton.stop().hide("fast");
-							}
-						});
-					} else {
-						$scrollerNextButton.stop().hide("fast");
-						$scroller.stop().animate({top:$this.height()-totalHeight},options.scrollSpeed,options.scrollEasing);
-					}
+					var posX=$scroller.position().left;
+					var diffX=totalWidth+(posX-$this.width());
+					var speed = diffX*options.scrollSpeed;
+					$scroller.stop().animate({left:$this.width()-totalWidth},speed,options.scrollEasing);
 				}
+			}, function() {
+				$scroller.stop()
 			});
-			$scrollerPrevButton.click(function(e){ //previous button
+			$scrollerPrevButton.hover(function(e){ //previous button
 				e.preventDefault();
-				var posX=$scroller.position().left;
-				var diffX=totalWidth+(posX-$this.width());
-				var posY=$scroller.position().top;
-				var diffY=totalHeight+(posY-$this.height());
-				$scrollerNextButton.stop().show("fast");
 				if(options.scrollerOrientation=="horizontal"){
-					if(posX+$this.width()<=0){
-						$scroller.stop().animate({left:"+="+$this.width()},options.scrollSpeed,options.scrollEasing,function(){
-							if(posX+$this.width()==0){
-								$scrollerPrevButton.stop().hide("fast");
-							}
-						});
-					} else {
-						$scrollerPrevButton.stop().hide("fast");
-						$scroller.stop().animate({left:0},options.scrollSpeed,options.scrollEasing);
-					}
-				}else{
-					if(posY+$this.height()<=0){
-						$scroller.stop().animate({top:"+="+$this.height()},options.scrollSpeed,options.scrollEasing,function(){
-							if(posY+$this.height()==0){
-								$scrollerPrevButton.stop().hide("fast");
-							}
-						});
-					} else {
-						$scrollerPrevButton.stop().hide("fast");
-						$scroller.stop().animate({top:0},options.scrollSpeed,options.scrollEasing);
-					}
+					var posX=$scroller.position().left;
+					var diffX=-posX
+					var speed = diffX*options.scrollSpeed;
+					$scroller.stop().animate({left:0},speed,options.scrollEasing);
 				}
+			}, function() {
+				$scroller.stop()
 			});
 		}
 	});  

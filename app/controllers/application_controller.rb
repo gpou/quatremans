@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
 
   def set_environment
     @environment = Rails.env
+    if params[:intern] 
+      session[:intern] = true
+    end
   end
 
   def back

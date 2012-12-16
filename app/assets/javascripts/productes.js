@@ -41,7 +41,7 @@ $(document).ready(function() {
       type: 'iframe', 
       margin: 0,
       padding: 0,
-      width: 950,
+      width: 970,
       height: 640,
       titleShow: false,
       autoScale: false,

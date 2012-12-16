@@ -14,26 +14,36 @@ class Cart
     if @items.key? producte.id
       @items[producte.id]
     else
-      add(producte, 0, {})
+      add(producte, 0)
       @items[producte.id]
     end
+  end
+
+  def active_items
+    active_items = {}
+    @items.each do |cart_item_id,cart_item|
+      if cart_item.quantity>0
+        active_items[cart_item_id] = cart_item
+      end
+    end
+    active_items
   end
 
   def clear
     initialize
   end
 
-  def add(producte, quantity, data)
+  def add(producte, quantity)
     if @items.key? producte.id
       @items[producte.id].quantity = @items[producte.id].quantity.to_i + quantity.to_i
     else
-      @items[producte.id] = CartItem.new(producte, quantity, data)
+      @items[producte.id] = CartItem.new(producte, quantity)
     end
   end
 
-  def update_item(producte, data)
+  def update_item(producte, data, quantity_to_add = 0)
     if @items.key? producte.id
-      @items[producte.id].update(data)
+      @items[producte.id].update(data, quantity_to_add)
     end
   end
 

@@ -1,5 +1,5 @@
 class Producte < ActiveRecord::Base
-  attr_accessible :slug, :nom, :descripcio, :preu, :locale, :coleccio_id, :translations_attributes, :fotos_attributes, :disponible, :actiu, :tipus, :dificultat, :coordenades_coleccio, :dibuix, :svg, :position, :coleccio_path, :coleccio_mascara_path, :configparametres_attributes
+  attr_accessible :slug, :nom, :descripcio, :preu, :locale, :coleccio_id, :translations_attributes, :fotos_attributes, :disponible, :actiu, :tipus, :dificultat, :coordenades_coleccio, :dibuix, :svg, :svg_davant, :svg_darrera, :position, :coleccio_path, :coleccio_mascara_path, :configparametres_attributes
 
   translates :nom, :slug, :descripcio, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations
