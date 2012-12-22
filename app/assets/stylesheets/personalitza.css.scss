@@ -48,8 +48,12 @@ form {
             }
           }
         }
+        &.mostres {
+          .preu { display: none; visibility: hidden; }
+        }
       }
       &.vestits {
+        p.preu_nina { display: none; }
         ul {
           li {
             .subproducte {
@@ -75,9 +79,11 @@ form {
               border: 1px solid #ddd; 
               border-top: none; 
               margin: 0;
+              p.preu { font-size: 0.9em; font-weight: normal; margin:0; padding:0; text-align:right; }
             }
           }
         }
+        .preu_total { font-size: 1.1em; text-align: right; width: 223px; }
       }
       &.estampats ul li {
         margin-right: 5px;

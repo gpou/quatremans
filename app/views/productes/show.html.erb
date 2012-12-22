@@ -29,10 +29,13 @@
          id="svg3723">
         <% @producte.configparametres.each do |parametre| %>
           <% parametre.configzones.dibuixar.each do |zona| %>
-            <path d="<%=zona.svg%>" id="zona_<%=zona.id%>" class="color" style="fill:#eeeeee;fill-opacity:1;stroke:none" />
+            <path d="<%=zona.svg%>" id="zona_<%=zona.id%>" class="color" style="fill:#cccccc;fill-opacity:1;stroke:none" />
           <% end %>
         <% end %>
         <path d="<%=@producte.svg%>" style="fill:#000000;fill-opacity:1" />
+        <% if @producte.svg_estampat %>
+          <path d="<%=@producte.svg_estampat%>" style="fill:#ffffff;fill-opacity:1" />
+        <% end %>
       </svg>
       <script type="text/javascript">ample.close();</script>
       <%= render 'boto_personalitza' %>
@@ -44,6 +47,7 @@
     <p class="preu">
       <a href="<%= edit_cart_item_path(id: @producte.id) %>" class="personalitza" title="<%=t('carts.personalitza.titol_fitxa')%>"><span><%=t("carts.add")%></span></a>
       <%= number_with_precision(@producte.preu) %>€
+      <span>IVA inclòs</span>
     </p> 
     <p class="dificultat">
       <span><%=t("activerecord.attributes.producte.dificultat")%>:</span>
@@ -66,3 +70,5 @@
   </a>
   <% end %>
 </div>
+
+<%= render :partial => "productes/llista", :locals=>{:coleccio => @producte.coleccio} %>

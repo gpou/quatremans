@@ -3,6 +3,9 @@ ActiveAdmin.register Configopcio do
         column :id
         column :nom
         column :svg
+        column :color do |opcio|
+          "<span style='display:inline-block;width:30px;height:30px;border:1px solid grey; background-color:##{opcio.svg};'></span>".html_safe
+        end
 
         default_actions
       end

@@ -8,7 +8,11 @@ ca:
     cart: cistella
     cart_items: productes
     edit_cart: dades
-    validation: validacio
+    validation_cart: validacio
+    shipment_address_cart: adreca-de-lliurament
+    save_shipment_address_cart: guarda-adreca-de-lliurament
+    invoice_address_cart: adreca-de-facturacio
+    save_invoice_address_cart: guarda-adreca-de-facturacio
 es:
   routes:
     coleccions: colecciones

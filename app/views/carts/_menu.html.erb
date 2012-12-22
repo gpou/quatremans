@@ -1,0 +1,6 @@
+<ul id="cistella_menu">
+  <li><a href="<%=edit_cart_path %>" <%= apartat=='order' ? "class=active" : '' %> title="Comanda">Comanda</a></li>
+  <li><a href="<%=shipment_address_cart_path %>" <%= apartat=='shipment_address' ? "class=active" : '' %> title="Adreça de lliurament">Adreça de lliurament</a></li>
+  <li><a href="<%=invoice_address_cart_path %>" <%= apartat=='invoice_address' ? "class=active" : '' %> title="Adreça de facturació">Adreça de facturació</a></li>
+  <li><a href="<%=validation_cart_path %>" <%= apartat=='validation' ? "class=active" : '' %> title="Validació">Validació</a></li>
+</ul>

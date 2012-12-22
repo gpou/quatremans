@@ -3,22 +3,41 @@
   <h1><%= t('carts.title') %></h1>
 <% end %>
 
+<%= render :partial => 'menu', :locals=>{:apartat => 'order'} %>
 <div class="cistella">
-  <table>
-  <% @cart.active_items.each do |item_id,item| %>
-    <tr>
-      <td><a href="<%=producte_path(item.producte.coleccio,item.producte)%>" title="Veure el model"><img src="<%=item.producte.fotos.first.file.url(:thumb)%>" /></a></td>
-      <td>
-        <a href="<%=producte_path(item.producte.coleccio,item.producte)%>" title="Veure el model"><%=item.producte.nom %></a>
-        <div class="parametres">
-        </div>
-      </td>
-      <td><%=item.unit_price%></td>
-    </tr>
-  <% end %>
-  </table>
+  <%= render :partial => "cart", :locals=>{:validacio => false} %>
 </div>
+<div class="botons">
+  <a href="<%=shipment_address_cart_path %>" class="boto ok"><span></span>Tirar endavant la comanda</a>
+</div>
+
 <script type="text/javascript">
-  $(".cistella .link_fitxa").click(function() {
+$(document).ready(function() {
+  $(".config").click(function() {
+    $.fancybox({
+      href: $(this).attr('href'),
+      type: 'iframe', 
+      margin: 0,
+      padding: 0,
+      width: 970,
+      height: 640,
+      titleShow: false,
+      autoScale: false,
+      modal: false,
+      showCloseButton: true,
+      autoDimensions : false,
+      hideOnOverlayClick: false,
+      onComplete: function(){
+        isFancy = true;
+        $("body").css({'overflow-y':'hidden'});
+        $('body').bind("mousewheel", function() { if (isFancy) return false; });
+      },
+      onClosed: function(){
+        isFancy = false;
+        $("body").css({'overflow-y':'visible'});
+      },
+    });
+    return false;
   });
+});
 </script>

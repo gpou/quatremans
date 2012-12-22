@@ -1,0 +1,137 @@
+  <table>
+    <% @cart.active_items.each do |item_id,item| %>
+      <tr>
+        <td class="imatge"><a href="<%=producte_path(item.producte.coleccio,item.producte)%>" title="Veure el model"><img src="<%=item.producte.fotos.first.file.url(:thumb)%>" /></a></td>
+        <td class="detalls">
+          <h4><a href="<%=producte_path(item.producte.coleccio,item.producte)%>" title="Veure el model"><%=item.producte.nom %></a></h4>
+          <div class="parametres">
+            <% if (item.producte.tipus=='nina') %>
+              <table class="subproductes">
+                <% item.producte.configparametres.each do |parametre|%>
+                  <% opcio = item.get_parametre_opcio_actual(parametre.id) %>
+                  <% if parametre.tipus!='nina' || opcio.preu.blank? || opcio.preu == 0 %>
+                    <tr>
+                      <td class="imatge"><%= image_tag("images/config/mostres/#{opcio.id}.jpg") %></td>
+                      <td class="detalls">
+                        <h4><%=parametre.nom%></h4>
+                        <p><%= opcio.nom %></p>
+                      </td>
+                      <td class="preu"><%=number_to_currency(item.producte.preu)%></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+                <% item.get_subproductes.each do |subproducte| %>
+                  <tr>
+                    <td class="imatge"><img src="<%=subproducte.fotos.first.file.url(:thumb)%>" /></td>
+                    <td class="detalls">
+                      <h4><%=subproducte.nom %></h4>
+                      <div class="parametres">
+                        <% subproducte.configparametres.each do |subparametre|%>
+                          <% opcio = item.get_parametre_opcio_actual(subparametre.id) %>
+                          <p><%= image_tag("images/config/mostres/#{opcio.id}.jpg") %>
+                          <%=subparametre.nom%>: <%= opcio.nom %></p>
+                        <% end %>
+                      </div>
+                    </td>
+                    <td class="preu"><%=number_to_currency(subproducte.preu)%></td>
+                  </tr>
+                <% end %>
+              </table>
+            <% else %>
+              <% item.producte.configparametres.each do |parametre|%>
+                <% opcio = item.get_parametre_opcio_actual(parametre.id) %>
+                <p><%= image_tag("images/config/mostres/#{opcio.id}.jpg") %>
+                <%=parametre.nom%>: <%= opcio.nom %></p>
+              <% end %>
+            <% end %>
+          </div>
+        </td>
+        <td class="accions">
+          <% if (!validacio) %>
+            <%= link_to raw("<span>Elimina</span>"), cart_item_path(item.producte.id), :class => 'delete', :method => :delete, :confirm => "Segur que vols treure aquest producte de la cistella ?", :title => "Treu de la cistella" %>
+            <a href="<%=edit_cart_item_path(item.producte.id)%>" class="config" title="Personalitza'l"><span>Personalitza</span></a>
+          <% end %>
+        </td>
+        <td class="preu"><%=number_to_currency(item.unit_price)%></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td></td>
+      <td class="total_label">
+        Suma:
+        <span>IVA inclòs</span>
+      </td>
+      <td></td>
+      <td class="preu total"><%=number_to_currency(@cart.items_amount)%></td>
+    </tr>
+    <% if (validacio) %>
+      <tr>
+        <td></td>
+        <td class="detalls">
+          <h4>Adreça de lliurament</h4>
+          <p>
+            <% if @cart.shipment_address %>
+              <%= @cart.shipment_address.first_name %> <%= @cart.shipment_address.last_name %><br />
+              <%= @cart.shipment_address.street %><br />
+              <%= @cart.shipment_address.zip %> <%= @cart.shipment_address.city %><br />
+              <%= @cart.shipment_address.provincia.name %>, <%= @cart.shipment_address.country.name %>
+            <% else %>
+              Si us plau, introduïu l'adreça de facturació per poder finalitzar la comanda.
+            <% end %>
+          </p>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="detalls">
+          <h4>Adreça de facturació</h4>
+          <p>
+            <% if @cart.invoice_address %>
+              <%= @cart.invoice_address.first_name %> <%= @cart.invoice_address.last_name %><br />
+              <%= @cart.invoice_address.dni %><br />
+              <%= @cart.invoice_address.street %><br />
+              <%= @cart.invoice_address.zip %> <%= @cart.invoice_address.city %><br />
+              <%= @cart.invoice_address.provincia.name %>, <%= @cart.invoice_address.country.name %>
+            <% else %>
+              Si us plau, introduïu l'adreça de facturació per poder finalitzar la comanda.
+            <% end %>
+          </p>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="detalls">
+          <h4>Pagament</h4>
+          <p>
+            En aquests moments només acceptem els pagaments per transferència bancaria.<br />
+            Quan cliqueu el botó "Finalitzar la comanda", es guardaran les dades i se us mostrarà la informació per a realitzar el pagament.<br />
+            Un cop rebem el pagament, us enviarem la comanda en un màxim de 6 dies naturals.
+          </p>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <% if @cart.shipment_address %>
+        <tr>
+          <td></td>
+          <td class="total_label">
+            Preu del lliurament:
+          </td>
+          <td></td>
+          <td class="preu total"><%=number_to_currency(@cart.shipping_amount)%></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td></td>
+        <td class="total_label">
+          TOTAL:
+        </td>
+        <td></td>
+        <td class="preu total"><%=number_to_currency(@cart.total_amount)%></td>
+      </tr>
+    <% end %>
+  </table>

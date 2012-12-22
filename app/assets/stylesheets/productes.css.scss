@@ -1,5 +1,4 @@
 @import "_variables";
-@import "jquery.fancybox-1.3.4.css";
 
 body.producte {
   .content {
@@ -91,6 +90,7 @@ body.producte {
       }
       span { display: none; }
     }
+    span { font-size: 0.5em; display:block; color: #555; font-style: italic; }
   }
 }
 
@@ -110,3 +110,6 @@ body.producte {
     }
   }
 }
+
+
+@import "productes_llistat";

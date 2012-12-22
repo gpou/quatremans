@@ -6,6 +6,7 @@ class Cart
 
   def initialize
     @items = ActiveSupport::OrderedHash.new
+    # TODO
     @shipping_amount = 5
   end
 

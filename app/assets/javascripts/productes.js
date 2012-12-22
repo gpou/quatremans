@@ -26,11 +26,11 @@ $(document).ready(function() {
 
   $(".dibuix .personalitza").hover(
     function() {
-      $(".dibuix .personalitza svg path.color").css('fill',"#cccccc");
+      $(".dibuix .personalitza svg path.color").css('fill',"#aaaaaa");
       $(".dibuix .personalitza .personalitza_text").show();
     },
     function() {
-      $(".dibuix .personalitza svg path.color").css('fill',"#eeeeee");
+      $(".dibuix .personalitza svg path.color").css('fill',"#cccccc");
       $(".dibuix .personalitza .personalitza_text").hide();
     }
   );

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121213125413) do
+ActiveRecord::Schema.define(:version => 20121220135851) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -27,6 +27,24 @@ ActiveRecord::Schema.define(:version => 20121213125413) do
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
+
+  create_table "addresses", :force => true do |t|
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
+    t.boolean  "is_invoice"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street"
+    t.string   "zip"
+    t.string   "city"
+    t.string   "phone"
+    t.string   "dni"
+    t.integer  "provincia_id",     :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "country_id"
+    t.string   "email"
+  end
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -111,6 +129,7 @@ ActiveRecord::Schema.define(:version => 20121213125413) do
     t.integer "configgrup_id"
     t.string  "tipus"
     t.integer "position"
+    t.integer "configopcio_id"
   end
 
   create_table "configzones", :force => true do |t|
@@ -119,6 +138,13 @@ ActiveRecord::Schema.define(:version => 20121213125413) do
     t.boolean "dibuix"
     t.string  "nom"
     t.boolean "configurador"
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string   "name"
+    t.float    "preu_ports"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "foto_translations", :force => true do |t|
@@ -174,8 +200,29 @@ ActiveRecord::Schema.define(:version => 20121213125413) do
     t.integer  "position"
     t.text     "coleccio_path"
     t.text     "coleccio_mascara_path"
-    t.text     "svg_darrera"
-    t.text     "svg_davant"
+    t.text     "svg_darrera",           :limit => 2147483647
+    t.text     "svg_davant",            :limit => 2147483647
+    t.text     "svg_estampat_davant",   :limit => 2147483647
+    t.text     "svg_estampat_darrera",  :limit => 2147483647
+    t.text     "svg_estampat",          :limit => 2147483647
   end
+
+  create_table "provincias", :force => true do |t|
+    t.string   "name"
+    t.integer  "country_id", :null => false
+    t.float    "preu_ports"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
 end

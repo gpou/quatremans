@@ -1,0 +1,20 @@
+
+<div id="llista_models">
+  <h2><%= t('coleccions.coleccio_x', :nom => coleccio.nom) %></h2>
+  <ul>
+    <%coleccio.productes.model_o_nina.each do |producte| %>
+      <li>
+        <a class="imatge" href="<%=producte_path(coleccio,producte)%>" title="<%=producte.nom%>">
+          <img src="<%=producte.fotos.first.file.url(:thumb)%>" alt="<%=producte.nom%>" />
+        </a>
+        <h3>
+          <a href="<%=producte_path(coleccio,producte)%>" title="<%=producte.nom%>">
+            <%=producte.nom%>
+          </a>
+        </h3>
+        <%= simple_format(producte.descripcio.truncate(300)) %>
+        <br style="clear:both" />
+      </li>
+    <%end%>
+  </ul>
+</div>

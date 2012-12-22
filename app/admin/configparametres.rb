@@ -12,6 +12,8 @@ ActiveAdmin.register Configparametre do
         column :nom
         column :producte
         column :configgrup
+        column :opcio_defecte do |parametre|
+        end
         column :tipus
         column :position
         column :zones do |parametre|
@@ -37,6 +39,7 @@ ActiveAdmin.register Configparametre do
         f.inputs "Detalls" do
           f.input :producte
           f.input :configgrup
+          f.input :configopcio, :label => "Opcio defecte"
           f.input :tipus
           f.input :position
           f.has_many :configzones do |j|

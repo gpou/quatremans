@@ -26,7 +26,11 @@ Quatremans::Application.routes.draw do
       get :edit_cart, :as => "edit"
       put :update_cart, :as => "update"
       get :nina
-      get :validation
+      get :shipment_address_cart, :as => "shipment_address"
+      post :save_shipment_address_cart, :as => "save_shipment_address"
+      get :invoice_address_cart, :as => "invoice_address"
+      post :save_invoice_address_cart, :as => "save_invoice_address"
+      get :validation_cart, :as => "validation"
     end
     resources :cart_items, :only => [:index, :edit, :update, :destroy], :as => "items", :controller => "carts"
   end

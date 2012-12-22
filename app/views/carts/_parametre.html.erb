@@ -3,7 +3,11 @@
       <input type="hidden" id="parametre_<%=parametre.id%>" name="cart_item[parametre_<%=parametre.id%>]" value="<%=@item.get_parametre(parametre.id)%>" />
       <ul>
         <% parametre.configgrup.configopcions.each do |opcio| %>
-        <li><a href="<%=opcio.id%>" class="<%=@item.get_parametre(parametre.id)==opcio.id ? "selected" : "" %>" id="opcio_<%=opcio.id%>" title="<%=opcio.nom%>"><%= image_tag("images/config/mostres/#{opcio.id}.jpg", :alt => opcio.svg) %></a></li>
+        <li>
+          <a href="<%=opcio.id%>" class="<%=@item.get_parametre(parametre.id)==opcio.id ? "selected" : "" %>" id="opcio_<%=opcio.id%>" title="<%=opcio.nom%>"><%= image_tag("images/config/mostres/#{opcio.id}.jpg", :alt => opcio.svg) %>
+            <span class="preu"><%=opcio.preu%></span>
+          </a>
+        </li>
         <% end %>
       </ul>
       <br class="clear" />

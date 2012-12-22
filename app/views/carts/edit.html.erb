@@ -5,7 +5,7 @@
     <% end %>
     <%= render 'vestit' %>
     <div class="subproductes">
-      <% Producte.where("coleccio_id = ? AND tipus='model_nina'",Coleccio.first.id).each do |subproducte| %>
+      <% Producte.where("coleccio_id = ? AND tipus='model_nina'",@item.producte.coleccio.id).each do |subproducte| %>
       <img src="<%=subproducte.fotos.first.file.url(:thumb)%>" id="dibuix_subproducte_<%=subproducte.id%>" <%if (!@item.get_parametre_subproducte(subproducte.id)) %> style="display:none" <% end %>/>
       <% end %>
     </div>
@@ -17,8 +17,9 @@
     <% end %>
     <% if @item.producte.tipus=='nina' %>
       <div class="vestits">
+        <p class="preu_nina"><%=@item.producte.preu%></p>
         <ul>
-          <% Producte.where("coleccio_id = ? AND tipus='model_nina'",Coleccio.first.id).each do |subproducte| %>
+          <% Producte.where("coleccio_id = ? AND tipus='model_nina'",@item.producte.coleccio.id).each do |subproducte| %>
             <li id="subproducte_<%=subproducte.id%>">
               <div class="subproducte">
                 <img src="<%=subproducte.fotos.first.file.url(:thumb)%>" />
@@ -28,7 +29,8 @@
                   <b class="caret" />
                 </a>
               </div>
-              <div class="subproducte_opcions" <%if (@item.get_parametre_subproducte(subproducte.id)) %> style="display:block" <% end %>>
+              <div class="subproducte_opcions<%if (@item.get_parametre_subproducte(subproducte.id)) %> selected<% end %>" <%if (@item.get_parametre_subproducte(subproducte.id)) %> style="display:block" <% end %>>
+                <p class="preu">Preu: <span><%= number_with_precision(subproducte.preu) %></span>€</p>
                 <% subproducte.configparametres.each do |parametre| %>
                   <%= render :partial => "parametre", :locals=>{:parametre => parametre} %>
                 <% end %>
@@ -36,12 +38,14 @@
             </li>
           <% end %>
         </ul>
+        <br style="clear:both" />
+        <p class="preu_total">Total: <span><%=number_with_precision(@item.unit_price)%></span>€</p>
       </div>
     <% end %>
     <br style="clear:both" />
     <div class="botons">
-      <a href="#" class="boto cistella"><span></span>Afegir a la cistella</a>
-      <a href="<%=edit_cart_path %>" class="boto tornar"><span></span>Tornar al catàleg</a>
+      <a href="#" class="boto cistella"><span></span><% if @item.quantity>0 %>Guardar<% else %>Afegir a la cistella<% end %></a>
+      <a href="<%=edit_cart_path %>" class="boto tornar"><span></span>Tancar</a>
     </div>
     <script type="text/javascript">
       $(".boto.cistella").click(function() {

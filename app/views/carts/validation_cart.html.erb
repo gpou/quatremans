@@ -1,0 +1,15 @@
+<% provide(:title, t('carts.title')) %>
+<% content_for :titols do %>
+  <h1><%= t('carts.title') %></h1>
+  <h2>Comprovació</h2>
+<% end %>
+
+<%= render :partial => 'menu', :locals=>{:apartat => 'validation'} %>
+<div class="cistella">
+  <%= render :partial => "cart", :locals=>{:validacio => true} %>
+</div>
+<% if @cart.shipment_address && @cart.invoice_address && @cart.items_amount > 0 %>
+<div class="botons">
+  <a href="" class="boto ok"><span></span>Finalitzar la comanda</a>
+</div>
+<% end %>

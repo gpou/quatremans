@@ -11,5 +11,6 @@
  *= require_self
  *= require dropdown
  *= require jquery.thumbnailScroller
+ *= require jquery.fancybox-1.3.4
  *= require general
  */

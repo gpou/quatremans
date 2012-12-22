@@ -1,4 +1,8 @@
 $(document).ready(function() {
+  $('.mostres a').click(function() {
+    canvi_mostra($(this), true);
+    return false;
+  });
   $('.mostres a').hover(
     function() { 
       var id = canvi_mostra($(this), false);
@@ -14,25 +18,40 @@ $(document).ready(function() {
     var sel = toggle_subproducte(id);
     if (sel) $('#seleccio_'+id).attr('checked','checked');
     else $('#seleccio_'+id).removeAttr('checked');
+    calcula_preu();
     return false;
   });
   $('.vestits input.seleccio').click(function() {
     toggle_subproducte($(this).attr('id').substr(9));
+    calcula_preu();
   });
   function toggle_subproducte(id) {
     var div = $('#'+id).find('.subproducte_opcions');
     if (div.css('display')=='block') {
+      div.removeClass('selected');
       div.fadeOut();
       $('#dibuix_'+id).fadeOut();
       return false;
     } else {
+      div.addClass('selected');
       div.fadeIn();
       $('#dibuix_'+id).fadeIn();
       return true;
     }
   }
-  function desactiva_subproducte(id) {
-
+  $(".mostres.nina a").click(function() {
+    calcula_preu();
+  })
+  function calcula_preu() {
+    var preu = 0;
+    preu += parseFloat($(".preu_nina").text());
+    $(".vestits .selected .preu span").each(function() {
+      preu += parseFloat($(this).text());
+    })
+    $(".mostres.nina .selected .preu").each(function() {
+      if ($(this).text()!='') preu += parseFloat($(this).text());
+    })
+    $(".preu_total span").html(preu);
   }
   $("path[class~='mostra']").bind('mouseover',
     function() {
@@ -53,10 +72,6 @@ $(document).ready(function() {
       zoom_mostra();
     }
   );
-  $('.mostres a').click(function() {
-    canvi_mostra($(this), true);
-    return false;
-  });
   $('.estampats a').hover(
     function() { canvi_estampat($(this), false); }, 
     function() { canvi_estampat($(this), false, true); }

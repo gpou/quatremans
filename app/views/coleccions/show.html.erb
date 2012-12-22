@@ -43,3 +43,5 @@
 <div id="text">
   <%=simple_format(@coleccio.descripcio)%>
 </div>
+
+<%= render :partial => "productes/llista", :locals=>{:coleccio => @coleccio} %>

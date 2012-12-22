@@ -11,7 +11,9 @@ ActiveAdmin.register Producte, {:sort_order => "position"} do
         end
         column :tipus
         column :preu
-
+        column :sense_iva do |producte|
+          (producte.preu / (1.21)).round(2)
+        end
         default_actions
       end
 
@@ -40,6 +42,8 @@ ActiveAdmin.register Producte, {:sort_order => "position"} do
         end
         f.inputs "Detalls" do
           f.input :preu
+          no_iva = (f.object.preu / (1.21)).round(2)
+          f.form_buffers.last << "<li><label>Sense iva</label>#{no_iva}</li>".html_safe
           f.input :disponible
           f.input :actiu
           f.input :tipus
@@ -54,8 +58,11 @@ ActiveAdmin.register Producte, {:sort_order => "position"} do
         end
         f.inputs "Configuraci&oacute;" do
           f.input :svg
+          f.input :svg_estampat
           f.input :svg_davant
           f.input :svg_darrera
+          f.input :svg_estampat_davant
+          f.input :svg_estampat_darrera
         end
         f.inputs "Fotos" do
           f.has_many :fotos do |j|

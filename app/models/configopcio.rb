@@ -10,4 +10,8 @@ class Configopcio < ActiveRecord::Base
     self.nom
   end
   
+  def name
+    self.nom
+  end
+  
 end

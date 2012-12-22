@@ -11,14 +11,20 @@
   <g transform="matrix(1.378377,0,0,1.378377,-20.400559,36.3334)">
     <% @item.producte.configparametres.each do |parametre| %>
       <% parametre.configzones.configurar.each do |zona| %>
-        <path d="<%=zona.svg%>" id="zona_<%=zona.id%>" style="fill:#<%= parametre.configgrup.configopcions.first.svg %>;fill-opacity:1;stroke:none" class="parametre_<%=parametre.id%> mostra" />
+        <path d="<%=zona.svg%>" id="zona_<%=zona.id%>" style="fill:#<%= @item.get_parametre_opcio_actual(parametre.id).svg %>;fill-opacity:1;stroke:none" class="parametre_<%=parametre.id%> mostra" />
       <% end %>
     <% end %>
     <% if @item.producte.svg_davant %>
       <path d="<%=@item.producte.svg_davant%>" style="fill:#000000;fill-opacity:1" id="linies_davant"/>
     <% end %>
+    <% if @item.producte.svg_estampat_davant %>
+      <path d="<%=@item.producte.svg_estampat_davant%>" style="fill:#dddddd;fill-opacity:1" id="linies_estampat_davant"/>
+    <% end %>
     <% if @item.producte.svg_darrera %>
       <path d="<%=@item.producte.svg_darrera%>" style="fill:#000000;fill-opacity:1" id="linies_darrera"/>
+    <% end %>
+    <% if @item.producte.svg_estampat_darrera %>
+      <path d="<%=@item.producte.svg_estampat_darrera%>" style="fill:#dddddd;fill-opacity:1" id="linies_estampat_davant"/>
     <% end %>
   </g>
 </svg>

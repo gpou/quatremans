@@ -1,7 +1,195 @@
 @import "_variables";
 
+
+#cistella_menu {
+  width: 200px;
+  float: left;
+  list-style:none;
+  margin:0;
+  padding:0;
+  margin-top: 50px;
+  font-size: 1.2em;
+  li {
+    margin: 0;
+    padding: 0;
+    height: 35px;
+    a {
+      display: block;
+      padding-left: 5px;
+      height: 30px;
+      background-color: white;
+      line-height: 30px;
+      &:hover, &.active {
+        border-top: 1px solid $color;
+        border-bottom: 1px solid $color;
+        background-color: #eee;
+      }
+    }
+  }
+}
+
 .cistella {
-  h2 { margin-top: 40px; margin-bottom: 20px; }
-  padding-left: 100px;
-  img { width:80px; }
+  border: 1px solid $color; 
+  border-bottom: none;
+  margin: 0 5px 5px 200px;
+  -webkit-box-shadow: 2px 2px 3px $colorLight;
+  -moz-box-shadow: 2px 2px 3px $colorLight;
+  box-shadow: 2px 2px 3px $colorLight;
+  table {
+    width: 100%;
+    border-collapse:collapse;
+    tr:hover {
+      td { background-color: #eee; }
+    }
+    td { 
+      border-bottom: 1px solid $color;
+      margin: 0;
+      padding: 0;
+      vertical-align: top;
+      padding: 10px;
+      &.imatge {
+        img { width:80px; }
+        width: 80px;
+      }
+      &.detalls {
+        h4 { margin: 0; }
+        div.parametres {
+          td {}
+          img { width: 20px; float: left; margin-right: 5px; }
+          table.subproductes {
+            margin-top: 10px;
+            width: 100%;
+            td { border-color:#ddd; padding: 0; }
+            tr:last-child {
+              td { border:none; }
+            }
+            h4 { padding-top: 5px; }
+            .imatge {
+              img { width: 60px; }
+            }
+            .preu { 
+              padding-top: 10px;
+              font-style: italic;
+              color: inherit;
+              font-weight: normal; 
+            }
+          }
+        }
+      }
+      &.total_label {
+        text-align: right;
+        text-transform: uppercase;
+        span { font-size: 0.9em; display:block; color: #555; font-style: italic; text-transform: none; }
+      }
+      &.preu {
+        font-weight: bold;
+        color: $color;
+        text-align: center;
+        width: 80px;
+        &.total {
+          padding: 10px;
+        }
+      }
+      &.accions {
+        padding-left: 0;
+        padding-right: 0;
+        text-align: right;
+        a { 
+          display: inline-block;
+          width: 24px; 
+          height: 24px;
+          background-repeat: no-repeat;
+          background-position: left 0px;
+          &:hover {
+            background-position: left -24px;
+          }
+          span { display:none; }
+          &.delete {
+            background-image: url(/assets/trash.png); 
+          }
+          &.config {
+            background-image: url(/assets/config.png); 
+          }
+        }
+      }
+    }
+  }
+}
+
+.botons {
+  text-align: right;
+  margin-right: 5px;
+  margin-top: 20px;
+  clear: both; 
+  text-transform: uppercase;
+  input { text-transform: uppercase; }
+  .boto {
+    background-color: #006699;
+    border: 1px solid $colorDarker;
+    color: white;
+    font-size: 1em;
+    padding: 5px 20px;
+    cursor: pointer;
+    position: relative;
+    margin: 0 0 10px 0;
+    line-height: 20px;
+    &:hover {
+      background-color: white;
+      color: #006699;
+      border-color: #006699;
+    }
+    &.enviar, &.ok, &.tornar, &.cistella {
+      display: inline-block;
+      padding-left: 50px;
+      span {
+        position: absolute;
+        display: block;
+        left: 10px;
+        top: 0;
+        width: 30px;
+        height: 30px;
+        background-repeat: no-repeat;
+        background-position: left 0px;
+      }
+      &:hover span {
+        background-position: left -30px;
+      }
+    }
+    &.enviar {
+      span {
+        background-image: url(/assets/ok.png); 
+      }
+    }
+    &.ok {
+      span {
+        background-image: url(/assets/ok.png);
+      }
+    }
+    &.tornar {
+      span {
+        background-image: url(/assets/back.png);
+      }
+    }
+    &.cistella {
+      span {
+        background-image: url(/assets/cartArrow.png);
+      }
+    }  
+  }
+}
+
+
+.cistella {
+  form {
+    padding: 20px;
+    width: 620px;
+    margin: 0px auto;
+    label { width: 200px; }
+    input { width: 400px; border: 1px solid $color; }
+    .field_with_errors {
+      display: inline;
+      color: red;
+      input { border-color: red; }
+    }
+  }
 }

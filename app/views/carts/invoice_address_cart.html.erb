@@ -1,0 +1,76 @@
+<% provide(:title, t('carts.title')) %>
+<% content_for :titols do %>
+  <h1><%= t('carts.title') %></h1>
+  <h2>Adreça de facturació</h2>
+<% end %>
+
+<%= render :partial => 'menu', :locals=>{:apartat => 'invoice_address'} %>
+<div class="cistella">
+  <%= form_for(@address, :url => save_invoice_address_cart_path, :html => {:class => "form_address"}) do |f| %>
+    <% if @address.errors.any? %>  
+      <div id="errorExplanation">  
+        <h4>S'ha produït <%= pluralize(@address.errors.count, "error") %> :</h4>  
+        <ul>  
+        <% @address.errors.full_messages.each do |msg| %>  
+          <li><%= msg %></li>  
+        <% end %>  
+        </ul>  
+      </div>  
+    <% end %>
+    <p style="text-align:right;font-style:italic">
+      * Camps obligatoris<br />
+      ** Cal que ompliu alguna dada de contacte (telèfon o bé adreça mail)
+    </p>
+    <p>
+      <%=f.label :first_name %> *
+      <%=f.text_field :first_name %>
+    </p>
+    <p>
+      <%=f.label :last_name %> *
+      <%=f.text_field :last_name %>
+    </p>
+    <p>
+      <%=f.label :dni %> *
+      <%=f.text_field :dni %>
+    </p>
+    <p>
+      <%=f.label :street %> *
+      <%=f.text_field :street %>
+    </p>
+    <p>
+      <%=f.label :zip %> *
+      <%=f.text_field :zip %>
+    </p>
+    <p>
+      <%=f.label :city %> *
+      <%=f.text_field :city %>
+    </p>
+    <p>
+      <%=f.label :provincia %> *
+      <%= f.collection_select(:provincia_id, Provincia.all, :id, :name) %>
+    </p>
+    <p>
+      <%=f.label :country %> *
+      <%= f.collection_select(:country_id, Country.all, :id, :name) %>
+    </p>
+    <p>
+      <%=f.label :phone %> **
+      <%=f.text_field :phone %>
+    </p>
+    <p>
+      <%=f.label :email %> **
+      <%=f.text_field :email %>
+    </p>
+  <% end %>
+</div>
+<p class="botons">
+  <a href="#" class="boto ok"><span></span>Continuar</a>
+</p>
+
+    <script type="text/javascript">
+      $(".boto.ok").click(function() {
+        $(".form_address").submit();
+        return false;
+      });
+    </script>
+

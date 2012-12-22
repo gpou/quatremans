@@ -1,0 +1,32 @@
+#llista_models {
+  h2 { margin: 150px 0 30px 0px; font-size: 25px; text-align: center; }
+  ul {
+    list-style:none; 
+    margin: 0;
+    padding: 0; 
+    li {
+      list-style:none; 
+      margin: 20px 0; 
+      width: 450px;
+      height: 130px;
+      float: left;
+      margin-right: 60px;
+      padding: 0; 
+      &:nth-child(even) { margin-right: 0; }
+      a.imatge {
+        width: 120px;
+        display: inline-block;
+        float: left;
+        img { width: 100px; }
+      }
+      h3 { 
+        font-size: 16px; 
+      }
+      p {
+        line-height: 1em;
+        margin: 5px 0;
+        margin-left: 120px;
+        color: #555;      }
+    }
+  }
+}

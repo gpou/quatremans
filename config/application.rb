@@ -71,5 +71,7 @@ module Quatremans
     config.assets.precompile += %w(active_admin.js active_admin.css)
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
     config.assets.precompile += %w( .svg .eot .woff .ttf )
+
+    config.action_dispatch.session_store = :active_record_store 
   end
 end
