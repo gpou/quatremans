@@ -1,7 +1,7 @@
 module BillingManipulation
 
   def total_taxes_excluded
-    total_amount / (1 + vat_rate/100)
+    total_amount / (1 + vat_rate)
   end
 
   def total_taxes_included

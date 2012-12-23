@@ -5,11 +5,15 @@
 
 <%= render :partial => 'menu', :locals=>{:apartat => 'order'} %>
 <div class="cistella">
-  <%= render :partial => "cart", :locals=>{:validacio => false} %>
+  <table>
+    <%= render :partial => "cart", :locals=>{:validacio => false} %>
+  </table>
 </div>
+<% if @cart.items.any? %>
 <div class="botons">
   <a href="<%=shipment_address_cart_path %>" class="boto ok"><span></span>Tirar endavant la comanda</a>
 </div>
+<% end %>
 
 <script type="text/javascript">
 $(document).ready(function() {

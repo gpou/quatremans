@@ -1,0 +1,118 @@
+<%= wicked_pdf_stylesheet_link_tag "orders" %>
+<% content_for :titols do %>
+  <h1>Quatremans - Comanda <%= order.number %></h1>
+<% end %>
+
+<div class="comanda">
+  <table>
+    <tr>
+      <td></td>
+      <td><h3>Comanda número <%= order.number %></h3></td>
+      <td></td>
+    </tr>
+    <% @order.orderitems.each do |item| %>
+      <tr>
+        <td class="imatge"><img src="<%=item.producte.fotos.first.file.url(:thumb)%>" /></td>
+        <td class="detalls">
+          <h4><%=item.producte.nom %></h4>
+          <div class="parametres">
+            <% if (item.producte.tipus!='nina') %>
+              <% item.orderitemparametres.each do |item_parametre|%>
+                <% parametre = item_parametre.configparametre %>
+                <% opcio = item_parametre.configopcio %>
+                <p><%= image_tag("file:///#{WickedPdfHelper.root_path}/public/assets/images/config/mostres/#{opcio.id}.jpg") %>
+                <%=item_parametre.label%>: <%= item_parametre.value %></p>
+              <% end %>
+            <% else %>
+              <table class="subproductes">
+                <% parametre_nina = item.orderitemparametres.where('producte_id = ?',item.producte.id).first %>
+                <% if parametre_nina && (parametre_nina.configopcio.preu.blank? || parametre_nina.configopcio.preu == 0) %>
+                  <tr>
+                    <td class="imatge"><%= image_tag("file:///#{WickedPdfHelper.root_path}/public/assets/images/config/mostres/#{parametre_nina.configopcio.id}.jpg") %></td>
+                    <td class="detalls">
+                      <h4><%=parametre_nina.label%></h4>
+                      <p><%= parametre_nina.value %></p>
+                    </td>
+                    <td class="preu"><%=number_to_currency(item.producte.preu)%></td>
+                  </tr>
+                <% end %>
+                <% item.orderitemparametres.where('configparametre_id IS NULL').each do |parametre_subproducte| %>
+                  <% subproducte = parametre_subproducte.producte %>
+                  <tr>
+                    <td class="imatge"><img src="<%=subproducte.fotos.first.file.url(:thumb)%>" /></td>
+                    <td class="detalls">
+                      <h4><%=subproducte.nom %></h4>
+                      <div class="parametres">
+                        <% item.orderitemparametres.where('producte_id = ? AND configparametre_id IS NOT NULL',subproducte.id).each do |subparametre|%>
+                          <p><%= image_tag("file:///#{WickedPdfHelper.root_path}/public/assets/images/config/mostres/#{subparametre.configopcio.id}.jpg") %>
+                          <%=subparametre.label%>: <%= subparametre.value %></p>
+                        <% end %>
+                      </div>
+                    </td>
+                    <td class="preu"><%=number_to_currency(subproducte.preu)%></td>
+                  </tr>                
+                <% end %>
+              </table>
+            <% end %>
+          </div>
+        </td>
+        <td class="preu"><%=number_to_currency(item.unit_price)%></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td></td>
+      <td class="total_label">
+        Suma:
+        <span>IVA inclòs</span>
+      </td>
+      <td class="preu total"><%=number_to_currency(@order.items_amount)%></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="total_label">
+        Preu del lliurament
+      </td>
+      <td class="preu total"><%=number_to_currency(@order.shipping_amount)%></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="total_label">
+        TOTAL
+      </td>
+      <td class="preu total"><%=number_to_currency(@order.amount)%></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td class="detalls">
+        <h4>Adreça de lliurament</h4>
+        <p>
+          <%= @order.shipment_address.first_name %> <%= @order.shipment_address.last_name %><br />
+          <%= @order.shipment_address.street %><br />
+          <%= @order.shipment_address.zip %> <%= @order.shipment_address.city %><br />
+          <%= @order.shipment_address.provincia.name %>, <%= @order.shipment_address.country.name %>
+        </p>
+      </td>
+      <td></td>
+    </tr>
+    <% if !@order.comment.blank %>
+      <tr>
+        <td></td>
+        <td class="detalls">
+          <h4>Comentari</h4>
+          <%= simple_format(@order.comment) %>
+        </td>
+        <td></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td></td>
+      <td class="detalls">
+        <h4>Forma de pagament</h4>
+        <p>Transferència bancaria</p>
+        <p>Cal que realitzeu un ingrés de <b><%=number_to_currency(@order.amount)%></b> al número de compte <b>XXX TODO XXXXXXXXXX</b>, indicant al concepte el número de comanda <b><%=@order.number%></b>.</p>
+        <p>Quan rebem l'ingrés, us enviarem la comanda a l'adreça que heu indicat.</p>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,16 @@
+ca:
+  orders:
+    index:
+      title: Les meves comandes
+    show:
+      title: Detalls de la comanda
+    transferencia_order:
+      title: Pagament per transferència
+    tarjeta_order:
+      title: Pagament amb tarjeta
+    state:
+      pending: Pendent de Pagament
+      cancelled: Cancel·lada
+      paid: Pagada i pendent d'enviament
+      delivered: Enviada
+      closed: Tancada

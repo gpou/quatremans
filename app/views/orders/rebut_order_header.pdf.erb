@@ -1,0 +1,11 @@
+<div class="header">
+  <%= wicked_pdf_image_tag("logo_pdf.png", alt: t('site_title'), :style => "float: left") %>
+  <div class="text">
+    <label>Data:</label> <%= l(order.created_at.to_date) %><br />
+    <label>Número de comanda:</label> <%= order.number %><br />
+    <label>Nom:</label> <%= order.invoice_address.first_name %> <%= order.invoice_address.last_name %><br />
+    <label>Adreça:</label> <%= order.invoice_address.street %><br />
+    <label>&nbsp;</label> <%= order.invoice_address.zip %> <%= order.invoice_address.city %> <%= order.invoice_address.country.name %><br />
+    <label>Telèfon/mail:</label> <%= order.invoice_address.phone %> <%= order.invoice_address.email %>
+  </div>  
+</div>

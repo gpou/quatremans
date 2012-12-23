@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+  <%=current_user.first_name%> <%=current_user.last_name%>
+  <%=link_to " ", user_root_path, :title => "El meu compte", :class => "account" %>
+  <%=link_to " ", destroy_user_session_url, :method => :delete, :title => "Desconnectar", :class => "signout" %>
+<% else %>
+  <%=link_to " ", new_user_registration_path, :title => "Em vull registrar", :class => "signup" %>
+  <%=link_to " ", new_user_session_path, :title => "Identificació", :class => "signin" %>
+<% end %>

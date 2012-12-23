@@ -13,6 +13,11 @@ ca:
     save_shipment_address_cart: guarda-adreca-de-lliurament
     invoice_address_cart: adreca-de-facturacio
     save_invoice_address_cart: guarda-adreca-de-facturacio
+    order_cart: comanda
+    orders: comandes
+    tarjeta_order: pagament-amb-tarjeta
+    transferencia_order: pagament-per-transferencia
+    rebut_order: rebut
 es:
   routes:
     coleccions: colecciones
@@ -23,7 +28,16 @@ es:
     cart: cesta
     cart_items: productos
     edit_cart: datos
-    validation: validacion
+    validation_cart: validacion
+    shipment_address_cart: direccion-de-entrega
+    save_shipment_address_cart: guardar-direccion-de-entrega
+    invoice_address_cart: direccion-de-facturacion
+    save_invoice_address_cart: guardar-direccion-de-facturacion
+    order_cart: pedido
+    orders: pedidos
+    tarjeta_order: pago-con-tarjeta
+    transferencia_order: pago-por-transferencia
+    rebut_order: recivo
 en:
   routes:
     coleccions: collections
@@ -31,6 +45,16 @@ en:
     quisom: about-us
     contacte: contact
     condicionscompra: shop-conditions
+    cart: cart
     cart_items: products
     edit_cart: data
-    validation: validation
+    validation_cart: validation
+    shipment_address_cart: shipment-address
+    save_shipment_address_cart: save-shipment-address
+    invoice_address_cart: invoide-address
+    save_invoice_address_cart: save-invoice-address
+    order_cart: order
+    orders: orders
+    tarjeta_order: pay-by-cart
+    transferencia_order: pay-by-transfer
+    rebut_order: invoice

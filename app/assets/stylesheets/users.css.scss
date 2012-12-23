@@ -1,0 +1,38 @@
+@import "_variables";
+.content {
+  margin: 0 5px 5px 200px;
+  padding: 20px;
+  border: 1px solid $color; 
+  border-bottom: none;
+  -webkit-box-shadow: 2px 2px 3px $colorLight;
+  -moz-box-shadow: 2px 2px 3px $colorLight;
+  box-shadow: 2px 2px 3px $colorLight;
+  min-height: 300px;
+  form {
+    margin: 10px 0;
+    div { 
+      margin: 10px 0;
+      &#error_explanation {
+        h2 { font-size: 14px; margin-bottom: 5px; }
+      }
+      label { width: auto; display: inline; }
+      input, textarea {
+        width: 400px;
+        border: 1px solid $colorDarker;
+        &[type=checkbox] { width: auto; }
+        &[type=submit] {
+          background-color: #006699;
+          color: white;
+          font-size: 1em;
+          padding: 5px 20px;
+          width: auto;
+          &:hover {
+            background-color: white;
+            color: #006699;
+            border-color: #006699;
+          }
+        }
+      }
+    }
+  }
+}

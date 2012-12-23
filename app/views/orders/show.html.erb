@@ -1,0 +1,13 @@
+<% provide(:title, t('.title')) %>
+<% content_for :titols do %>
+  <h1><%= t('.title') %></h1>
+<% end %>
+
+  <div class="comanda">
+    <table>
+      <%= render :partial => "order" %>
+    </table>
+  </div>
+  <div class="botons">
+    <a href="<%= rebut_order_path(:format => :pdf) %>" class="boto print"><span></span>Imprimir la comanda</a>
+  </div>

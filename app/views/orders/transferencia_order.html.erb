@@ -1,0 +1,23 @@
+<% provide(:title, t('.title')) %>
+<% content_for :titols do %>
+  <h1><%= t('.title') %></h1>
+<% end %>
+
+  <div class="comanda">
+    <table>
+      <%= render :partial => "order" %>
+      <tr>
+        <td></td>
+        <td class="detalls">
+          <h4>Forma de pagament</h4>
+          <p>Transferència bancaria</p>
+          <p>Cal que realitzeu un ingrés de <b><%=number_to_currency(@order.amount)%></b> al número de compte <b>XXX TODO XXXXXXXXXX</b>, indicant al concepte el número de comanda <b><%=@order.number%></b>.</p>
+          <p>Quan rebem l'ingrés, us enviarem la comanda a l'adreça que heu indicat.</p>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  <div class="botons">
+    <a href="<%= rebut_order_path(:format => :pdf) %>" class="boto print"><span></span>Imprimir la comanda</a>
+  </div>

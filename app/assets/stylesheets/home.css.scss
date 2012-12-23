@@ -111,6 +111,26 @@
           }
         }
       }
+      #usuari {
+        height: 24px;
+        display: inline-block;
+        margin-left: 30px;
+        a {
+          display: inline-block;
+          position: relative;
+          width: 24px;
+          height: 24px;
+          &:hover {
+            background-position: left -35px;
+          }
+          &.account, &.signup {
+            background: url('/assets/user.png') no-repeat left -5px;
+          }
+          &.signin, &.signout {
+            background: url('/assets/lock.png') no-repeat left -5px;
+          }
+        }
+      }
     }
   }
   #fotos {

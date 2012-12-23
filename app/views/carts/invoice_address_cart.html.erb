@@ -17,6 +17,12 @@
         </ul>  
       </div>  
     <% end %>
+    <% if @error %>
+      <div id="errorExplanation">  
+          <h4>S'ha produït un error</h4>
+          <p><%= @error %></p>
+      </div>
+    <% end %>
     <p style="text-align:right;font-style:italic">
       * Camps obligatoris<br />
       ** Cal que ompliu alguna dada de contacte (telèfon o bé adreça mail)
@@ -60,6 +66,7 @@
     <p>
       <%=f.label :email %> **
       <%=f.text_field :email %>
+      <span class="descripcio">Més endavant podràs crear un usuari per a futures visites.<br />Si esculls que sí, caldrà que introdueixis una adreça mail</span>
     </p>
   <% end %>
 </div>

@@ -81,7 +81,14 @@ ca:
       <<: *errors
     models:
       address: Adreça
+      user: Usuari
     attributes:
+      user:
+        first_name: Nom
+        last_name: Cognoms
+        email: Adreça mail
+        password: Clau de pas
+        password_confirmation: Clau de pas (confirmació)
       address:
         first_name: Nom
         last_name: Cognoms

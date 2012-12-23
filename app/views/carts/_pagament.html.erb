@@ -1,0 +1,39 @@
+      <tr>
+        <td></td>
+        <td class="detalls">
+          <h4>Forma de pagament</h4>
+          <p>
+            <%= form.select :paymentmode_id, @payment_modes.map{ |pm| [pm.name, pm.id] }, :prompt => "Sel·leccioneu la forma de pagament"%>
+          </p>
+
+          <p>
+            En aquests moments només acceptem els pagaments per transferència bancaria.<br />
+            Quan cliqueu el botó "Finalitzar la comanda", es guardaran les dades i se us mostrarà la informació per a realitzar el pagament.<br />
+            Un cop rebem el pagament, us enviarem la comanda en un màxim de 6 dies naturals.
+          </p>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+      <% if !current_user %>
+      <tr>
+        <td></td>
+        <td class="detalls">
+          <h4>Creació del teu compte d'usuari a Quatremans</h4>
+          <p>Vols que enregistrem les teves dades per tal que la propera vegada no les hagis de tornar a introduïr?</p>
+          <p>Si esculls aquesta opció, es crearà un usuari amb les dades de facturació que has introduït, i se t'indicarà la clau de pas per poder accedir al teu compte d'ara en endavant.</p>
+          <p><%= form.check_box :crear_usuari %> Sí, vull registrar-me com a usuari</p>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>    
+      <% end %>  
+      <tr>
+        <td></td>
+        <td class="detalls">
+          <h4>Comentari</h4>
+          <p><%= form.text_area :comment %></p>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>

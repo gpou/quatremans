@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121220135851) do
+ActiveRecord::Schema.define(:version => 20121223120110) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -169,6 +169,75 @@ ActiveRecord::Schema.define(:version => 20121220135851) do
     t.datetime "updated_at",        :null => false
   end
 
+  create_table "orderitemparametres", :force => true do |t|
+    t.integer "orderitem_id"
+    t.integer "configparametre_id"
+    t.integer "configopcio_id"
+    t.string  "label"
+    t.string  "value"
+    t.integer "producte_id"
+  end
+
+  create_table "orderitems", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "producte_id"
+    t.decimal  "unit_price",  :precision => 10, :scale => 2
+    t.integer  "quantity"
+    t.string   "label"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.string   "number"
+    t.integer  "paymentmode_id"
+    t.string   "shipping_mode"
+    t.decimal  "shipping_amount",  :precision => 10, :scale => 2
+    t.decimal  "amount",           :precision => 10, :scale => 2
+    t.decimal  "vat_amount",       :precision => 10, :scale => 2
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "comment"
+    t.string   "description"
+    t.integer  "old_id"
+    t.string   "spedition_number"
+    t.integer  "user_id"
+    t.boolean  "create_user",                                     :default => true
+  end
+
+  create_table "ordertransactions", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "amount"
+    t.boolean  "success"
+    t.string   "reference"
+    t.string   "message"
+    t.string   "action"
+    t.text     "params"
+    t.boolean  "test"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "paymentmode_translations", :force => true do |t|
+    t.integer  "paymentmode_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "paymentmode_translations", ["locale"], :name => "index_paymentmode_translations_on_locale"
+  add_index "paymentmode_translations", ["paymentmode_id"], :name => "index_paymentmode_translations_on_paymentmode_id"
+
+  create_table "paymentmodes", :force => true do |t|
+    t.string   "slug"
+    t.string   "name"
+    t.string   "state",      :default => "inactive"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "producte_translations", :force => true do |t|
     t.integer  "producte_id"
     t.string   "locale"
@@ -224,5 +293,25 @@ ActiveRecord::Schema.define(:version => 20121220135851) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "users", :force => true do |t|
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

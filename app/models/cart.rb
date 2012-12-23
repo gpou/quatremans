@@ -7,7 +7,7 @@ class Cart
   def initialize
     @items = ActiveSupport::OrderedHash.new
     # TODO
-    @shipping_amount = 5
+    @shipping_amount = 0
   end
 
   def item(producte)
@@ -60,6 +60,10 @@ class Cart
     if cart[:invoice_address].present?
       @invoice_address = cart[:invoice_address]
     end
+  end
+
+  def calculate_shipping_amount
+    @shipping_amount = shipment_address.provincia.preu_ports
   end
 
   def remove(producte)

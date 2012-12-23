@@ -9,7 +9,7 @@ module ItemInLineManipulation
   end
 
   def order_line_price
-    self.unit_price_it*self.quantity.to_f rescue 0
+    self.unit_price*self.quantity.to_f rescue 0
   end
 
 end

@@ -13,6 +13,8 @@ Quatremans::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }  
+
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 
@@ -52,3 +54,12 @@ Quatremans::Application.configure do
   end
 
 end
+
+ActionMailer::Base.smtp_settings = {
+  address: "www.quatremans.cat",
+  port: 587,
+  domain: "quatremans.cat",
+  authentication: :plain,
+  user_name: 'info@quatremans.cat',
+  password: 'bellcaire'
+}

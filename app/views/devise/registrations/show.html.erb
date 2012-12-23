@@ -1,0 +1,7 @@
+<% content_for :titols do %>
+  <h1>El meu compte</h1>
+<% end %>
+
+<%= link_to "Modificar les meves dades", edit_user_registration_path %><br />
+<%= link_to "Vull cancel·lar el meu compte", registration_path(resource_name), :data => { :confirm => "Estas segur de voler cancel·lar el teu compte?" }, :method => :delete %><br />
+<%= link_to "Les meves comandes", orders_path %><br />

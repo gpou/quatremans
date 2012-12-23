@@ -1,0 +1,12 @@
+<% provide(:title, t('.title')) %>
+<% content_for :titols do %>
+  <h1><%= t('.title') %></h1>
+<% end %>
+
+  <div class="comanda">
+    <ul>
+      <% current_user.orders.each do |order| %>
+        <li><%= link_to "Comanda número #{order.number}. Data: #{l(order.created_at.to_date)}. Estat: #{t("orders.state."+order.state)}", order_path(order) %></li>
+      <% end %>
+    </ul>
+  </div>

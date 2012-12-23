@@ -68,9 +68,13 @@ module Quatremans
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    config.assets.initialize_on_precompile = false
+    
     config.assets.precompile += %w(active_admin.js active_admin.css)
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
     config.assets.precompile += %w( .svg .eot .woff .ttf )
+
+    config.autoload_paths << "#{Rails.root}/app/pdfs"
 
     config.action_dispatch.session_store = :active_record_store 
   end

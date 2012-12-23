@@ -1,0 +1,20 @@
+<% content_for :titols do %>
+  <h1>Em vull registrar</h1>
+<% end %>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.submit "Registrar-me" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>

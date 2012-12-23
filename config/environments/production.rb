@@ -65,3 +65,12 @@ Quatremans::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 end
+
+ActionMailer::Base.smtp_settings = {
+  address: "www.quatremans.cat",
+  port: 587,
+  domain: "quatremans.cat",
+  authentication: :plain,
+  user_name: ENV['SENDGRID_USERNAME'],
+  password: ENV['SENDGRID_PASSWORD']
+}

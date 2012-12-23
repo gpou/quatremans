@@ -35,6 +35,7 @@
   -webkit-box-shadow: 2px 2px 3px $colorLight;
   -moz-box-shadow: 2px 2px 3px $colorLight;
   box-shadow: 2px 2px 3px $colorLight;
+  min-height: 300px;
   table {
     width: 100%;
     border-collapse:collapse;
@@ -75,6 +76,7 @@
             }
           }
         }
+        textarea { width: 100%; height: 150px;  }
       }
       &.total_label {
         text-align: right;
@@ -111,6 +113,11 @@
             background-image: url(/assets/config.png); 
           }
         }
+      }
+    }
+    tr.error {
+      td {
+        background-color: #ffaaaa;
       }
     }
   }
@@ -190,6 +197,11 @@
       display: inline;
       color: red;
       input { border-color: red; }
+    }
+    .descripcio {
+      display: block;
+      margin-left: 215px;
+      font-style: italic;
     }
   }
 }

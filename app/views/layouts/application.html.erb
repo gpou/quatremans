@@ -5,9 +5,14 @@
     <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
     <meta name="description" content="<%= yield(:meta_description) %>">
     <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%= stylesheet_link_tag params[:controller] %>
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag params[:controller] %>
+    <% if ['compte', 'registrations','confirmations','passwords','sessions','unlocks'].include?(controller.controller_name) %>
+      <%= stylesheet_link_tag "users" %>
+      <%= javascript_include_tag "users" %>
+    <% else %>
+      <%= stylesheet_link_tag params[:controller] %>
+      <%= javascript_include_tag params[:controller] %>
+    <% end %>
     <%= csrf_meta_tags %>
     <%= render 'shared/shim' %>
   </head>
@@ -21,10 +26,10 @@
         </div>
         <%= render 'shared/header' %>
       </header>
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
       <div class="content">
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
         <%= yield %>
       </div>
       <%= render 'shared/footer' %>

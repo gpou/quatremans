@@ -1,10 +1,5 @@
 Quatremans::Application.routes.draw do
 
-  resources :fotos
-
-  resources :personalitzacions
-
-  resources :personalitzacios
 
   ActiveAdmin.routes(self)
 
@@ -31,8 +26,24 @@ Quatremans::Application.routes.draw do
       get :invoice_address_cart, :as => "invoice_address"
       post :save_invoice_address_cart, :as => "save_invoice_address"
       get :validation_cart, :as => "validation"
+      post :order_cart, :as => "order"
     end
     resources :cart_items, :only => [:index, :edit, :update, :destroy], :as => "items", :controller => "carts"
+  end
+
+  resources :orders, :only => [:index, :show] do
+    member do
+      get :transferencia_order, :as => "transferencia"
+      get :tarjeta_order, :as => "tarjeta"
+      get :rebut_order, :as => "rebut"
+    end
+  end
+
+  devise_for :users
+  devise_scope :user do
+    resource :user, :only => [] do
+      resource :root, :path => "", :controller => "users/compte", :only => "show"
+    end
   end
 
   match ':id' => 'coleccions#show', :as => :coleccio
